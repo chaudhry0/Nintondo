@@ -4,32 +4,27 @@
 #include <stdio.h>
 #include <stdlib.h>
 
+#define MAX_SIZE 104
+
 typedef struct Cords {
     int x;
     int y;
 } Cords;
 
-struct listitem {
-    Cords cords;
-    struct listitem *next;
-};
+typedef struct List {
+    Cords cords[MAX_SIZE];
+    int head; // indice primo elem libero
+    int tail; // indice ultimo elemento inserito
+    int length;
+} List;
 
-typedef struct listitem Listitem;
 
-
-struct list {
-    Listitem *head;
-};
-
-typedef struct list List;
-
-void initlist (List *); /* initialize an empty list */
-void insertfront(List *, Cords newCords); /* insert val at front */
-void insertback(List *, Cords newCords); /* insert val at back */
-int length(List); /* returns list length */
-void destroy(List *); /* deletes list */
-void setitem(List *, int n, Cords newCords);/* modifies item at n to val*/
-Cords getitem(List, int n); /* returns value at n*/
-void removeLastItem(List *);
+void stampa(List list);
+void initList(List* list);
+void push(List* list, int _x, int _y);
+void pop(List* list);
+Cords getElem(List list, int n);
+Cords getFirstElem(List list);
+Cords getLastElem(List list);
 
 #endif /* _LIST_H */

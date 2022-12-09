@@ -23,6 +23,19 @@ int random(int min, int max) {
     return (rand()%(max-min+1))+min;
 }
 
+void drawScoreText(){
+    g_sContext.foreground = 0xffffff;
+    Graphics_drawStringCentered(&g_sContext, (int8_t *) "score: ", 7, 64, 120, TRANSPARENT_TEXT);
+}
+
+void drawScore(int score) {
+    char temp[10];
+    drawRect(80, 100, 115, 125, 0xff0000);
+    g_sContext.foreground = 0xffffff;
+    sprintf(temp, "%d", score);
+    Graphics_drawStringCentered(&g_sContext, (int8_t *) temp, 3, 90, 120, TRANSPARENT_TEXT);
+}
+
 uint16_t getButtons(){
     if (!GPIO_getInputPinValue(GPIO_PORT_P5,GPIO_PIN1)){  // A
         return 1;
@@ -39,8 +52,6 @@ void drawRect(int xMin, int xMax, int yMin, int yMax, uint32_t color) {
     rect.xMax = xMax;
     rect.yMin = yMin;
     rect.yMax = yMax;
-    //printf("Y: [ %d, %d] \n", yMin, yMax);
-    //fflush(stdout);
     Graphics_setForegroundColor(&g_sContext, color);
     Graphics_fillRectangle(&g_sContext, &rect);
 }
@@ -56,6 +67,11 @@ void checkLastMove(){
         } else if (resultsBuffer[1] > 13000) {
             direzione = lastMove = 1;
         }
+}
+
+void initGameData(){
+    score = 0;
+    gameOver = false;
 }
 
 void TA2_N_IRQHandler(void) {

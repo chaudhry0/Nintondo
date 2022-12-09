@@ -82,8 +82,8 @@ void _hwInit() {
     CS_initClockSignal(CS_ACLK, CS_REFOCLK_SELECT, CS_CLOCK_DIVIDER_1);
     // other configurations/initializations
     configureTimerA();
-    _graphicsInit();
     _lightSensorInit();
+    _graphicsInit();
     _adcInit();
     configurePushButtons();
     srand(time(0));

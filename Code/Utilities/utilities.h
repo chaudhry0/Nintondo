@@ -7,6 +7,10 @@
 // [ GOLBAL CONSTANT ]
 #define TIME_TITLE_GAME 2000
 #define TIME_GAMEOVER_GAME 4000
+#define MAX_HEIGHT 96
+#define MAX_WIDTH 128
+#define CELL_SIZE_SMALL 8
+#define CELL_SIZE_LARGE 16
 
 
 // [ GLOBAL VARIABLES ]
@@ -23,9 +27,12 @@ int lastMove; // previous move performed (equals to "direzione" but not reset ev
 uint32_t getTimeMils(); // returns Timer_A counter
 void wait(uint32_t interval); // waits some milliseconds
 int random(int min, int max); // generates a random number
+void drawScoreText(); // draws the current score
+void drawScore(int score); // draws the current score
 uint16_t getButtons(); // returns 1 if A pressed, 2 if B pressed (Joystick), 0 otherwise
 void drawRect(int xMin, int xMax, int yMin, int yMax, uint32_t color); // Generic function to draw Rectangle for cleaning purpose
 void checkLastMove(); // ...
+void initGameData();
 
 
 // [ HANDLER ]
