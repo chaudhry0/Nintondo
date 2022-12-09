@@ -1,10 +1,3 @@
-/*
- * backgroundImages.h
- *
- *  Created on: 17 nov 2022
- *
- */
-
 #ifndef _CODE_IMAGES_BACKGROUNDIMAGES_H_
 #define _CODE_IMAGES_BACKGROUNDIMAGES_H_
 
