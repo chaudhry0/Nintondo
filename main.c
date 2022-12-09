@@ -1,10 +1,12 @@
-#include "msp.h"
+#include <Code/Games/gameHub.h>
 
 
-/**
- * main.c
- */
-void main(void)
-{
-	WDT_A->CTL = WDT_A_CTL_PW | WDT_A_CTL_HOLD;		// stop watchdog timer
+void main(void) {
+    _hwInit();
+
+    drawLogo();
+    while(1){
+        //PCM_gotoLPM0();
+        runMenu();
+    }
 }
