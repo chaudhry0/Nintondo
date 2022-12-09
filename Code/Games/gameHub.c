@@ -2,16 +2,34 @@
 #include <Code/Images/menuImages.h>
 #include "Code/Images/backgroundImages.h"
 
-void initGameData() {
-    score = 0;
-    gameOver = false;
+void drawLogo(){
+    Graphics_drawImage(&g_sContext, &imageLogo, 16, 52);
+    wait(1500);
+    Graphics_clearDisplay(&g_sContext);
+    Graphics_drawImage(&g_sContext, &imageBackground, 0, 0);
+}
+
+void cleanDisplayGame(){
+    Graphics_setForegroundColor(&g_sContext, 0xffffff);
+    Graphics_Rectangle rectangle;
+    rectangle.xMin = 0;
+    rectangle.xMax = MAX_WIDTH - 1;
+    rectangle.yMin = CELL_SIZE_LARGE;
+    rectangle.yMax = MAX_HEIGHT + CELL_SIZE_LARGE - 1;
+    Graphics_fillRectangle(&g_sContext, &rectangle);
+    Graphics_setForegroundColor(&g_sContext, 0xff0000);
+    rectangle.xMin = 0;
+    rectangle.xMax = MAX_WIDTH - 1;
+    rectangle.yMin = CELL_SIZE_LARGE + MAX_HEIGHT;
+    rectangle.yMax = CELL_SIZE_LARGE + MAX_HEIGHT + CELL_SIZE_LARGE - 1;
+    Graphics_fillRectangle(&g_sContext, &rectangle);
 }
 
 void runMenu(){
     direzione = lastMove = selected = 0;
+    //int selected = 0;
     bool gameSelected = false;
-    Graphics_clearDisplay(&g_sContext);
-    Graphics_drawImage(&g_sContext, &imageBackground, 0, 0);
+    initTextImages();
     drawMenu();
     while (!gameSelected){
         if (getButtons() == 1){
@@ -22,28 +40,42 @@ void runMenu(){
                     runSnake();
                     break;
                 case 1:
+                    runPong();
+                    break;
+                case 2:
+                    runRhino();
+                    break;
+                case 3:
                     runFloppyDisk();
                     break;
             }
+            Graphics_drawImage(&g_sContext, &imageGameOver, 16, 48);
+            wait(TIME_GAMEOVER_GAME);
         }
         if (direzione != 0 && !gameSelected){
             updateMenu();
             drawMenu();
         }
     }
+    cleanDisplayGame();
+}
+
+void initTextImages(){
+    texts[0] = imageTextSnake;
+    texts[1] = imageTextPong;
+    texts[2] = imageTextRhino;
+    texts[3] = imageTextFloppyDisk;
 }
 
 void drawMenu(){
+   Graphics_drawImage(&g_sContext, &imageTextSelectGame, 23, 26);
    int i;
-   int heigh = 40;
-
-   for (i=0; i<selected; i++){
-       printTitle(40+16*i);
-       heigh+=16;
-   }
-   printTitleInverse(heigh);
-   for (i+=1; i<NUM_GAMES; i++){
-       printTitle(40+16*i);
+   for (i=0; i<NUM_GAMES; i++){
+       if (selected == i){
+           printTextInverse(&texts[i], 40 + 16 * i);
+       } else{
+           printText(&texts[i], 40 + 16 * i);
+       }
    }
 }
 
@@ -59,12 +91,12 @@ void updateMenu(){
     }
 }
 
-void printTitle(int y){
-    Graphics_drawImage(&g_sContext, &imageTitleSnake, 16, y);
+void printText(Graphics_Image* imagePtr, int y){
+    Graphics_drawImage(&g_sContext, imagePtr, 16, y);
 }
 
-void printTitleInverse(int y){
-    imageTitleSnake.pPalette = paletteDefaultInverse;
-    Graphics_drawImage(&g_sContext, &imageTitleSnake, 16, y);
-    imageTitleSnake.pPalette = paletteDefault;
+void printTextInverse(Graphics_Image* imagePtr, int y){
+    imagePtr->pPalette = paletteDefaultInverse;
+    Graphics_drawImage(&g_sContext, imagePtr, 16, y);
+    imagePtr->pPalette = paletteDefault;
 }
