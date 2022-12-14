@@ -39,7 +39,6 @@ void moveRam(int* currentPosition, int* portionSize); // Increments currentPosit
 void drawFloppyDiskBackground(); // Draws the floppy disk background
 void drawFloppyDisk(int x, int y); // Draws a single snake body cell
 void drawRam(int* currentPosition, int* portionSize); // Draw all the rams that are contained in the list
-void drawScoreF(int score); // Draw the game score, each ram stick passed is one score
 void clearFloppyDisk(int lastX, int LastY, int up, int down); // Eraser only few pixel of the floppy disk depending on SPEED_FLOPPY
 void clearRam(int* currentPosition, int* portionSize); // Eraser only few pixel of the ram depending on SPEED_FLOPPY
 // collision functions

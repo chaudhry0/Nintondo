@@ -10,7 +10,8 @@ void runFloppyDisk() {
      initFloppyDisk(&floppyDisk, &portionSize);
      drawFloppyDiskBackground();
      drawFloppyDisk(floppyDisk.x, floppyDisk.y);
-     drawScoreF(score);
+     drawScoreText();
+     drawScore(0);
      while(!gameOver){
          lux = OPT3001_getLux();
          if(lux < MIN_THRESHOLD_LUX ) {
@@ -90,14 +91,6 @@ void drawRam(int* currentPosition, int* portionSize) {
     free(ptr);
 }
 
-void drawScoreF(int score) {
-    char temp[10];
-    drawRect(40, 100, 115, 125, 0x00ff0000);
-    g_sContext.foreground = 0xffffff;
-    sprintf(temp, "score: %d", score);
-    Graphics_drawStringCentered(&g_sContext, (int8_t *) temp, 10, 64, 120,  TRANSPARENT_TEXT);
-}
-
 void clearFloppyDisk(int lastX, int LastY, int up, int down){
     drawRect(lastX,
              lastX + FLOPPY_WIDTH ,
@@ -148,7 +141,7 @@ bool checkRamCollisionF(FloppyDisk* floppyDisk, int* currentPosition, int* porti
                 // if the FloppyDisk has exceeded the RAM, the score increases
                 if(currentPortion * (*portionSize)  - (*currentPosition) + (*portionSize)  == FLOPPY_SPAWN_X - RAM_WIDTH) {
                     score++;
-                    drawScoreF(score);
+                    drawScore(score);
                 }
             }
         }
