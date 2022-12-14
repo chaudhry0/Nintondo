@@ -1,5 +1,4 @@
 #include <ti/grlib/grlib.h>
-#include <stdint.h>
 
 
 static const uint8_t pixelPongPlayer[] = {

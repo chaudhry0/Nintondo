@@ -5,13 +5,15 @@
 #include "floppyDisk.h"
 #include "pong.h"
 #include "rhinoRunner.h"
+#include "superDario.h"
 
-#define NUM_GAMES 4
+#define NUM_GAMES 8
 
 
 // [ GLOBAL VARIABLES ]
 int selected; // selected games
 Graphics_Image texts[4];
+int menuNumber;
 
 
 // [ FUNCTIONS ]
