@@ -22,9 +22,12 @@ bool gameOver; // game status
 int direzione; // value read from Joystick buffer
 int lastMove; // previous move performed (equals to "direzione" but not reset every time)
 int buttonA;
+int bestScores[5];
 
 
 // [ FUNCTIONS ]
+void initBestScores();
+void updateBestScore(int numGioco);
 uint32_t getTimeMils(); // returns Timer_A counter
 void wait(uint32_t interval); // waits some milliseconds
 int random(int min, int max); // generates a random number

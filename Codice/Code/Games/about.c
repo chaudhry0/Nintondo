@@ -15,8 +15,6 @@ void runAbout(){
     wait(500);
     while(!gameOver){
         if (consumeButtonA()){
-            printf("%d", buttonA);
-            fflush(stdout);
             if (numAbout == 0){
                 drawAbout2();
                 numAbout++;

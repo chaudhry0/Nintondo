@@ -1,6 +1,20 @@
 #include "utilities.h"
 #include "Code/Utilities/colors.h"
 
+void initBestScores(){
+    int i;
+    for (i=0; i<5; i++){
+        bestScores[i] = 0;
+    }
+}
+
+void updateBestScore(int numGioco){
+    if (score > bestScores[numGioco]){
+        bestScores[numGioco] == score;
+    }
+
+}
+
 uint32_t getTimeMils(){
     return Timer_A_getCounterValue(TIMER_A2_BASE);
 }

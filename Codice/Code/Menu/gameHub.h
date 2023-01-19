@@ -8,6 +8,7 @@
 #include "Code/Games/rhinoRunner.h"
 #include "Code/Games/superDario.h"
 #include "Code/Games/spaceGame.h"
+#include "Code/Games/bestScores.h"
 #include "Code/Games/about.h"
 
 

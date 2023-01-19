@@ -37,8 +37,8 @@ void initElements(Graphics_Image* elementsPtr){
     if (menuNumber == 1){
         *(elementsPtr) = imageTextSnake;
         *(elementsPtr + 1) = imageTextSpaceInvaders;
-        *(elementsPtr + 2) = imageTextAbout;
-        //*(elementsPtr + 3) = ;
+        *(elementsPtr + 3) = imageTextBestScores;
+        *(elementsPtr + 3) = imageTextAbout;
     }
 }
 
@@ -60,7 +60,7 @@ void updateArrowAndElements(Graphics_Image* elementsPtr){
         if (numGioco != NUM_ELEMENTS - 1){ // if the selected game isn't the last of the relative list
             numGioco++;
             int tmpY = 40 + 16 * numGioco - 16;
-            drawRect(112, 128, y, y+16, WHITE); // clean arrow
+            drawRect(112, 128, tmpY, tmpY+16, WHITE); // clean arrow
         } else if (menuNumber == 0){ // if you are on the first menu
             menuNumber = 1; // chane menuNumber
             numGioco = 0; // change the current selected game

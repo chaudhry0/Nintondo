@@ -50,7 +50,7 @@ void runGameHub(){
                 runSpaceGame();
                 break;
             case 2:
-                // possibile gioco nuovo
+                runBestScores();
                 break;
             case 3:
                 runAbout();
@@ -59,5 +59,6 @@ void runGameHub(){
                 break;
         }
     }
+    updateBestScore(numGioco); // DA CONTROLLARE!
     drawGameOver();
 }
