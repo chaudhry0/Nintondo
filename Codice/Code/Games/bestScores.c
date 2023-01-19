@@ -3,19 +3,21 @@
 
 void drawScores(){
     int totalScore = 0;
-    char value[2];
+    char value[10];
     int i;
+    Graphics_setForegroundColor(&g_sContext, BLACK);
     for (i=0; i<5; i++){
         sprintf(value, "%d", bestScores[i]);
-        Graphics_drawString(&g_sContext, (int8_t *) value, 1, 112, BAR_SIZE + 20 + 9*i, true);
+        Graphics_drawString(&g_sContext, (int8_t *) value, 1, 112, BAR_SIZE + 20 + 9*i, TRANSPARENT_TEXT);
         totalScore += bestScores[i];
     }
     sprintf(value, "%d", totalScore);
-    Graphics_drawString(&g_sContext, (int8_t *) value, 1, 112, 78 + BAR_SIZE, true);
+    Graphics_drawString(&g_sContext, (int8_t *) value, 1, 112, 78 + BAR_SIZE, TRANSPARENT_TEXT);
 }
 
 void runBestScores(){
     Graphics_drawImage(&g_sContext, &imageBestScores, 0, 16);
+    drawScores();
     while(!gameOver){
         if (consumeButtonA()){
             gameOver = true;

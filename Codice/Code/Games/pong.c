@@ -120,6 +120,9 @@ void runPong(){
     drawPongBackground();
     drawPongUser(userUpperY, lastUserY);
     drawPongEnemy(enemyUpperY, lastEnemyY);
+    drawScoreText();
+    drawScore(score);
+
     while(!gameOver){
         moveUser(&userUpperY, &lastUserY);
         moveEnemy(&enemyUpperY, &lastEnemyY, ball);
@@ -134,6 +137,7 @@ void runPong(){
             if (checkUserCollision(userUpperY, ball)){
                 invertBallXDirection(&ball);
                 updateBallY(&ball);
+                drawScore(++score);
             } else{
                 gameOver = true;
             }

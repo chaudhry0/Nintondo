@@ -37,14 +37,14 @@ int random(int min, int max) {
 }
 
 void drawScoreText(){
-    g_sContext.foreground = WHITE;
+    Graphics_setForegroundColor(&g_sContext, WHITE);
     Graphics_drawStringCentered(&g_sContext, (int8_t *) "score: ", 7, 64, 120, TRANSPARENT_TEXT);
 }
 
 void drawScore(int score) {
     char temp[10];
     drawRect(80, 100, 115, 125, RED);
-    g_sContext.foreground = WHITE;
+    Graphics_setForegroundColor(&g_sContext, WHITE);
     sprintf(temp, "%d", score);
     Graphics_drawStringCentered(&g_sContext, (int8_t *) temp, 3, 90, 120, TRANSPARENT_TEXT);
 }

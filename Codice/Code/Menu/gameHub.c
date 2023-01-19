@@ -21,6 +21,7 @@ void cleanDisplayGame(){
 }
 
 void runGameHub(){
+    consumeButtonA();   //to reset bottom A before the games appear
     runMenu();
     cleanDisplayGame();
     initGameData();
@@ -44,10 +45,10 @@ void runGameHub(){
     } else{ // menuNumber = 1
         switch(numGioco){
             case 0:
-                runSuperDario();
+                runSpaceGame();
                 break;
             case 1:
-                runSpaceGame();
+                runSuperDario();
                 break;
             case 2:
                 runBestScores();
@@ -59,6 +60,8 @@ void runGameHub(){
                 break;
         }
     }
-    updateBestScore(numGioco); // DA CONTROLLARE!
+    if (numGioco<5){
+        updateBestScore(numGioco); // DA CONTROLLARE!
+    }
     drawGameOver();
 }

@@ -6,6 +6,7 @@
 #define NUM_ELEMENTS 4
 #define NUM_GAMES 8
 
+
 int numGioco; // index of the current selected game
 int menuNumber; // 0: first menu; 1: second menu
 

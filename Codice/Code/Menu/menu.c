@@ -21,8 +21,7 @@ void drawArrow(){
 void drawMenu(Graphics_Image* elementsPtr){
     Graphics_drawImage(&g_sContext, &imageTextSelectGame, 23, 26);
        int i;
-       int numTitlesToDraw = NUM_ELEMENTS - menuNumber;
-       for (i=0; i<numTitlesToDraw; i++){
+       for (i=0; i<NUM_ELEMENTS; i++){
            drawElement(elementsPtr + i, 40 + 16 * i);
        }
 }
@@ -35,9 +34,9 @@ void initElements(Graphics_Image* elementsPtr){
         *(elementsPtr + 3) = imageTextFloppyDisk;
     }
     if (menuNumber == 1){
-        *(elementsPtr) = imageTextSnake;
-        *(elementsPtr + 1) = imageTextSpaceInvaders;
-        *(elementsPtr + 3) = imageTextBestScores;
+        *(elementsPtr) = imageTextSpaceInvaders;
+        *(elementsPtr + 1) = imageTextSnake;
+        *(elementsPtr + 2) = imageTextBestScores;
         *(elementsPtr + 3) = imageTextAbout;
     }
 }
