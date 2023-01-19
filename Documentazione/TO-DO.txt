@@ -1,13 +1,13 @@
 TO-DO LIST
 TANTA DOCUMENTAZIONE
-	- file/diagramma con tutte le funzioni
-	- commentare tutte le funzioni nei file
+- file/diagramma con tutte le funzioni
+- commentare tutte le funzioni nei file
 CONST
 CONTROLLARE VARIABILI (globali -> locali)
-LED
-TEMPERATURA (?)
+	LED
+	TEMPERATURA (?)
 MENU (2 spazi vuoti)
-CONTROLLARE IMPLEMENTAZIONE WAIT (si può fare meglio?)
+	CONTROLLARE IMPLEMENTAZIONE WAIT (si può fare meglio?)
 PROGETTAZIONE VIDEO
 REALIZZAZIONE VIDEO
 IMMAGINE FLOPPY DISK
