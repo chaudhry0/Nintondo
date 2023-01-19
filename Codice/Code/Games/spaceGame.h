@@ -47,7 +47,7 @@ typedef struct Entity{
     void drawBulletsCompleteBar(); // draws the bullet bar on the rigth
     void cleanBulletBar(int numBulletsActive); // removes one bullet from the bar
     void drawBulletBar(int numBulletsActive); // adds one bullet from the bar
-// run function
+// run functions
     void runSpaceGame(); // runs the game
 
 

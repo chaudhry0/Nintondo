@@ -12,9 +12,16 @@
 
 
 // [ FUNCTIONS ]
-void drawLogo();
-void drawGameOver();
-void cleanDisplayGame();
-void runGameHub();
+// init functions
+// moving/updating functions
+// bool functions
+// draw functions
+    void drawLogo(); // draws initial text "Ninotondo"
+    void drawGameOver(); //draws the GameOver image (equal for all games)
+    void cleanDisplayGame(); // clean the display (only the central section, not the red bars)
+// run functions
+    void runGameHub(); // runMenu function
+
+
 
 #endif /* _CODE_GAMES_GAMEHUB_H_ */

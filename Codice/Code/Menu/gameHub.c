@@ -50,7 +50,7 @@ void runGameHub(){
                 runSpaceGame();
                 break;
             case 2:
-                //
+                // possibile gioco nuovo
                 break;
             case 3:
                 runAbout();

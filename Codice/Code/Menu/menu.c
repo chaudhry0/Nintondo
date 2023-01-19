@@ -42,33 +42,32 @@ void initElements(Graphics_Image* elementsPtr){
     }
 }
 
-void updateMenu(Graphics_Image* elementsPtr){
-    if (lastMove == 1){
-        if (numGioco != 0){ // if same menu
+void updateArrowAndElements(Graphics_Image* elementsPtr){
+    if (lastMove == 1){ // pushing UP
+        if (numGioco != 0){ // if the selected game isn't the first of the relative list
             numGioco--;
-            int y = 40 + 16 * numGioco + 16;
-            drawRect(112, 128, y, y+16, WHITE);
-        } else if (menuNumber == 1) { // must change menu
-            menuNumber = 0;
-            numGioco = NUM_ELEMENTS - 1;
-            initElements(elementsPtr);
-            drawMenu(elementsPtr);
-            int y = 40;
-            drawRect(112, 128, y, y+16, WHITE);
+            int tmpY = 40 + 16 * numGioco + 16;
+            drawRect(112, 127, tmpY, tmpY+15, WHITE); // clean arrow
+        } else if (menuNumber == 1) { // if you are on the second menu
+            menuNumber = 0; // change menuNumber
+            numGioco = NUM_ELEMENTS - 1; // change the current selected game
+            initElements(elementsPtr); // inits new Titles
+            drawMenu(elementsPtr); // draw the new menu
+            drawRect(112, 128, 40, 40+16, WHITE);
         }
     }
-    if (lastMove == 3){
-        if (numGioco != NUM_ELEMENTS - 1){
+    if (lastMove == 3){ // pushing DOWN
+        if (numGioco != NUM_ELEMENTS - 1){ // if the selected game isn't the last of the relative list
             numGioco++;
-            int y = 40 + 16 * numGioco - 16;
-            drawRect(112, 128, y, y+16, WHITE);
-        } else if (menuNumber == 0){
-            menuNumber = 1;
-            numGioco = 0;
-            initElements(elementsPtr);
-            drawMenu(elementsPtr);
-            int y = 40 + 16 * (NUM_ELEMENTS - 1);
-            drawRect(112, 128, y, y+16, WHITE);
+            int tmpY = 40 + 16 * numGioco - 16;
+            drawRect(112, 128, y, y+16, WHITE); // clean arrow
+        } else if (menuNumber == 0){ // if you are on the first menu
+            menuNumber = 1; // chane menuNumber
+            numGioco = 0; // change the current selected game
+            initElements(elementsPtr); // inits new Titles
+            drawMenu(elementsPtr); // draw the new menu
+            int tmpY = 40 + 16 * (NUM_ELEMENTS - 1);
+            drawRect(112, 128, tmpY, tmpY+16, WHITE);
         }
     }
 }
@@ -86,7 +85,7 @@ void runMenu(){
     while (!gameSelected){
         __sleep(); // LPM or something similar
         if (direzione){
-            updateMenu(&imageElements[0]);
+            updateArrowAndElements(&imageElements[0]);
             drawArrow();
             wait(150);
         }
