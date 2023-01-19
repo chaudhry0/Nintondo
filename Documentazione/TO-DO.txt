@@ -1,0 +1,17 @@
+TO-DO LIST
+TANTA DOCUMENTAZIONE
+	- file/diagramma con tutte le funzioni
+	- commentare tutte le funzioni nei file
+CONST
+CONTROLLARE VARIABILI (globali -> locali)
+LED
+TEMPERATURA (?)
+MENU (2 spazi vuoti)
+CONTROLLARE IMPLEMENTAZIONE WAIT (si può fare meglio?)
+PROGETTAZIONE VIDEO
+REALIZZAZIONE VIDEO
+IMMAGINE FLOPPY DISK
+IMMAGINI TUTORIAL
+CONTROLLARE SE buttonA VIENE RESETTATO (a volte parte Snake se premi A durante GO)
+TOGLIERE QUALSIASI COSA IN ITA (variabili, commenti,...)
+TESTING
