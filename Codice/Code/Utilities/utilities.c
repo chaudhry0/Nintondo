@@ -10,9 +10,8 @@ void initBestScores(){
 
 void updateBestScore(int numGioco){
     if (score > bestScores[numGioco]){
-        bestScores[numGioco] == score;
+        bestScores[numGioco] = score;
     }
-
 }
 
 uint32_t getTimeMils(){

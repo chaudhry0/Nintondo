@@ -33,24 +33,18 @@ int portionSize; //width of the portion depending how many NUM_RAM sticks there 
 int currentPosition; // X coordinate of ram
 
 // [FUNCTIONS]
-// init functions
-void initFloppyDisk();  // initializes floppy spawn point and game score
-// moving/updating functions
-void moveUpFloppyDisk();    // update floppy position up
-void moveDownFloppyDisk();  // update floppy position up
-void moveRam(); // update position, removes inactive and create new ram banks
-// bool functions
-bool checkBorderCollisionF(int bottom, int top, int min, int max);  // check top and bottom border collision
-bool checkRamCollisionF();  // check collision between ram banks and floppy
-// draw functions
-void drawFloppyDiskBackground();    // draw floppy disk background
-void drawFloppyDisk(int x, int y);  // draw floppy disk
-void drawRam(); // draw ram banks
-void drawScoreF(int score); // draw game score
-void clearFloppyDisk(int lastX, int LastY, int up, int down);   // clear floppy of the pixels it moved
-void clearRam();    // clear ram banks of the pixels they moved
-
-// run function
-void runFloppyDisk();   // run the FloppyDisk game
+void runFloppyDisk();
+void initFloppyDisk();
+void moveUpFloppyDisk();
+void moveDownFloppyDisk();
+void moveRam();
+void drawFloppyDiskBackground();
+void drawFloppyDisk(int x, int y);
+void drawRam();
+void drawScoreF(int score);
+void clearFloppyDisk(int lastX, int LastY, int up, int down);
+void clearRam();
+bool checkBorderCollisionF(int bottom, int top, int min, int max);
+bool checkRamCollisionF();
 
 #endif /* CODE_GAMES_FLOPPYDISK_H_ */
