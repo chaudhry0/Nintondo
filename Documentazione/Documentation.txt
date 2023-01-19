@@ -1,0 +1,79 @@
+[ GAMES ]
+  about
+  floppyDisk
+  pong
+  rhinoRunner
+  snake
+    - initSnakeBody()
+    - moveSnake()
+    - generateRandomApple()
+    - checkIfOpposite()
+    - checkAppleCollision()
+    - checkBorderCollision()
+    - checkSnakeCollision()
+    - drawSnakeBackground()
+    - drawSnakeCell()
+    - drawSnakeFull()
+    - clearSnake()
+    - drawApple()
+    - runSnake()
+			
+  spaceGame
+    - initBullets()
+    - initEnemies()
+    - initSingleEnemy()
+    - updateSpacecraft()
+    - updateBullet()
+    - updateEnemies()
+    - shotBullet()
+    - checkNotDupilcates()
+    - checkBulletHits()
+    - checkLooseCondition()
+    - checkIfBulletAvailable()
+    - checkBulletEnds()
+    - drawBackground()
+    - drawBullet()
+    - cleanBulletMovement()
+    - cleanBullet()
+    - drawSpacecraft()
+    - cleanSpacecraft()
+    - drawEnemy()
+    - cleanEnemyMovement()
+    - cleanEnemy()
+    - drawBulletsCompleteBar()
+    - cleanBulletBar()
+    - drawBulletBar()
+    - runSpaceGame()
+	
+[ IMAGES ]
+  aboutImages
+	backgroundImages
+	floppyDiskImages
+	menuImages
+	pongImages
+	rhinoImages
+	snakeImages
+	spaceGameImages
+	superDarioImages
+
+[ MENU ]
+	gameHub
+		- drawLogo()
+		- drawGameOver
+		- cleanDisplayGame()
+		- runGameHub()
+	menu
+		- initElements()
+		- updateArrowAndElements()
+		- drawElem()
+		- drawArrow()
+		- drawMenu()
+		- runMenu()
+
+[ UTILITIES ]
+	colors
+	init
+	libs
+	linkedList
+	list
+	utilities
