@@ -28,7 +28,6 @@ bool checkUserCollision(int userUpperY, Ball ball); // checks if the ball collid
 bool checkEnemyCollision(int enemyUpperY, Ball ball);  // checks if the ball collides with the enemy
 bool checkPongBorderCollision(Ball ball); // checks if the ball collides with any border
 // draw functions
-void drawPongInitial(); // draws initial text
 void drawPongBackground(); // draws the background
 void drawPongUser(int userUpperY, int lastUserY); // draws the user
 void drawPongEnemy(int enemyUpperY, int lastEnemyY); // draws the enemy

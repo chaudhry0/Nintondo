@@ -15,27 +15,23 @@ void drawPongBackground(){
 void drawPongUser(int userUpperY, int lastUserY){
     Graphics_drawImage(&g_sContext, &imagePongUser, 0, userUpperY);
     if (lastUserY < userUpperY){ // moving down
-        drawRect(0, 3, userUpperY - 1, userUpperY -2, 0x048420);
+        drawRect(0, 3, userUpperY - 1, userUpperY -2, GREEN);
     } else if (lastUserY > userUpperY){ // moving down
-        drawRect(0, 3, userUpperY + CELL_SIZE_LARGE , userUpperY + CELL_SIZE_LARGE + 1, 0x048420);
+        drawRect(0, 3, userUpperY + CELL_SIZE_LARGE , userUpperY + CELL_SIZE_LARGE + 1, GREEN);
     }
 }
 
 void drawPongEnemy(int enemyUpperY, int lastEnemyY){
     Graphics_drawImage(&g_sContext, &imagePongEnemy, 124, enemyUpperY);
     if (lastEnemyY < enemyUpperY){ // moving down
-        drawRect(124, 127, enemyUpperY - 1, enemyUpperY -4, 0x048420);
+        drawRect(124, 127, enemyUpperY - 1, enemyUpperY -4, GREEN);
     } else if (lastEnemyY > enemyUpperY){ // moving down
-        drawRect(124, 127, enemyUpperY + CELL_SIZE_LARGE , enemyUpperY + CELL_SIZE_LARGE + 3, 0x048420);
+        drawRect(124, 127, enemyUpperY + CELL_SIZE_LARGE , enemyUpperY + CELL_SIZE_LARGE + 3, GREEN);
     }
 }
 
 void drawBall(Ball ball){
-    drawRect(ball.x - ball.xVel,
-             ball.x - ball.xVel + 3,
-             ball.y - ball.yVel,
-             ball.y - ball.yVel + 3,
-             0x1ea73c);
+    drawRect(ball.x - ball.xVel, ball.x - ball.xVel + 3, ball.y - ball.yVel, ball.y - ball.yVel + 3, GREEN);
     Graphics_drawImage(&g_sContext, &imagePongBall, ball.x, ball.y);
 }
 
@@ -113,18 +109,13 @@ void updateBallY(Ball* ballPtr){
     ballPtr->yVel = random(-3, 3);
 }
 
-void drawPongInitial(){
-    Graphics_drawImage(&g_sContext, &imagePongTitle, 0, CELL_SIZE_LARGE);
-    wait(TIME_TITLE_GAME);
-}
-
 void runPong(){
+    showInitialTitle(imagePongTitle);
     Ball ball;
     int userUpperY = INITIAL_Y_POSITION;
     int lastUserY = INITIAL_Y_POSITION;
     int enemyUpperY = INITIAL_Y_POSITION;
     int lastEnemyY = INITIAL_Y_POSITION;
-    drawPongInitial();
     initBall(&ball);
     drawPongBackground();
     drawPongUser(userUpperY, lastUserY);

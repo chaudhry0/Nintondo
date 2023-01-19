@@ -7,6 +7,7 @@
 #define DARIO_WIDTH 8
 #define DIRT_HEIGH 8
 #define DARIO_SPEED 4
+#define JUMP_ITERS 8
 #define MAX_BRICK 5
 #define BRICKS_HEIGTH 68
 

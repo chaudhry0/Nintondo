@@ -68,6 +68,19 @@ void configureTimerA() {
     Timer_A_startCounter(TIMER_A2_BASE, TIMER_A_CONTINUOUS_MODE); // Starting the Timer_A2 in continuous mode
 }
 
+
+void _initButton(){
+    P5->SEL0 &= ~BIT1;
+    P5->SEL0 &= ~BIT1;
+    P5->DIR &= ~BIT1;
+    P5->REN |= BIT1;
+    P5->OUT |= BIT1;
+    P5->IFG &= ~BIT1;
+    P5->IES |= BIT1;
+    P5->IE |= BIT1;
+    NVIC_EnableIRQ(PORT5_IRQn);
+}
+
 void _hwInit() {
     /* Halting WDT and disabling master interrupts */
     WDT_A_holdTimer();
@@ -86,5 +99,7 @@ void _hwInit() {
     _graphicsInit();
     _adcInit();
     configurePushButtons();
+    _initButton();
+
     srand(time(0));
 }

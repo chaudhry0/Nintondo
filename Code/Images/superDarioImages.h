@@ -1,4 +1,4 @@
-#include <ti/grlib/grlib.h>
+#include "Code/Utilities/colors.h"
 
 static const uint8_t pixelDario[] = {
                                       0x01,0x02,0x02,0x02,0x02,0x02,0x01,0x01

@@ -47,7 +47,6 @@ bool checkIfObstacleEnds(Obstacle obstacle); // checks if an obstacle has reache
 bool checkYCollision(Rhino rhino, Obstacle obstacle); // checks if the rhino collides vertically with an obstacle
 bool checkRhinoCollision(Rhino rhino, Obstacle obstacle); // checks if the rhino collides with an obstacle
 // draw functions
-void drawInitialRhino(); // draws initial text
 void drawRhinoBackground(); // draws the background
 void drawRhino(Rhino rhino); // draws rhino
 void clearRhino(Rhino rhino); // clears rhino

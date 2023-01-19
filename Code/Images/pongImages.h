@@ -1,4 +1,4 @@
-#include <ti/grlib/grlib.h>
+#include "Code/Utilities/colors.h"
 
 
 static const uint8_t pixelPongPlayer[] = {
@@ -210,23 +210,23 @@ static uint8_t pixelPongBackground[] = {
 };
 
 static const uint32_t palettePongBackground[] = {
-                                                 0x048420, 0x1ea73c
+                                                 GREEN, GREEN
 };
 
 static const uint32_t palettePongUser[] = {
-                                           0x000000, 0x2609e2
+                                           BLACK, RED
 };
 
 static const uint32_t palettePongTitle[] = {
-                                            0x000000, 0x048420, 0x2609e2, 0x73521d, 0x8b770f,  0xb9a020, 0xe20909, 0xffffff
+                                            BLACK, GREEN, BLUE, BROWN, ORANGE, YELLOW, RED, WHITE
 };
 
 static const uint32_t palettePongEnemy[] = {
-                                            0x000000, 0xe20909
+                                            BLACK, BLUE
 };
 
 static const uint32_t palettePongBall[] = {
-                                           0x000000, 0xffffff
+                                           BLACK, WHITE
 };
 
 const Graphics_Image  imagePongBackground = {

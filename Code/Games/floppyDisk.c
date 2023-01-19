@@ -2,88 +2,87 @@
 #include "Code/Images/floppyDiskImages.h"
 #include "Code/Utilities/linkedList.h"
 
+// Runs the floppy disk game
 void runFloppyDisk() {
-     float lux = 0.0; //Variable for storing lux value returned from OPT3001
-     FloppyDisk floppyDisk; // coordinates of floppy
-     int portionSize = 0; //width of the portion depending how many NUM_RAM sticks there are
-     int currentPosition = 0; // X coordinate of ram
-     initFloppyDisk(&floppyDisk, &portionSize);
+     initFloppyDisk();
      drawFloppyDiskBackground();
      drawFloppyDisk(floppyDisk.x, floppyDisk.y);
-     drawScoreText();
-     drawScore(0);
+     drawScoreF(score);
      while(!gameOver){
          lux = OPT3001_getLux();
          if(lux < MIN_THRESHOLD_LUX ) {
-              moveUpFloppyDisk(&floppyDisk);
+              moveUpFloppyDisk();
          }else {
-             moveDownFloppyDisk(&floppyDisk);
+             moveDownFloppyDisk();
          }
          drawFloppyDisk(floppyDisk.x, floppyDisk.y);
-         clearRam(&currentPosition, &portionSize);
-         moveRam(&currentPosition, &portionSize);
+         clearRam();
+         moveRam();
          wait(TIME_FLOPPYDISK_GAME);
-         drawRam(&currentPosition, &portionSize);
-         gameOver = (checkBorderCollisionF(floppyDisk.y + FLOPPY_HEIGHT, floppyDisk.y ,  MAX_Y_SIZE - BORDER, BORDER) ||
-                     checkRamCollisionF(&floppyDisk, &currentPosition, &portionSize));
+         drawRam();
+         gameOver = (checkBorderCollisionF(floppyDisk.y + FLOPPY_HEIGHT, floppyDisk.y ,  MAX_Y_SIZE - BORDER, BORDER) || checkRamCollisionF());
      }
 }
 
-void initFloppyDisk(FloppyDisk* floppyDisk, int* portionSize) {
-    head = NULL; //linkedList to store all RAM sticks
+// Initializes all the useful GLOBAL variables
+void initFloppyDisk() {
+    head = NULL;
     score = 0;
+    currentPosition = 0;
     gameOver = false;
-    *portionSize = (MAX_X_SIZE/ NUM_RAM);
-    floppyDisk->x = FLOPPY_SPAWN_X;
-    floppyDisk->y = (MAX_Y_SIZE/2)-FLOPPY_SPAWN_X;
+    floppyDisk.x = FLOPPY_SPAWN_X;
+    floppyDisk.y = (MAX_Y_SIZE/2)-FLOPPY_SPAWN_X;
+    portionSize = (MAX_X_SIZE/ NUM_RAM) ;
     int i;
     for(i=0; i < NUM_RAM; i++){
         insert_end(0);
     }
 }
 
-void moveUpFloppyDisk(FloppyDisk* floppyDisk){
-    clearFloppyDisk(floppyDisk->x, floppyDisk->y, FLOPPY_HEIGHT - SPEED_FLOPPY, 0);
-    floppyDisk->y = (floppyDisk->y - SPEED_FLOPPY);
+// Decrements Y coordinate of the floppy disk
+void moveUpFloppyDisk(){
+    clearFloppyDisk(floppyDisk.x, floppyDisk.y, FLOPPY_HEIGHT - SPEED_FLOPPY, 0);
+    floppyDisk.y = (floppyDisk.y - SPEED_FLOPPY);
 }
 
-void moveDownFloppyDisk(FloppyDisk* floppyDisk){
-    clearFloppyDisk(floppyDisk->x, floppyDisk->y, 0, - FLOPPY_HEIGHT + SPEED_FLOPPY);
-    floppyDisk->y = (floppyDisk->y + SPEED_FLOPPY);
+// Increments Y coordinate of the floppy disk
+void moveDownFloppyDisk(){
+    clearFloppyDisk(floppyDisk.x, floppyDisk.y, 0, - FLOPPY_HEIGHT + SPEED_FLOPPY);
+    floppyDisk.y = (floppyDisk.y + SPEED_FLOPPY);
 }
 
-void moveRam(int* currentPosition, int* portionSize){
-    // this is useful if there are at least two or more portion
-    if((*currentPosition) > (*portionSize) + RAM_WIDTH){
-        (*currentPosition) -= (*portionSize);
+// Increments currentPosition of the ram and generates random height for the next Ram. Delete the Ram that has already gone through.
+void moveRam(){
+    if(currentPosition > portionSize + RAM_WIDTH){
+        currentPosition -= portionSize;
         delete_begin();
         int height = random(10, MAX_Y_SIZE - (2*BORDER) - RAM_HEIGHT_GAP);
         //if(height <= 10) height = 0;
         insert_end(height);
     }
-    (*currentPosition) += SPEED_RAM;
+    currentPosition += SPEED_RAM;
 }
 
+// Draws the floppy disk background
 void drawFloppyDiskBackground(){
     Graphics_drawImage(&g_sContext, &imageFloppyDiskBackground, 0, BORDER);
 }
 
+// Draws a single snake body cell
 void drawFloppyDisk(int x, int y) {
     Graphics_drawImage(&g_sContext, &imageFloppyDisk, x , y );
 }
 
-void drawRam(int* currentPosition, int* portionSize) {
+// Draw all the rams that are contained in the list
+void drawRam() {
     int currentPortion= 0;
     struct node* ptr = head;
     while(ptr!=NULL) {
         if(ptr->data != 0){
-            //bottom ram
             imageRam.ySize = ptr->data;
-            Graphics_drawImage(&g_sContext, &imageRam, currentPortion * (*portionSize)  - (*currentPosition) + (*portionSize),
-                               MAX_Y_SIZE - ptr->data -BORDER);
-            //top ram
-            imageRam.ySize = (MAX_Y_SIZE - 2*BORDER) - ptr->data - RAM_HEIGHT_GAP;
-            Graphics_drawImage(&g_sContext, &imageRam, currentPortion * (*portionSize)  - (*currentPosition) + (*portionSize), BORDER);
+            Graphics_drawImage(&g_sContext, &imageRam, currentPortion * portionSize  - currentPosition + portionSize, MAX_Y_SIZE - ptr->data -BORDER);
+            imageRam.ySize = (MAX_Y_SIZE - 2*BORDER) - ptr->data - RAM_HEIGHT_GAP ;
+            Graphics_drawImage(&g_sContext, &imageRam, currentPortion * portionSize  - currentPosition + portionSize, BORDER);
         }
         ptr = ptr->next;
         currentPortion++;
@@ -91,6 +90,16 @@ void drawRam(int* currentPosition, int* portionSize) {
     free(ptr);
 }
 
+// Draw the game score, each ram stick passed is one score
+void drawScoreF(int score) {
+    char temp[10];
+    drawRect(40, 100, 115, 125, 0x00ff0000);
+    g_sContext.foreground = 0xffffff;
+    sprintf(temp, "score: %d", score);
+    Graphics_drawStringCentered(&g_sContext, (int8_t *) temp, 10, 64, 120,  TRANSPARENT_TEXT);
+}
+
+// Eraser only few pixel of the floppy disk depending on SPEED_FLOPPY
 void clearFloppyDisk(int lastX, int LastY, int up, int down){
     drawRect(lastX,
              lastX + FLOPPY_WIDTH ,
@@ -99,18 +108,15 @@ void clearFloppyDisk(int lastX, int LastY, int up, int down){
              0x4dafc6);
 }
 
-void clearRam(int* currentPosition, int* portionSize) {
+// Eraser only few pixel of the ram depending on SPEED_FLOPPY
+void clearRam() {
     int currentPortion= 0;
     struct node* ptr = head;
     while(ptr!=NULL) {
         if(ptr->data != 0){
-            //bottom ram
-            drawRect(currentPortion * (*portionSize)  - (*currentPosition) + (*portionSize) + 1 + RAM_WIDTH - SPEED_RAM,
-                     currentPortion * (*portionSize)  - (*currentPosition) + (*portionSize) + BORDER + 3,
+            drawRect(currentPortion * portionSize  - currentPosition + portionSize + 1 + RAM_WIDTH - SPEED_RAM, currentPortion * portionSize  - currentPosition + portionSize + BORDER + 3,
                      MAX_Y_SIZE -  ptr->data -BORDER , MAX_Y_SIZE - BORDER -1 , 0x4dafc6);
-            //bottom top
-            drawRect(currentPortion * (*portionSize)  - (*currentPosition)+ (*portionSize) + 1 +  RAM_WIDTH - SPEED_RAM,
-                     currentPortion * (*portionSize)  - (*currentPosition) + (*portionSize) + BORDER + 3,
+            drawRect(currentPortion * portionSize  - currentPosition+ portionSize + 1 +  RAM_WIDTH - SPEED_RAM, currentPortion * portionSize  - currentPosition + portionSize + BORDER + 3,
                      BORDER, (MAX_Y_SIZE - 2*BORDER) - ptr->data - RAM_HEIGHT_GAP + BORDER - 1, 0x4dafc6);
         }
     ptr = ptr->next;
@@ -119,6 +125,7 @@ void clearRam(int* currentPosition, int* portionSize) {
     free(ptr);
 }
 
+// Given bottom and top coordinates in Y axis, check if it collides with min and max
 bool checkBorderCollisionF(int bottom, int top, int min, int max) {
     if (bottom >= min  || top <= max ) {
         return true;
@@ -127,21 +134,18 @@ bool checkBorderCollisionF(int bottom, int top, int min, int max) {
     }
 }
 
-bool checkRamCollisionF(FloppyDisk* floppyDisk, int* currentPosition, int* portionSize) {
+// check collision between RAM and Floppy
+bool checkRamCollisionF() {
     bool temp=false;
     int currentPortion= 0;
     struct node* ptr = head;
     while(ptr!=NULL && !temp) {
         if(ptr->data != 0) {
-            if (FLOPPY_SPAWN_X + FLOPPY_WIDTH >= currentPortion * (*portionSize)  - (*currentPosition) + (*portionSize) &&
-                currentPortion * (*portionSize)  - (*currentPosition) + (*portionSize) >= 8 ) {
-                // When the Floppy Disk is inside the RAM area it also checks for border collision
-                temp = checkBorderCollisionF(floppyDisk->y + FLOPPY_HEIGHT, floppyDisk->y ,
-                                             MAX_Y_SIZE - BORDER - ptr->data , MAX_Y_SIZE - BORDER - ptr->data - RAM_HEIGHT_GAP);
-                // if the FloppyDisk has exceeded the RAM, the score increases
-                if(currentPortion * (*portionSize)  - (*currentPosition) + (*portionSize)  == FLOPPY_SPAWN_X - RAM_WIDTH) {
+            if (FLOPPY_SPAWN_X + FLOPPY_WIDTH >= currentPortion * portionSize  - currentPosition + portionSize    && currentPortion * portionSize  - currentPosition + portionSize >= 8 ) {
+                temp = checkBorderCollisionF(floppyDisk.y + FLOPPY_HEIGHT, floppyDisk.y , MAX_Y_SIZE - BORDER - ptr->data , MAX_Y_SIZE - BORDER - ptr->data - RAM_HEIGHT_GAP);
+                if(currentPortion * portionSize  - currentPosition + portionSize  == FLOPPY_SPAWN_X - RAM_WIDTH) {
                     score++;
-                    drawScore(score);
+                    drawScoreF(score);
                 }
             }
         }
@@ -151,3 +155,6 @@ bool checkRamCollisionF(FloppyDisk* floppyDisk, int* currentPosition, int* porti
     free(ptr);
     return temp;
 }
+
+
+

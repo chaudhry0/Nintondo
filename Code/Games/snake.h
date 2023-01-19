@@ -27,7 +27,6 @@ bool checkAppleCollision(List snakeBody, Apple apple); // checks if the apple is
 bool checkBorderCollision(List snakeBody); // checks if snake collides with the border
 bool checkSnakeCollision(List snakeBody); // checks if snake collides with itself
 // draw functions
-void drawSnakeInitial(); // draws initial text
 void drawSnakeBackground(); // draws the background
 void drawSnakeCell(int x, int y); // draws a single snake body cell
 void drawSnakeFull(List snakeBody); // draws the full snake body

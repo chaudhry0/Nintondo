@@ -1,5 +1,5 @@
 #include "utilities.h"
-
+#include "Code/Utilities/colors.h"
 
 uint32_t getTimeMils(){
     return Timer_A_getCounterValue(TIMER_A2_BASE);
@@ -24,16 +24,20 @@ int random(int min, int max) {
 }
 
 void drawScoreText(){
-    g_sContext.foreground = 0xffffff;
+    g_sContext.foreground = WHITE;
     Graphics_drawStringCentered(&g_sContext, (int8_t *) "score: ", 7, 64, 120, TRANSPARENT_TEXT);
 }
 
 void drawScore(int score) {
     char temp[10];
-    drawRect(80, 100, 115, 125, 0xff0000);
-    g_sContext.foreground = 0xffffff;
+    drawRect(80, 100, 115, 125, RED);
+    g_sContext.foreground = WHITE;
     sprintf(temp, "%d", score);
     Graphics_drawStringCentered(&g_sContext, (int8_t *) temp, 3, 90, 120, TRANSPARENT_TEXT);
+}
+
+void cleanBottomBar(){
+    drawRect(CELL_SIZE_LARGE - 1, MAX_WIDTH - CELL_SIZE_LARGE, MAX_HEIGHT + CELL_SIZE_LARGE, MAX_HEIGHT + 2* CELL_SIZE_LARGE, RED);
 }
 
 uint16_t getButtons(){
@@ -76,6 +80,33 @@ void initGameData(){
 
 void TA2_N_IRQHandler(void) {
     Timer_A_clearInterruptFlag(TIMER_A2_BASE);
+}
+
+// 3.5 5.1
+void PORT5_IRQHandler(void){
+    __disable_irq();
+    if (P5->IFG & BIT1){
+        buttonA = 1;
+        P5->IFG &= ~BIT1;
+    }
+    __enable_irq();
+}
+
+bool consumeButtonA(){
+    if (buttonA == 1){
+        buttonA = 0;
+        return true;
+    }
+    return false;
+    /*if (!GPIO_getInputPinValue(GPIO_PORT_P5,GPIO_PIN1)){
+        return true;
+    }
+    return false;*/
+}
+
+void showInitialTitle(Graphics_Image image){
+    Graphics_drawImage(&g_sContext, &image, 0, CELL_SIZE_LARGE);
+    wait(TIME_TITLE_GAME);
 }
 
 void ADC14_IRQHandler(void) {

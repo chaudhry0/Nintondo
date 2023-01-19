@@ -4,6 +4,9 @@
 #include "Code/Utilities/utilities.h"
 
 
+// [GLOBAL VARS]
+
+
 // [FUNCTIONS]
 void _adcInit(); // initializes ADC
 void _graphicsInit(); // initializes LCD

@@ -1,19 +1,14 @@
 #include "rhinoRunner.h"
 #include "Code/Images/rhinoImages.h"
 
-void drawInitialRhino(){
-    Graphics_drawImage(&g_sContext, &imagetitleRhino, 0, CELL_SIZE_LARGE);
-    wait(TIME_TITLE_GAME);
-}
-
 void runRhino() {
+    showInitialTitle(imagetitleRhino);
     prova = 0;
     Rhino rhino;
     int counterRhino;
     Obstacle obstacle1;
     Obstacle obstacle2;
     initRhino(&rhino, &counterRhino);
-    drawInitialRhino();
     drawRhinoBackground();
     drawRhino(rhino);
     drawScoreText();
@@ -74,7 +69,6 @@ void drawRhinoBackground() {
 
 void drawRhino(Rhino rhino) {
     Graphics_drawImage(&g_sContext, &imageRino, rhino.x, rhino.y);
-
     if (prova == 1){
         imageRino.pPixel = pixelRino2;
         prova = 0;
@@ -86,11 +80,11 @@ void drawRhino(Rhino rhino) {
 
 void clearRhino(Rhino rhino) {
     if (rhino.action == NONE){
-        drawRect(rhino.x, rhino.x + RHINO_X_SIZE - 1, rhino.y - 1, rhino.y - GAME_SPEED, 0xffffff);
+        drawRect(rhino.x, rhino.x + RHINO_X_SIZE - 1, rhino.y - 1, rhino.y - GAME_SPEED, WHITE);
     }else if (rhino.action == GOING_UP){
-        drawRect(rhino.x, rhino.x + RHINO_X_SIZE - 1, rhino.y + RHINO_Y_SIZE, rhino.y + RHINO_Y_SIZE  + GAME_SPEED - 1, 0xffffff);
+        drawRect(rhino.x, rhino.x + RHINO_X_SIZE - 1, rhino.y + RHINO_Y_SIZE, rhino.y + RHINO_Y_SIZE  + GAME_SPEED - 1, WHITE);
     }else if (rhino.action == GOING_DOWN){
-        drawRect(rhino.x, rhino.x + RHINO_X_SIZE - 1, rhino.y + 1, rhino.y - GAME_SPEED, 0xffffff);
+        drawRect(rhino.x, rhino.x + RHINO_X_SIZE - 1, rhino.y + 1, rhino.y - GAME_SPEED, WHITE);
     }
 }
 
@@ -122,9 +116,9 @@ void drawObstacle(Obstacle obstacle) {
 
 void clearObstacle(Obstacle obstacle) {
     if(obstacle.type == CACTUS){
-        drawRect(obstacle.x + CACTUS_X_SIZE, obstacle.x + CACTUS_X_SIZE + GAME_SPEED - 1, MAX_HEIGHT-CACTUS_Y_SIZE, MAX_HEIGHT-1, 0xffffff);
+        drawRect(obstacle.x + CACTUS_X_SIZE, obstacle.x + CACTUS_X_SIZE + GAME_SPEED - 1, MAX_HEIGHT-CACTUS_Y_SIZE, MAX_HEIGHT-1, WHITE);
     }else{
-        drawRect(obstacle.x + BIRD_X_SIZE, obstacle.x + BIRD_X_SIZE + GAME_SPEED - 1, MAX_HEIGHT - BIRD_HEIGHT - BIRD_Y_SIZE, MAX_HEIGHT - BIRD_HEIGHT - 1, 0xffffff);
+        drawRect(obstacle.x + BIRD_X_SIZE, obstacle.x + BIRD_X_SIZE + GAME_SPEED - 1, MAX_HEIGHT - BIRD_HEIGHT - BIRD_Y_SIZE, MAX_HEIGHT - BIRD_HEIGHT - 1, WHITE);
     }
 }
 

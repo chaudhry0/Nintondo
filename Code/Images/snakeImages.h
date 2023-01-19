@@ -1,5 +1,4 @@
-#include <ti/grlib/grlib.h>
-#include <stdint.h>
+#include "Code/Utilities/colors.h"
 
 static const uint8_t pixelSnakeBackground[] = {
                                                0x00, 0xff, 0x00, 0xff, 0x00, 0xff, 0x00, 0xff, 0x00, 0xff, 0x00, 0xff, 0x00, 0xff, 0x00, 0xff,
@@ -215,23 +214,23 @@ static const uint8_t pixelSnakeBody[] = {
 };
 
 static const uint32_t paletteSnakeBackground[] = {
-                                                        0x74a47c, 0x2b933c
+                                                  LIGTH_GREEN, GREEN
 };
 
 static const uint32_t paletteSnakeApple[] = {
-                                             0xcc0000, 0x008000, 0xff5232, 0xffffff
+                                             BROWN, DARK_GREEN, RED, WHITE
 };
 
 
 static const uint32_t paletteSnakeBody[] = {
-                                            0x6d168d, 0x571171
+                                            INDIGO, PURPLE
 };
 
 static const uint32_t paletteSnakeTitle[] = {
-                                             0x000000, 0x74a47c, 0x2b933c, 0x571171, 0x6d168d, 0x9a9890, 0xad1d1d, 0xffffff
+                                             BLACK, LIGTH_GREEN, GREEN, PURPLE, INDIGO, YELLOW, RED, WHITE
 };
 
-const Graphics_Image  imageSnakeBackground = {          //immagine snake background
+const Graphics_Image  imageSnakeBackground = {
     GRAPHICS_IMAGE_FMT_1BPP_UNCOMP,
     128,
     96,
@@ -240,7 +239,7 @@ const Graphics_Image  imageSnakeBackground = {          //immagine snake backgro
     pixelSnakeBackground,
 };
 
-const Graphics_Image  imageSnakeApple = {          //immagine snake background
+const Graphics_Image  imageSnakeApple = {
     GRAPHICS_IMAGE_FMT_8BPP_UNCOMP,
     8,
     8,
@@ -249,7 +248,7 @@ const Graphics_Image  imageSnakeApple = {          //immagine snake background
     pixelSnakeApple,
 };
 
-const Graphics_Image  imageSnakeBody = {          //immagine snake background
+const Graphics_Image  imageSnakeBody = {
     GRAPHICS_IMAGE_FMT_1BPP_UNCOMP,
     8,
     8,
@@ -258,7 +257,7 @@ const Graphics_Image  imageSnakeBody = {          //immagine snake background
     pixelSnakeBody,
 };
 
-const Graphics_Image  imageSnakeTitle = {          //immagine snake background
+const Graphics_Image  imageSnakeTitle = {
     GRAPHICS_IMAGE_FMT_8BPP_UNCOMP,
     128,
     96,

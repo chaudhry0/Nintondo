@@ -69,32 +69,31 @@ void updateDario(Dario* darioPtr){
             break;
         }
     }
-        if (getButtons() == 1 && darioPtr->y == MAX_HEIGHT + DIRT_HEIGH - DARIO_HEIGH){
-            darioPtr->yDirection = U;
+    if (getButtons() == 1 && darioPtr->y == MAX_HEIGHT + DIRT_HEIGH - DARIO_HEIGH){
+        darioPtr->yDirection = U;
+    }
+    if (darioPtr->yDirection == U){
+        if (darioPtr->y >= MAX_HEIGHT + DIRT_HEIGH - DARIO_HEIGH - JUMP_ITERS * DARIO_SPEED){
             darioPtr->y -= DARIO_SPEED;
-
-
-            int index;
-            if (checkBrickCollision(*darioPtr, &index) && canMove == 1){
-                drawRect(bricks[index].x, bricks[index].x + CELL_SIZE_SMALL - 1, bricks[index].y + CELL_SIZE_SMALL - 1, bricks[index].y, 0xff0000);
-                darioPtr->yDirection = D;
-            }
-
-
+        } else{
+            darioPtr->yDirection = D;
         }
-        if (darioPtr->jumpCounter != 0){
-            if (darioPtr->jumpCounter >= 9){
-
-
-            }
-            if (darioPtr->jumpCounter <= 8){
-                darioPtr->y += DARIO_SPEED;
-            }
-            darioPtr->jumpCounter--;
-            if (darioPtr->jumpCounter == 0){
-                canMove = true;
-            }
+    }
+    if (darioPtr->yDirection == D){
+        if (darioPtr->y <= MAX_HEIGHT + DIRT_HEIGH - DARIO_HEIGH - 4){
+            darioPtr->y += DARIO_SPEED;
+        } else{
+            darioPtr->yDirection = ySTOPPED;
+            canMove = true;
         }
+    }
+    int index;
+    if (checkBrickCollision(*darioPtr, &index) && canMove == 1){
+        drawRect(bricks[index].x, bricks[index].x + CELL_SIZE_SMALL - 1, bricks[index].y + CELL_SIZE_SMALL - 1, bricks[index].y, 0xff0000);
+        darioPtr->y += DARIO_SPEED;
+        darioPtr->yDirection = D;
+    }
+
 }
 
 void drawDarioBackground(){
@@ -115,7 +114,7 @@ void drawBricks(){
 
 int getXDifference(Dario dario){
    int speed = 0;
-   switch(dario.xDdirection){
+   switch(dario.xDirection){
        case R:
            speed = -DARIO_SPEED;
            break;
@@ -142,13 +141,12 @@ void clearDario(Dario dario){
         default:
             break;
     }
-    if (true){
-        if (dario.jumpCounter >= 8){
-            drawRect(dario.x - DARIO_SPEED, dario.x + DARIO_WIDTH + DARIO_SPEED, dario.y + DARIO_HEIGH + DARIO_SPEED - 1, dario.y + DARIO_HEIGH - 1, 0x3e8eff);
-        }
-        if (dario.jumpCounter <= 8){
-            drawRect(dario.x - DARIO_SPEED, dario.x + DARIO_WIDTH + DARIO_SPEED, dario.y - DARIO_SPEED + 1, dario.y, 0x3e8eff);
-        }
+    if (dario.yDirection == U){
+        drawRect(dario.x - DARIO_SPEED, dario.x + DARIO_WIDTH + DARIO_SPEED, dario.y + DARIO_HEIGH + DARIO_SPEED - 1, dario.y + DARIO_HEIGH - 1, 0x3e8eff);
+    }
+    if (dario.yDirection == D){
+        drawRect(dario.x - DARIO_SPEED, dario.x + DARIO_WIDTH + DARIO_SPEED, dario.y - DARIO_SPEED, dario.y - 1, 0x3e8eff);
+
     }
 }
 
@@ -163,10 +161,12 @@ void runSuperDario(){
     drawDarioBackground();
     drawDario(dario);
     drawBricks();
+
     while(1){
         updateDario(&dario);
         drawDario(dario);
         clearDario(dario);
         wait(10);
+        printf("[%d]\n", dario.yDirection);
     }
 }

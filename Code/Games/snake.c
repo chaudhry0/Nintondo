@@ -76,13 +76,13 @@ void clearSnake(int tailx, int taily, bool* lightGreenCell){
                  CELL_SIZE_SMALL * tailx + CELL_SIZE_SMALL -1,
                  CELL_SIZE_SMALL * taily,
                  CELL_SIZE_SMALL * taily + CELL_SIZE_SMALL -1,
-                 0x74a47c);
+                 LIGTH_GREEN);
     }else {
         drawRect(CELL_SIZE_SMALL * tailx,
                  CELL_SIZE_SMALL * tailx + CELL_SIZE_SMALL -1,
                  CELL_SIZE_SMALL * taily,
                  CELL_SIZE_SMALL * taily + CELL_SIZE_SMALL -1,
-                 0x2b933c);
+                 GREEN);
     }
     *lightGreenCell = !(*lightGreenCell);
 }
@@ -140,12 +140,8 @@ bool checkSnakeCollision(List snakeBody) {
     return false;
 }
 
-void drawSnakeInitial() {
-    Graphics_drawImage(&g_sContext, &imageSnakeTitle, 0, 16);
-    wait(TIME_TITLE_GAME);
-}
-
 void runSnake() {
+    showInitialTitle(imageSnakeTitle);
     bool lightGreenCell = true;
     int speed = 300;
     int lastX = 0;
@@ -154,7 +150,6 @@ void runSnake() {
     List snakeBody;
     Apple apple;
     enum Moving moving = RIGHT;
-    drawSnakeInitial();
     initSnakeBody(&snakeBody);
     generateRandomApple(snakeBody, &apple);
     drawSnakeBackground();
@@ -164,7 +159,6 @@ void runSnake() {
     drawScore(score);
 
     while(!gameOver){
-        printf("%d\n", score);
         moveSnake(&snakeBody, &moving, getLastElem(snakeBody).x, getLastElem(snakeBody).y, &lastX, &lastY);
         if (checkBorderCollision(snakeBody) || checkSnakeCollision(snakeBody) || score == 100){
             gameOver = true;
