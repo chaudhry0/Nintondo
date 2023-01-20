@@ -51,7 +51,10 @@
 
 [![Boosterpack image][boosterpack]](https://www.ti.com/tool/BOOSTXL-EDUMKII)
 
-Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.
+About The Project Text
+About The Project Text
+About The Project Text
+About The Project Text
 Do a search and replace with your text editor for the following: `github_username`, `repo_name`, `twitter_handle`, `linkedin_username`, `email_client`, `email`, `project_title`, `project_description`
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
@@ -64,8 +67,7 @@ Do a search and replace with your text editor for the following: `github_usernam
 <!-- GETTING STARTED -->
 ## Getting Started
 
-This is an example of how you may give instructions on setting up your project locally.
-To get a local copy up and running follow these simple example steps.
+Welcome to Nintondo repository! In order to get started and have a working local copy of Nintondo follow these simple example steps.
 
 ### Prerequisites
 
