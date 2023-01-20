@@ -8,9 +8,9 @@ void initBestScores(){
     }
 }
 
-void updateBestScore(int numGioco){
-    if (score > bestScores[numGioco]){
-        bestScores[numGioco] = score;
+void updateBestScore(int selectedGame){
+    if (score > bestScores[selectedGame]){
+        bestScores[selectedGame] = score;
     }
 }
 

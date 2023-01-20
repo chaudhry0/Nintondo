@@ -26,7 +26,7 @@ void runGameHub(){
     cleanDisplayGame();
     initGameData();
     if (menuNumber == 0){
-        switch(numGioco){
+        switch(selectedGame){
             case 0:
                 runSnake();
                 break;
@@ -43,7 +43,7 @@ void runGameHub(){
                 break;
         }
     } else{ // menuNumber = 1
-        switch(numGioco){
+        switch(selectedGame){
             case 0:
                 runSpaceGame();
                 break;
@@ -60,8 +60,8 @@ void runGameHub(){
                 break;
         }
     }
-    if (numGioco<5){
-        updateBestScore(numGioco); // DA CONTROLLARE!
+    if (selectedGame<5){
+        updateBestScore(selectedGame); // DA CONTROLLARE!
     }
     drawGameOver();
 }

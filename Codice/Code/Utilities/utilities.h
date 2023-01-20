@@ -27,7 +27,7 @@ int bestScores[5];
 
 // [ FUNCTIONS ]
 void initBestScores();
-void updateBestScore(int numGioco);
+void updateBestScore(int selectedGame);
 uint32_t getTimeMils(); // returns Timer_A counter
 void wait(uint32_t interval); // waits some milliseconds
 int random(int min, int max); // generates a random number

@@ -6,7 +6,7 @@ void drawElement(Graphics_Image* imagePtr, int y){
 }
 
 void drawArrow(){
-    int y = 40 + 16 * numGioco;
+    int y = 40 + 16 * selectedGame;
     switch(lastMove){
         case 1:
             break;
@@ -43,26 +43,26 @@ void initElements(Graphics_Image* elementsPtr){
 
 void updateArrowAndElements(Graphics_Image* elementsPtr){
     if (lastMove == 1){ // pushing UP
-        if (numGioco != 0){ // if the selected game isn't the first of the relative list
-            numGioco--;
-            int tmpY = 40 + 16 * numGioco + 16;
+        if (selectedGame != 0){ // if the selected game isn't the first of the relative list
+            selectedGame--;
+            int tmpY = 40 + 16 * selectedGame + 16;
             drawRect(112, 127, tmpY, tmpY+15, WHITE); // clean arrow
         } else if (menuNumber == 1) { // if you are on the second menu
             menuNumber = 0; // change menuNumber
-            numGioco = NUM_ELEMENTS - 1; // change the current selected game
+            selectedGame = NUM_ELEMENTS - 1; // change the current selected game
             initElements(elementsPtr); // inits new Titles
             drawMenu(elementsPtr); // draw the new menu
             drawRect(112, 128, 40, 40+16, WHITE);
         }
     }
     if (lastMove == 3){ // pushing DOWN
-        if (numGioco != NUM_ELEMENTS - 1){ // if the selected game isn't the last of the relative list
-            numGioco++;
-            int tmpY = 40 + 16 * numGioco - 16;
+        if (selectedGame != NUM_ELEMENTS - 1){ // if the selected game isn't the last of the relative list
+            selectedGame++;
+            int tmpY = 40 + 16 * selectedGame - 16;
             drawRect(112, 128, tmpY, tmpY+16, WHITE); // clean arrow
         } else if (menuNumber == 0){ // if you are on the first menu
             menuNumber = 1; // change menuNumber
-            numGioco = 0; // change the current selected game
+            selectedGame = 0; // change the current selected game
             initElements(elementsPtr); // inits new Titles
             drawMenu(elementsPtr); // draw the new menu
             int tmpY = 40 + 16 * (NUM_ELEMENTS - 1);
@@ -73,7 +73,7 @@ void updateArrowAndElements(Graphics_Image* elementsPtr){
 
 void runMenu(){
     bool gameSelected = false;
-    numGioco = 0;
+    selectedGame = 0;
     menuNumber = 0;
     Graphics_Image imageElements[4];
     direction = 0;
