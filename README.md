@@ -54,7 +54,7 @@
 About The Project Text
 About The Project Text
 About The Project Text
-About The Project Text
+About The Project Text.
 Do a search and replace with your text editor for the following: `github_username`, `repo_name`, `twitter_handle`, `linkedin_username`, `email_client`, `email`, `project_title`, `project_description`
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
@@ -102,9 +102,9 @@ After installation:
     - Open CSS and left click on Project Folder to select Properties
     - Select CSS Build
     - Click ARM Compiler and then Include Options
-    - Add "simplelink_msp432p4_sdk_3_40_01_02/source" directory to "Add dir to #include search path" window.
+      - Add "simplelink_msp432p4_sdk_3_40_01_02/source" directory to "Add dir to #include search path" window.
     - Click ARM Linker and File Search Path
-    - Add "simplelink_msp432p4_sdk_3_40_01_02/source/ti/devices/msp432p4xx/driverlib/ccs/msp432p4xx_driverlib.lib" to "Include library file..." window
+      - Add "simplelink_msp432p4_sdk_3_40_01_02/source/ti/devices/msp432p4xx/driverlib/ccs/msp432p4xx_driverlib.lib" to "Include library file..." window
 
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
