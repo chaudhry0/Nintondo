@@ -59,8 +59,30 @@ Do a search and replace with your text editor for the following: `github_usernam
 ### Built With
 * [![C][C-lan]][C-url]
 * [![CCS][CCS-ide]][CCS-url]
+<p align="right">(<a href="#readme-top">back to top</a>)</p>
 
+<!-- GETTING STARTED -->
+## Getting Started
 
+This is an example of how you may give instructions on setting up your project locally.
+To get a local copy up and running follow these simple example steps.
+
+### Prerequisites
+
+#### Installing TI CSS and ARM compiler for <a href="https://www.ti.com/product/MSP432P401R">MSP432P401R</a>
+- We will use <a href="https://www.ti.com/tool/CCSTUDIO"> Code Composer Studio (CCS) Integrated Development Environment (IDE)</a> from Texas Instruments.
+
+#### Download
+- <a href="https://www.ti.com/tool/download/CCSTUDIO">Download TI CSS</a>
+
+#### Installation
+Follow the step-by-step installation tutorial from TI:
+- <a href="https://software-dl.ti.com/ccs/esd/documents/users_guide_10.1.0/ccs_installation.html">Installation</a>
+
+#### Update
+After installation:
+  - start TI CSS and create a new workspace
+  - update CCS by selecting ARM Compiler Tools and ARM GCC Compiler Tools (You can click on the icon in the bottom right corner).
 
 [boosterpack]: images/IMG_boosterpack.PNG
 [C-lan]: https://img.shields.io/badge/C%20Language-000000?style=for-the-badge&logo=c%2B%2B&logoColor=white
