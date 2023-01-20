@@ -9,7 +9,7 @@
   <p align="center">
     powered by Unitn students
     <br />
-    <a href="https://github.com/github_username/repo_name"><strong>Explore the documents »</strong></a>
+    <a href="https://github.com/chaudhry0/Nintondo/tree/master/Documentazione"><strong>Explore the documents »</strong></a>
     <br />
     <br />
     <a href="https://github.com/github_username/repo_name">View video Demo</a>
