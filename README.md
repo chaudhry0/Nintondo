@@ -84,28 +84,30 @@ After installation:
   - start TI CSS and create a new workspace
   - update CCS by selecting ARM Compiler Tools and ARM GCC Compiler Tools (You can click on the icon in the bottom right corner).
 
-### Nintondo Installation
 
+### Nintondo Installation
 1. Clone the repo
    ```sh
    git clone https://github.com/chaudhry0/Nintondo.git
    ```
 2. Create a new project with CCS
-  -  File->New->CCS Project
-  -  Target: MSP432 Family  MSP432P401R
-  -  Project name: Nintondo
+    -  File->New->CCS Project
+    -  Target: MSP432 Family  MSP432P401R
+    -  Project name: Nintondo
 3. Paste all the content of cloned folder `Nintondo` to your project
-4. Adding DriverLib to your project
-  - Extract simplelink_msp432p4_sdk_3_40_01_02.zip file. 
-  - Open CSS and left click on Project Folder to select Properties
-  - Select CSS Build
-  - Click ARM Compiler and then Include Options
-  - Add "simplelink_msp432p4_sdk_3_40_01_02/source" directory to "Add dir to #include search path" window.
-  - Click ARM Linker and File Search Path
-  - Add "simplelink_msp432p4_sdk_3_40_01_02/source/ti/devices/msp432p4xx/driverlib/ccs/msp432p4xx_driverlib.lib" to "Include library file..." window
+4. Adding DriverLib to your project:
+    - Extract simplelink_msp432p4_sdk_3_40_01_02.zip file. 
+    - Open CSS and left click on Project Folder to select Properties
+    - Select CSS Build
+    - Click ARM Compiler and then Include Options
+    - Add "simplelink_msp432p4_sdk_3_40_01_02/source" directory to "Add dir to #include search path" window.
+    - Click ARM Linker and File Search Path
+    - Add "simplelink_msp432p4_sdk_3_40_01_02/source/ti/devices/msp432p4xx/driverlib/ccs/msp432p4xx_driverlib.lib" to "Include library file..." window
+
 
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
+
 [boosterpack]: images/IMG_boosterpack.PNG
 [C-lan]: https://img.shields.io/badge/C%20Language-000000?style=for-the-badge&logo=c%2B%2B&logoColor=white
 [C-url]: https://en.cppreference.com/w/c/language
