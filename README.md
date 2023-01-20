@@ -9,7 +9,7 @@
   <p align="center">
     powered by Unitn students
     <br />
-    <a href="https://github.com/chaudhry0/Nintondo/tree/master/Documentazione"><strong>Explore the documents »</strong></a>
+    <a href="https://github.com/chaudhry0/Nintondo/tree/master/Documentazione"><strong>Explore the documentations»</strong></a>
     <br />
     <br />
     <a href="https://github.com/github_username/repo_name">View video Demo</a>
@@ -128,8 +128,8 @@ examples of how a project can be used. Additional screenshots, code examples and
 ## Contact
 
 -   Haroon Chaudhry Mohammad - [@twitter_handle](https://twitter.com/twitter_handle) - h.chaudhrymohammd@studenti.unitn.it
--   Samuel Casagrande Cecchin - [@twitter_handle](https://twitter.com/twitter_handle) - francesco.poinelli@studenti.unitn.it
--   Francesco Poinelli - [@twitter_handle](https://twitter.com/twitter_handle) - s.casagrandececchin@studenti.unitn.it
+-   Samuel Casagrande Cecchin - [@twitter_handle](https://twitter.com/twitter_handle) - s.casagrandececchin@studenti.unitn.it
+-   Francesco Poinelli - [@twitter_handle](https://twitter.com/twitter_handle) - francesco.poinelli@studenti.unitn.it
 
 
 Project Link: [https://github.com/chaudhry0/Nintondo](https://github.com/chaudhry0/Nintondo)
