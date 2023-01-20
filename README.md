@@ -56,8 +56,14 @@ Do a search and replace with your text editor for the following: `github_usernam
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
-
+### Built With
+* [![C][C-lan]][C-url]
+* [![CCS][CCS-ide]][CCS-url]
 
 
 
 [boosterpack]: images/IMG_boosterpack.PNG
+[C-lan]: https://img.shields.io/badge/C%20Language-000000?style=for-the-badge&logo=c%2B%2B&logoColor=white
+[C-url]: https://en.cppreference.com/w/c/language
+[CCS-ide]: images/ccstudio.jpg 
+[CCS-url]: https://www.ti.com/tool/CCSTUDIO
