@@ -6,7 +6,7 @@ void drawBackground(){
 }
 
 void updateSpacecraft(Spacecraft* spacecraft){
-    switch(direzione){
+    switch(direction){
         case 2:
             if(spacecraft->x + 8 < 119){
                 spacecraft->x += 8;

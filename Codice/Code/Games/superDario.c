@@ -36,7 +36,7 @@ bool checkBrickLateralCollision(Dario dario){
 
 void updateDario(Dario* darioPtr){
     if (canMove == true){
-    switch(direzione){
+    switch(direction){
         case 1:
             darioPtr->xDirection = xSTOPPED;
             break;

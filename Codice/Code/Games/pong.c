@@ -37,7 +37,7 @@ void drawBall(Ball ball){
 
 void moveUser(int* userUpperYPtr, int* lastUserYPtr){
     *lastUserYPtr = *userUpperYPtr;
-    switch(direzione){
+    switch(direction){
         case 1: // UP
             if (*userUpperYPtr > CELL_SIZE_LARGE){
                 *userUpperYPtr -= 2;

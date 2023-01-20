@@ -19,8 +19,8 @@ static uint16_t resultsBuffer[2]; // buffer to store Joystick samples
 Graphics_Context g_sContext; // Graphic library context
 int score; // game score
 bool gameOver; // game status
-int direzione; // value read from Joystick buffer
-int lastMove; // previous move performed (equals to "direzione" but not reset every time)
+int direction; // value read from Joystick buffer
+int lastMove; // previous move performed (equals to "direction" but not reset every time)
 int buttonA;
 int bestScores[5];
 

@@ -74,15 +74,15 @@ void drawRect(int xMin, int xMax, int yMin, int yMax, uint32_t color) {
 }
 
 void checkLastMove(){
-    direzione = 0;
+    direction = 0;
     if (resultsBuffer[0] < 3000) {
-            direzione = lastMove = 4;
+            direction = lastMove = 4;
         } else if (resultsBuffer[0] > 13000) {
-            direzione = lastMove = 2;
+            direction = lastMove = 2;
         } else if (resultsBuffer[1] < 3000) {
-            direzione = lastMove = 3;
+            direction = lastMove = 3;
         } else if (resultsBuffer[1] > 13000) {
-            direzione = lastMove = 1;
+            direction = lastMove = 1;
         }
 }
 

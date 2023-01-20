@@ -76,14 +76,14 @@ void runMenu(){
     numGioco = 0;
     menuNumber = 0;
     Graphics_Image imageElements[4];
-    direzione = 0;
+    direction = 0;
     initElements(&imageElements[0]);
     drawMenu(&imageElements[0]);
     drawArrow();
 
     while (!gameSelected){
         __sleep(); // LPM or something similar
-        if (direzione){
+        if (direction){
             updateArrowAndElements(&imageElements[0]);
             drawArrow();
             wait(150);
