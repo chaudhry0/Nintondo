@@ -61,7 +61,7 @@ void updateArrowAndElements(Graphics_Image* elementsPtr){
             int tmpY = 40 + 16 * numGioco - 16;
             drawRect(112, 128, tmpY, tmpY+16, WHITE); // clean arrow
         } else if (menuNumber == 0){ // if you are on the first menu
-            menuNumber = 1; // chane menuNumber
+            menuNumber = 1; // change menuNumber
             numGioco = 0; // change the current selected game
             initElements(elementsPtr); // inits new Titles
             drawMenu(elementsPtr); // draw the new menu

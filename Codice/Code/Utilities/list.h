@@ -13,8 +13,8 @@ typedef struct Cords {
 
 typedef struct List {
     Cords cords[MAX_SIZE];
-    int head; // indice primo elem libero
-    int tail; // indice ultimo elemento inserito
+    int head; // index of first free item
+    int tail; // index of last item added
     int length;
 } List;
 

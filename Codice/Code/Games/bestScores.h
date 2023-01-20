@@ -3,8 +3,10 @@
 
 #include "Code/Utilities/init.h"
 
-void runBestScores();
-void drawScores();
+// draw functions
+void drawScores(); // function of drawing a table with the best score from every game
+// run function
+void runBestScores(); // runs drawScore and the score screen remains until button A is clicked
 
 
 #endif

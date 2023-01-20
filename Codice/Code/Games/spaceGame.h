@@ -44,7 +44,7 @@ typedef struct Entity{
     void drawEnemy(Entity enemies[], int i); // draws an enemy
     void cleanEnemyMovement(Entity enemies[], int i); // cleans an enemy movement
     void cleanEnemy(Entity enemies[], int i); // cleans an entire enemy
-    void drawBulletsCompleteBar(); // draws the bullet bar on the rigth
+    void drawBulletsCompleteBar(); // draws the bullet bar on the right
     void cleanBulletBar(int numBulletsActive); // removes one bullet from the bar
     void drawBulletBar(int numBulletsActive); // adds one bullet from the bar
 // run functions

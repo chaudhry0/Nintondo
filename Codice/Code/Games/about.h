@@ -3,8 +3,8 @@
 
 #include "Code/Utilities/init.h"
 
-void runAbout();
-
+// run function
+void runAbout(); // runs the About screen
 
 
 #endif /* CODE_GAMES_ABOUT_H_ */

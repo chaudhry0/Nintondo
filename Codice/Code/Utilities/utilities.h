@@ -44,7 +44,7 @@ void showInitialTitle(Graphics_Image image);
 
 // [ HANDLER ]
 void TA2_N_IRQHandler(void); // handler for timer_A
-void ADC14_IRQHandler(void); // hanler for Joystick
+void ADC14_IRQHandler(void); // handler for Joystick
 
 
 #endif /* _UTILITIES_H_ */
