@@ -59,4 +59,4 @@ Here's a blank template to get started: To avoid retyping too much info. Do a se
 
 
 
-[boosterpack]: images/IMG_boosterpak.PNG
+[boosterpack]: images/IMG_boosterpack.PNG
