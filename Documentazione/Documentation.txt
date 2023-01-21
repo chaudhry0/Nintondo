@@ -1,6 +1,23 @@
 [ GAMES ]
   about
   floppyDisk
+	init functions
+		-initFloppyDisk();  							// initializes floppy spawn point and game score
+	moving/updating functions
+		-moveUpFloppyDisk();    						// update floppy position up
+		-moveDownFloppyDisk();  						// update floppy position up
+		-moveRam(); 								// update position, removes inactive and create new ram banks
+	bool functions
+		checkBorderCollisionF(int bottom, int top, int min, int max);  	// check top and bottom border collision
+		checkRamCollisionF();  						// check collision between ram banks and floppy
+	draw functions
+		drawFloppyDiskBackground();    					// draw floppy disk background
+		drawFloppyDisk(int x, int y);  						// draw floppy disk
+		drawRam(); 								// draw ram banks
+		clearFloppyDisk(int lastX, int LastY, int up, int down);   		// clear floppy of the pixels it moved
+		clearRam();   								// clear ram banks of the pixels they moved
+
+
   pong
   rhinoRunner
   snake
