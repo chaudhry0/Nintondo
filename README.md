@@ -60,8 +60,9 @@ Do a search and replace with your text editor for the following: `github_usernam
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
 ### Built With
-* [![C][C-lan]][C-url]
-* [![CCS][CCS-ide]][CCS-url]
+* [![C][C-logo]][C-url]
+* [![CCS][CCS-logo]][CCS-url]
+* [![Texas Board][Texas-logo]][Texas-url]
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
 <!-- GETTING STARTED -->
@@ -147,7 +148,9 @@ Project Link: [https://github.com/chaudhry0/Nintondo](https://github.com/chaudhr
 
 <!-- MARKDOWN LINKS & IMAGES -->
 [boosterpack]: images/IMG_boosterpack.PNG
-[C-lan]: https://img.shields.io/badge/C%20Language-000000?style=for-the-badge&logo=c%2B%2B&logoColor=white
+[C-logo]: https://img.shields.io/badge/C%20Language-000000?style=for-the-badge&logo=c%2B%2B&logoColor=white
 [C-url]: https://en.cppreference.com/w/c/language
-[CCS-ide]: images/ccstudio.jpg 
+[CCS-logo]: images/ccstudio.png
 [CCS-url]: https://www.ti.com/tool/CCSTUDIO
+[Texas-logo]: images/Texas_Instruments_Logo.svg_32.png
+[Texas-url]: https://www.ti.com/product/MSP432P401R
