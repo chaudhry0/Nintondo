@@ -1,5 +1,8 @@
 [ GAMES ]
   about
+	run function
+		-void runAbout(); 							// runs the About screen
+
   floppyDisk
 	init functions
 		-initFloppyDisk();  							// initializes floppy spawn point and game score
@@ -8,70 +11,148 @@
 		-moveDownFloppyDisk();  						// update floppy position up
 		-moveRam(); 								// update position, removes inactive and create new ram banks
 	bool functions
-		checkBorderCollisionF(int bottom, int top, int min, int max);  	// check top and bottom border collision
-		checkRamCollisionF();  						// check collision between ram banks and floppy
+		-checkBorderCollisionF(int bottom, int top, int min, int max);  	// check top and bottom border collision
+		-checkRamCollisionF();  						// check collision between ram banks and floppy
 	draw functions
-		drawFloppyDiskBackground();    					// draw floppy disk background
-		drawFloppyDisk(int x, int y);  						// draw floppy disk
-		drawRam(); 								// draw ram banks
-		clearFloppyDisk(int lastX, int LastY, int up, int down);   		// clear floppy of the pixels it moved
-		clearRam();   								// clear ram banks of the pixels they moved
-
+		-drawFloppyDiskBackground();    					// draw floppy disk background
+		-drawFloppyDisk(int x, int y);  						// draw floppy disk
+		-drawRam(); 								// draw ram banks
+		-clearFloppyDisk(int lastX, int LastY, int up, int down);   		// clear floppy of the pixels it moved
+		-clearRam();   								// clear ram banks of the pixels they moved
 
   pong
+	init functions
+		-initBall(Ball* ballPtr); 							// initializes the ball
+	moving/updating functions
+		-moveUser(int* userUpperYPtr, int* lastUserYPtr); 			// moves the user
+		-moveEnemy(int* enemyUpperYPtr, int* lastEnemyYPtr, Ball ball); 	// moves the enemy
+		-moveBall(Ball* ballPtr);						// moves the ball
+		-invertBallXDirection(Ball* ballPtr); 					// inverts the ball horizontal direction
+		-invertBallYDirection(Ball* ballPtr); 					// inverts the ball vertical direction
+		-updateBallY(Ball* ballPtr); 						// updates the ball vertical velocity
+	bool functions
+		-checkUserCollision(int userUpperY, Ball ball); 			// checks if the ball collides with the user
+		-checkEnemyCollision(int enemyUpperY, Ball ball);  			// checks if the ball collides with the enemy
+		-checkPongBorderCollision(Ball ball); 					// checks if the ball collides with any border
+	draw functions
+		-drawPongBackground(); 						// draws the background
+		-drawPongUser(int userUpperY, int lastUserY); 			// draws the user
+		-drawPongEnemy(int enemyUpperY, int lastEnemyY); 		// draws the enemy
+		-drawBall(Ball ball); 							// draws the ball
+	run function
+		-runPong(); 								// runs the Pong game
+
   rhinoRunner
+	init functions
+		-initRhino(Rhino* rhinoPtr, int* counterRhinoPtr); 			// initializes the rhino
+		-initObstacle(Obstacle* obstaclePtr, int distance); 			// initializes an obstacle
+		-moving/updating functions
+		-updateRhino(Rhino* rhinoPtr, int* counterRhinoPtr); 		// updates rhino position
+		-updateObstacle(Obstacle* obstaclePtr); 				// updates an obstacle
+	bool functions
+		-checkIfObstacleEnds(Obstacle obstacle); 				// checks if an obstacle has reached the end of the screen
+		-checkYCollision(Rhino rhino, Obstacle obstacle); 			// checks if the rhino collides vertically with an obstacle
+		-checkRhinoCollision(Rhino rhino, Obstacle obstacle); 		// checks if the rhino collides with an obstacle
+	draw functions
+		-drawRhinoBackground(); 						// draws the background
+		-drawRhino(Rhino rhino); 						// draws rhino
+		-clearRhino(Rhino rhino); 						// clears rhino
+		-drawObstacle(Obstacle obstacle); 					// draws an obstacle
+		-clearObstacle(Obstacle obstacle); 					// clears an obstacle
+	run function
+		-runRhino(); 								// runs the Rhino game
+
+
   snake
-    - initSnakeBody()
-    - moveSnake()
-    - generateRandomApple()
-    - checkIfOpposite()
-    - checkAppleCollision()
-    - checkBorderCollision()
-    - checkSnakeCollision()
-    - drawSnakeBackground()
-    - drawSnakeCell()
-    - drawSnakeFull()
-    - clearSnake()
-    - drawApple()
-    - runSnake()
+	init functions
+		-initSnakeBody(List* snakeBody); 					// initializes snake body (after clearing it)
+	moving/updating functions
+		-moveSnake(List* snakeBodyPtr, enum Moving* moving, 
+			int xHead, int yHead, int* lastXPtr, int* lastYPtr); 		// updates snake xVel and yVel; then it pushes the tail to the head (updating cords)
+    		-generateRandomApple(List snakeBody, Apple* apple); 		// generate new apple cords avoiding overlaps with the snake
+	bool functions
+		-checkIfOpposite(enum Moving moving); 				// checks if the user prompts a not allowed movement
+		-checkAppleCollision(List snakeBody, Apple apple);			// checks if the apple is eaten
+		-checkBorderCollision(List snakeBody); 				// checks if snake collides with the border
+		-checkSnakeCollision(List snakeBody); 				// checks if snake collides with itself
+	draw functions
+		-drawSnakeBackground(); 						// draws the background
+		-drawSnakeCell(int x, int y); 						// draws a single snake body cell
+		-drawSnakeFull(List snakeBody); 					// draws the full snake body
+		-clearSnake(int tailx, int taily, bool* lightGreenCell); 			// clears the old background cell after snake movements
+		-drawApple(); 								// draw the apple
+	run function
+		-runSnake(); 								// runs the Snake game
 			
   spaceGame
-    - initBullets()
-    - initEnemies()
-    - initSingleEnemy()
-    - updateSpacecraft()
-    - updateBullet()
-    - updateEnemies()
-    - shotBullet()
-    - checkNotDupilcates()
-    - checkBulletHits()
-    - checkLooseCondition()
-    - checkIfBulletAvailable()
-    - checkBulletEnds()
-    - drawBackground()
-    - drawBullet()
-    - cleanBulletMovement()
-    - cleanBullet()
-    - drawSpacecraft()
-    - cleanSpacecraft()
-    - drawEnemy()
-    - cleanEnemyMovement()
-    - cleanEnemy()
-    - drawBulletsCompleteBar()
-    - cleanBulletBar()
-    - drawBulletBar()
-    - runSpaceGame()
+	init functions
+		-initBullets(Entity* bullets); 						// initializes every bullet
+   		-initEnemies(Entity* enemies); 					// initializes every enemy
+    		-initSingleEnemy(Entity* enemies, int i); 				// initializes a single enemy
+	moving/updating functions
+		-updateSpacecraft(Spacecraft* spacecraft); 				// updates the spacecraft basing on player inputs
+		-updateBullet(Entity* bullets, int i); 					// updates bullets
+		-updateEnemies(Entity* enemies, int i); 				// updates enemies
+		-shotBullet(Spacecraft spacecraft, Entity* bullets); 			// shots a bullet basing on the spacecraft position
+	bool functions
+		-checkNotDupilcates(Entity enemies[], int x); 				// checks if the xPosition is not already occupied by an enemy
+		-checkBulletHits(Entity bullets[], int i, Entity enemies[], int j); 	// checks if a bullet hits an enemy
+		-checkLooseCondition(Entity enemies[]); 				// checks if an enemy has reached the maximum position
+		-checkIfBulletAvailable(Entity bullets[]); 				// checks if a bullet is available
+		-checkBulletEnds(Entity bullets[], int i); 				// checks if the bullet has reached the end of the screen
+	draw functions
+		-drawBackground(); 							// draws the bg
+		-drawBullet(Entity bullets[], int i); 					// draws a bullet
+		-cleanBulletMovement(Entity bullets[], int i); 				// cleans a bullet movement
+		-cleanBullet(Entity bullets[], int i); 					// cleans an entire bullet
+		-drawSpacecraft(Spacecraft spacecraft); 				// draws the spacecraft
+		-cleanSpacecraft(Spacecraft spacecraft); 				// cleans the spacecraft
+		-drawEnemy(Entity enemies[], int i); 					// draws an enemy
+		-cleanEnemyMovement(Entity enemies[], int i); 			// cleans an enemy movement
+		-cleanEnemy(Entity enemies[], int i); 					// cleans an entire enemy
+		-drawBulletsCompleteBar(); 						// draws the bullet bar on the right
+		-cleanBulletBar(int numBulletsActive); 				// removes one bullet from the bar
+		-drawBulletBar(int numBulletsActive); 				// adds one bullet from the bar
+	run functions
+		-runSpaceGame(); 							// runs the game
+
+  bestScore
+	draw functions
+		-drawScores(); 								// function of drawing a table with the best score from every game
+	run function
+		-runBestScores(); 							// runs drawScore and the score screen remains until button A is clicked
+  superDario
+	initBricks();
+	checkBrickCollision(Dario dario, int* index);
+	checkBrickLateralCollision(Dario dario);
+	updateDario(Dario* darioPtr);
+	drawDario(Dario dario);
+	drawBricks();
+	getXDifference(Dario dario);
+	clearDario(Dario dario);
+	drawDarioBackground();
+	runSuperDario();
+
 	
-[ IMAGES ]
-  aboutImages
-	backgroundImages
-	floppyDiskImages
-	menuImages
-	pongImages
-	rhinoImages
-	snakeImages
-	spaceGameImages
-	superDarioImages
+	
+[ IMAGES ]	// ogni immagine ha una pixel art quindi non la segno perchè è implicita
+  aboutImages					
+	-paletteAbout[]	//black, white
+	-imageAbout1
+	-imageAbout2
+	
+  backgroundImages
+	-paletteBackground[]	// white, red
+	-imageBackground
+	-imageLogo
+	-imageGameOver
+  floppyDiskImages
+  menuImages
+  pongImages
+  rhinoImages
+  snakeImages
+  spaceGameImages
+  superDarioImages
 
 [ MENU ]
 	gameHub
