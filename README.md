@@ -153,7 +153,7 @@ Project Link: [https://github.com/chaudhry0/Nintondo](https://github.com/chaudhr
 [boosterpack]: images/IMG_boosterpack.PNG
 [C-logo]: https://img.shields.io/badge/C%20Language-000000?style=for-the-badge&logo=c%2B%2B&logoColor=white
 [C-url]: https://en.cppreference.com/w/c/language
-[CCS-logo]: images/ccstudio-transparent.png
+[CCS-logo]: images/ccstudio-transparent-final.png
 [CCS-url]: https://www.ti.com/tool/CCSTUDIO
 [Texas-logo]: images/Texas_Instruments_Logo.svg_32.png
 [Texas-url]: https://www.ti.com/product/MSP432P401R
