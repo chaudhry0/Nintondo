@@ -136,42 +136,240 @@
 	
 	
 [ IMAGES ]	// ogni immagine ha una pixel art quindi non la segno perchè è implicita
-  aboutImages					
-	-paletteAbout[]	//black, white
-	-imageAbout1
-	-imageAbout2
+  aboutImages	
+	palette				
+		-paletteAbout[]		//BLACK, WHITE
+	immages
+		-imageAbout1
+		-imageAbout2
 	
   backgroundImages
-	-paletteBackground[]	// white, red
-	-imageBackground
-	-imageLogo
-	-imageGameOver
+	palette
+		-paletteBackground[]		// WHITE, RED
+	immages
+		-imageBackground
+		-imageLogo
+		-imageGameOver
+
+  bestScoreImages
+	palette
+		-paletteBestScores[]		// BLACK, LIGTH_GREY, GREY, WHITE
+	immages
+		-imageBestScores
+
   floppyDiskImages
+	palette
+		-paletteFloppyDiskBackground[]	// LIGTH_BLUE
+		-paletteFloppyDisk[]			// BLACK, LIGTH_BLUE, GREY, DARK_GREY, WHITE
+		-paletteRam[]				// BLACK, LIGTH_BLUE, DARK_GREEN, GREEN, ORANGE, YELLOW 
+	immages
+		-imageFloppyDiskBackground
+		-imageFloppyDisk
+		-imageRam
+
   menuImages
+	palette
+		-paletteDefault[]		// WHITE, RED
+		-paletteDefault2[]		// WHITE, ORANGE
+		-paletteBlackWhite[]		// BLACK, WHITE
+	immages
+		-imageTextSelectGame
+		-imageTextSnake
+		-imageTextPong
+		-imageTextRhino
+		-imageTextFloppyDisk
+		-imageTextSpaceInvaders
+		-imageTextBestScores
+		-imageTextAbout
+		-imageArrow
+
   pongImages
+	palette
+		-palettePongBackground[]	// GREEN, GREEN
+		-palettePongUser[]		// BLACK, RED
+		-palettePongTitle[]		// BLACK, GREEN, BLUE, BROWN, ORANGE, YELLOW, RED, WHITE
+		-palettePongEnemy[]		// BLACK, BLUE
+		-palettePongBall[]		// BLACK, WHITE
+	immages
+		-imagePongBackground
+		-imagePongUser
+		-imagePongEnemy
+		-imagePongBall
+		-imagePongTitle
+
   rhinoImages
+	palette
+		-paletteTitleRhino[]		// BLACK, DARK_GREY, BLACK, GREY, LIGTH_GREY, GREY, WHITE
+		-paletteCactus[]		// BLACK, WHITE
+		-paletteGreys[]			// BLACK, LIGTH_GREY, DARK_GREY, WHITE
+		-paletteGreys2[] 		// BLACK, LIGTH_GREY, GREY, WHITE
+	immages
+		-imagetitleRhino
+		-imageCactus
+		-imageRinoBackground
+		-imageRino
+		-imageBird
+
   snakeImages
+	palette
+		-paletteSnakeBackground[]	// LIGTH_GREEN, GREEN
+		-paletteSnakeApple[]		// BROWN, DARK_GREEN, RED, WHITE
+		-paletteSnakeBody[]		// INDIGO, PURPLE
+		-paletteSnakeTitle[]		// BLACK, LIGTH_GREEN, GREEN, PURPLE, INDIGO, YELLOW, RED, WHITE
+	immages
+		-imageSnakeBackground
+		-imageSnakeApple
+		-imageSnakeBody
+		-imageSnakeTitle
+
   spaceGameImages
+	palette
+		-paletteSpacecraft[]		// DARK_BLUE, ORANGE, YELLOW, DARK_GREY, LIGTH_BLUE, LIGTH_GREY, BLACK
+		-paletteSpaceEnemy[]		// DARK_BLUE, DARK_GREY, LIGTH_GREY
+		-paletteBulletBar[]		// BLUE, ORANGE, YELLOW
+		-paletteBullet[]			// DARK_BLUE, ORANGE, YELLOW, RED
+		-paletteSpaceInvadersTitle[]	// BLACK, DARK_BLUE, ORANGE, YELLOW, DARK_GREY, LIGTH_GREY, WHITE
+	immages
+		-imageSpacecraft
+		-imageSpaceEnemy
+		-imageBulletBar
+		-imageBullet
+		-imageSpaceInvadersTitle
+
   superDarioImages
+	palette	// qua i colori non sono presi da colors.h
+		-paletteDario[]			// nero, cielo, rosso, marrone, rosa, blu, bluchiaro, bianco
+		-paletteBrick[]			// sfumatura medio chiaro di marrone, sfumatura medio scuro di rosso-arancio
+		-paletteDarioBackground[]	// sfumatura medio scuro di verde, cielo, sfumatura chiaro di turchese, bianco, sfumatura di verde 
+	immages
+		-imageDario
+		-imageDarioBrick
+		-imageDarioBackground
 
 [ MENU ]
 	gameHub
-		- drawLogo()
-		- drawGameOver
-		- cleanDisplayGame()
-		- runGameHub()
-	menu
-		- initElements()
-		- updateArrowAndElements()
-		- drawElem()
-		- drawArrow()
-		- drawMenu()
-		- runMenu()
+		draw functions
+			-drawLogo(); 		// draws initial text "Ninotondo"
+			-drawGameOver(); 	//draws the GameOver image (equal for all games)
+			-cleanDisplayGame(); 	// clean the display (only the central section, not the red bars)
+		run functions
+			-runGameHub(); 	// runMenu function
+
+	menu	//ancora da commentare pure nel.h
+		init functions
+			-initElements(Graphics_Image* elementsPtr);
+		moving/updating functions
+			-updateArrowAndElements(Graphics_Image* elementsPtr);
+		draw functions
+			-drawElement(Graphics_Image* imagePtr, int y);
+			-drawArrow();
+			-drawMenu(Graphics_Image* elementsPtr);
+		run functions
+			-runMenu();
 
 [ UTILITIES ]
 	colors
+		COLORS
+			YELLOW 0xecd275
+			ORANGE 0xd9874f
+			RED 0xed1111
+			BROWN 0x835332
+			LIGTH_GREEN 0x82b77f
+			GREEN 0x73ae5c
+			DARK_GREEN 0x2f613c
+			LIGTH_BLUE 0x7fbec3
+			BLUE 0x3d73a2
+			DARK_BLUE 0x28315c
+			PURPLE 0x7b447d
+			INDIGO 0x726d96
+		GREYSCALE
+			WHITE 0xf1f7f8
+			LIGTH_GREY 0xa1a1a1
+			GREY 0x838383
+			DARK_GREY 0x565656
+			BLACK 0x121212
+
 	init
+		-_adcInit(); 			// initializes ADC
+		-_graphicsInit(); 		// initializes LCD
+		-_lightSensorInit(); 		// initializes light sensor
+		-configurePushButtons(); 	// configures Joystick buttons
+		-configureTimerA(); 		// configures Timer_A
+		-_hwInit(); 			// initializes hardware
+
 	libs
+		Libs
+			#include <ti/devices/msp432p4xx/inc/msp.h>
+			#include <ti/devices/msp432p4xx/driverlib/driverlib.h>
+			#include <ti/grlib/grlib.h>
+			#include "Drivers/LcdDriver/Crystalfontz128x128_ST7735.h"
+			#include "Drivers/LcdDriver/HAL_MSP_EXP432P401R_Crystalfontz128x128_ST7735.h"
+			#include "Drivers/LcdDriver/HAL_MSP_EXP432P401R_Crystalfontz128x128_ST7735.h"
+			#include "Drivers/HAL_I2C.h" //I2C communication
+			#include "Drivers/HAL_OPT3001.h" //light sensor
+			#include "msp.h"
+		C Libs
+			#include <stdio.h>
+			#include <stdint.h>
+			#include <stdlib.h> 	// std lib
+			#include <stdbool.h> 	// std lib for boolean values
+			#include <string.h> 	// lib to use string
+			#include <time.h>	 // lib ...
+
 	linkedList
+		-display();
+		-insert_end(int val);
+		-delete_begin();
+		-struct node* head;
+		-struct node{
+    			int data;
+    			struct node* next;};
+
+
 	list
+		-typedef struct Cords {
+    			int x;
+    			int y;
+		} Cords;
+		-typedef struct List {
+    			Cords cords[MAX_SIZE]; //104
+    			int head; 	// index of first free item
+    			int tail; 	// index of last item added
+    			int length;
+		} List;
+		-stampa(List list);
+		-initList(List* list);
+		-push(List* list, int _x, int _y);
+		-pop(List* list);
+		-getElem(List list, int n);
+		-getFirstElem(List list);
+		-getLastElem(List list);
+		
 	utilities
+		// GLOBAL VARIABLES 
+			-static uint16_t resultsBuffer[2]; 	// buffer to store Joystick samples
+			-Graphics_Context g_sContext; 	// Graphic library context
+			-int score; 				// game score
+			-bool gameOver;			 // game status
+			-int direction; 				// value read from Joystick buffer
+			-int lastMove; 				// previous move performed (equals to "direction" but not reset every time)
+			-int buttonA;
+			-int bestScores[5];
+		// FUNCTIONS 
+			-initBestScores();
+			-updateBestScore(int selectedGame);
+			-getTimeMils(); 		// returns Timer_A counter
+			-wait(uint32_t interval); 	// waits some milliseconds
+			-random(int min, int max); 	// generates a random number
+			-drawScoreText(); 		// draws the current score
+			-drawScore(int score); 		// draws the current score
+			-cleanBottomBar();
+			-getButtons(); 			// returns 1 if A pressed, 2 if B pressed (Joystick), 0 otherwise
+			-drawRect(int xMin, int xMax, int yMin, int yMax, uint32_t color); // Generic function to draw Rectangle for cleaning purpose
+			-checkLastMove(); 		// ...
+			-initGameData();
+			-consumeButtonA();
+			-showInitialTitle(Graphics_Image image);
+		// HANDLER 
+			-TA2_N_IRQHandler(void); 	// handler for timer_A
+			-ADC14_IRQHandler(void); 	// handler for Joystick

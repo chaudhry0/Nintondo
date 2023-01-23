@@ -219,18 +219,17 @@ static  uint8_t pixelRam[] = {
 
 };
 
-static const uint32_t paletteFloppyDiskBackground[] = {//azz
-                                                       0x4dafc6
+static const uint32_t paletteFloppyDiskBackground[] = {LIGTH_BLUE
 };
+//0x4dafc6
 
-static const uint32_t paletteFloppyDisk[] = { //black    azz       grey      dark_grey  white
-                                               0x000000, 0x4dafc6, 0xc4c4c4, 0x898989,  0xffffff
+static const uint32_t paletteFloppyDisk[] = { BLACK, LIGTH_BLUE, GREY, DARK_GREY, WHITE
 };
+//vecchi colori in ordine 0x000000, 0x4dafc6, 0xc4c4c4, 0x898989,  0xffffff
 
-static const uint32_t paletteRam[] = {//black    azz       greenDark  green     yellowD   yellow
-                                       0x000000, 0x4dafc6, 0x008131,  0x2d9956, 0xcea821, 0xedd618
+static const uint32_t paletteRam[] = {BLACK, LIGTH_BLUE, DARK_GREEN, GREEN, ORANGE, YELLOW
 };
-
+// vecchi colori in ordine 0x000000, 0x4dafc6, 0x008131,  0x2d9956, 0xcea821, 0xedd618
 const Graphics_Image  imageFloppyDiskBackground = {
     GRAPHICS_IMAGE_FMT_8BPP_UNCOMP,
     128,

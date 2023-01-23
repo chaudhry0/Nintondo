@@ -97,7 +97,7 @@ void clearFloppyDisk(int lastX, int LastY, int up, int down){
              lastX + FLOPPY_WIDTH ,
              LastY + up,
              LastY + FLOPPY_HEIGHT + down,
-             0x4dafc6);
+             LIGTH_BLUE);// ex colore 0x4dafc6
 }
 
 // Eraser only few pixel of the ram depending on SPEED_FLOPPY
@@ -106,10 +106,16 @@ void clearRam() {
     struct node* ptr = head;
     while(ptr!=NULL) {
         if(ptr->data != 0){
-            drawRect(currentPortion * portionSize  - currentPosition + portionSize + 1 + RAM_WIDTH - SPEED_RAM, currentPortion * portionSize  - currentPosition + portionSize + BORDER + 3,
-                     MAX_Y_SIZE -  ptr->data -BORDER , MAX_Y_SIZE - BORDER -1 , 0x4dafc6);
-            drawRect(currentPortion * portionSize  - currentPosition+ portionSize + 1 +  RAM_WIDTH - SPEED_RAM, currentPortion * portionSize  - currentPosition + portionSize + BORDER + 3,
-                     BORDER, (MAX_Y_SIZE - 2*BORDER) - ptr->data - RAM_HEIGHT_GAP + BORDER - 1, 0x4dafc6);
+            drawRect(currentPortion * portionSize  - currentPosition + portionSize + 1 + RAM_WIDTH - SPEED_RAM,
+                     currentPortion * portionSize  - currentPosition + portionSize + BORDER + 3,
+                     MAX_Y_SIZE -  ptr->data - BORDER ,
+                     MAX_Y_SIZE - BORDER - 1,
+                     LIGTH_BLUE);// ex colore 0x4dafc6
+            drawRect(currentPortion * portionSize  - currentPosition+ portionSize + 1 +  RAM_WIDTH - SPEED_RAM,
+                     currentPortion * portionSize  - currentPosition + portionSize + BORDER + 3,
+                     BORDER,
+                     (MAX_Y_SIZE - 2*BORDER) - ptr->data - RAM_HEIGHT_GAP + BORDER, //-1, penso che era l'origine del bug
+                     LIGTH_BLUE);// ex colore 0x4dafc6
         }
     ptr = ptr->next;
     currentPortion++;

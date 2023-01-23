@@ -12,7 +12,7 @@ void drawScores(){
         totalScore += bestScores[i];
     }
     sprintf(value, "%d", totalScore);
-    Graphics_drawString(&g_sContext, (int8_t *) value, 3, 112, 78 + BAR_SIZE, TRANSPARENT_TEXT);
+    Graphics_drawString(&g_sContext, (int8_t *) value, 3, 110, 76 + BAR_SIZE, TRANSPARENT_TEXT);
 }
 
 void runBestScores(){
