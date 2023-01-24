@@ -158,7 +158,9 @@ Project Link: [https://github.com/chaudhry0/Nintondo](https://github.com/chaudhr
 <!-- ACKNOWLEDGMENTS -->
 ## Acknowledgments
 
-* []()
+* [Code Composer Studio User's Guide](https://software-dl.ti.com/ccs/esd/documents/users_guide/index.html)
+* [MSP Graphics Library](https://software-dl.ti.com/msp430/msp430_public_sw/mcu/msp430/SIMPLELINK_MSP432_SDK/1.20.00.45/exports/docs/grlib/grlib-UsersGuide.pdf)
+* [C Coding Standars](https://barrgroup.com/sites/default/files/barr_c_coding_standard_2018.pdf)
 * []()
 * []()
 
