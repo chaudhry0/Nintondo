@@ -43,7 +43,7 @@
       </ul>
     </li>
     <li><a href="#usage">Usage</a></li>
-    <li><a href="#roadmap">Roadmap</a></li>
+    <li><a href="#developedgames">Developed Games</a></li>
     <li><a href="#contact">Contact</a></li>
     <li><a href="#acknowledgments">Acknowledgments</a></li>
   </ol>
@@ -119,14 +119,20 @@ examples of how a project can be used. Additional screenshots, code examples and
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
-<!-- ROADMAP -->
-## Roadmap
-- [ ] Feature 1
-- [ ] Feature 2
-- [ ] Feature 3
-    - [ ] Nested Feature
+<!-- DEVELOPEDGAMES -->
+## Developedgames
+- SNAKE
+The game became famous to be in every smartphone. The goal of the game is to eat as many apples as possible without never hitting your tail or any border. Every time an apple is eaten the snake length increases
+- PONG
+A game that simulates a Ping Pong match. The goal of the game is to not leave the ball hitting your side and to try to win the match
+- RHINO RUNNER
+A funny game inspired to the famous Dino game developed by Google and that happears whenever the connection is down. The goal of this game is to dodge every enemy (cactus and birds)
+- FLOPPY DISK
+A funny game inspired to the Flopppy Bird, a famous smartphone game that became viral some years ago. The main goal is to dodge every RAM bank
+- SPACE INVADERS
+One of the most famous arcade game. The goal of this game is to hit every enemy spawning from the top of the screen with available bullets
  
- <p align="right">(<a href="#readme-top">back to top</a>)</p>
+<p align="right">(<a href="#readme-top">back to top</a>)</p>
 
 <!-- CONTACT -->
 ## Contact
