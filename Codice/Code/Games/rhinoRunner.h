@@ -1,8 +1,30 @@
+/*******************************************************************************
+* Title                 :   RHINO RUNNER
+* Filename              :   rhinoRunner.h
+* Last Revision Date    :   24/01/2023
+* Notes                 :   None
+*******************************************************************************/
+/*******************************************************************************
+ * @file rhinoRunner.h
+ *
+ * @brief This is the header file for the rhino runner game
+ *        It contains all the useful functions and variables for the game
+ * 
+ * @par       
+ * COPYRIGHT NOTICE: (c) 2023 Nintondo. All rights reserved.
+*******************************************************************************/
+
 #ifndef CODE_GAMES_RHINORUNNER_H_
 #define CODE_GAMES_RHINORUNNER_H_
 
+/******************************************************************************
+* Includes
+*******************************************************************************/
 #include "Code/Utilities/init.h"
 
+/******************************************************************************
+* Macros
+*******************************************************************************/
 #define JUMP_COUNTER 11
 
 #define RHINO_X_SIZE 24
@@ -17,9 +39,15 @@
 
 #define GAME_SPEED 4
 
+/******************************************************************************
+* Enum
+*******************************************************************************/
 enum Type {CACTUS, BIRD};
 enum Action {NONE, GOING_UP, GOING_DOWN};
 
+/******************************************************************************
+* Typedefs
+*******************************************************************************/
 typedef struct Rhino{
     int x;
     int y;
@@ -34,7 +62,9 @@ typedef struct Obstacle{
 
 int prova;
 
-
+/******************************************************************************
+* Function Prototypes
+*******************************************************************************/
 // [FUNCTIONS]
 // init functions
 void initRhino(Rhino* rhinoPtr, int* counterRhinoPtr); // initializes the rhino
@@ -57,3 +87,5 @@ void runRhino(); // runs the Rhino game
 
 
 #endif /* CODE_GAMES_RHINORUNNER_H_ */
+
+/*** End of File **************************************************************/
