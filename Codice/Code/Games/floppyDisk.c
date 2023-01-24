@@ -4,6 +4,7 @@
 
 // Runs the floppy disk game
 void runFloppyDisk() {
+     showInitialTitle(imageFloppyDiskBackground);
      initFloppyDisk();
      drawFloppyDiskBackground();
      drawFloppyDisk(floppyDisk.x, floppyDisk.y);
@@ -97,7 +98,7 @@ void clearFloppyDisk(int lastX, int LastY, int up, int down){
              lastX + FLOPPY_WIDTH ,
              LastY + up,
              LastY + FLOPPY_HEIGHT + down,
-             LIGTH_BLUE);// ex colore 0x4dafc6
+             LIGTH_BLUE);
 }
 
 // Eraser only few pixel of the ram depending on SPEED_FLOPPY
@@ -110,12 +111,12 @@ void clearRam() {
                      currentPortion * portionSize  - currentPosition + portionSize + BORDER + 3,
                      MAX_Y_SIZE -  ptr->data - BORDER ,
                      MAX_Y_SIZE - BORDER - 1,
-                     LIGTH_BLUE);// ex colore 0x4dafc6
+                     LIGTH_BLUE);
             drawRect(currentPortion * portionSize  - currentPosition+ portionSize + 1 +  RAM_WIDTH - SPEED_RAM,
                      currentPortion * portionSize  - currentPosition + portionSize + BORDER + 3,
                      BORDER,
                      (MAX_Y_SIZE - 2*BORDER) - ptr->data - RAM_HEIGHT_GAP + BORDER, //-1, penso che era l'origine del bug
-                     LIGTH_BLUE);// ex colore 0x4dafc6
+                     LIGTH_BLUE);
         }
     ptr = ptr->next;
     currentPortion++;
