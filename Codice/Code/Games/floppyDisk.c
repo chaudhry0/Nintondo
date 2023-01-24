@@ -4,7 +4,7 @@
 
 // Runs the floppy disk game
 void runFloppyDisk() {
-     showInitialTitle(imageFloppyDiskBackground);
+     showInitialTitle(imageFloppyDiskTitle);
      initFloppyDisk();
      drawFloppyDiskBackground();
      drawFloppyDisk(floppyDisk.x, floppyDisk.y);
