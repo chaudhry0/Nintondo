@@ -1,26 +1,33 @@
-TANTA DOCUMENTAZIONE									TEMPO
-- file/diagramma con tutte le funzioni, (manca poco)						-da finire in una mattina o un pomeriggio
-- commentare tutte le funzioni nei file								-una mattina o pomeriggio
-- fare un commentone in cui si descrive come funziona il gioco per ogni gioco		-un paio d'ore
+TANTA DOCUMENTAZIONE												TEMPO
+- file/diagramma con tutte le funzioni, (manca poco)								-da finire in una mattina o un pomeriggio
+- commentare tutte le funzioni nei file										-una mattina o pomeriggio
+- fare un commentone in cui si descrive come funziona il gioco per ogni gioco				-un paio d'ore
 
 CODICE 
-	CONST										-
-	CONTROLLARE VARIABILI (globali -> locali)					-
-	LED	(chiamare una funzione che fa brillare il led)					-2/3 ore
-	TEMPERATURA (?)
-	MENU (1 spazio vuoto)
-	CONTROLLARE IMPLEMENTAZIONE WAIT (si può fare meglio?)			-
-	SISTEMARE FUNZIONE PER BUTTON A						-
-	SISTEMARE POSIZIONE SCORE							-
-[fatto] IMPEDIRE TOT SCORE OVER 99							-
-[fatto] TOGLIERE GAME OVER PER ABOUT E SCORE					-
-	AGGIUNGERE DEFINE DOVE COMODO						-1 oretta al massimo dai
+	  CONST										
+	  CONTROLLARE VARIABILI (globali -> locali)					
+	  MENU (1 spazio vuoto)
+	  CONTROLLARE IMPLEMENTAZIONE WAIT (si può fare meglio?)			
+	  SISTEMARE FUNZIONE PER BUTTON A						
+[fatto, da controllare]	SISTEMARE POSIZIONE SCORE							
+[fatto] IMPEDIRE TOT SCORE OVER 99							
+[fatto] TOGLIERE GAME OVER PER ABOUT E SCORE					
+	  AGGIUNGERE DEFINE DOVE COMODO										-1 oretta al massimo
 [fatto] IMMAGINE FLOPPY DISK 						
-	IMMAGINI TUTORIAL (ci pensa il king <3)
-	TESTING										-una mattina per raccogliere idee e iniziare, più un giorno per finire ??
+[fatto, da controllare]	IMMAGINI TUTORIAL (ci pensa il king <3)					
 [fatto] TOGLIERE QUALSIASI COSA IN ITA (variabili, commenti,...)
 
+AGGIUNTE
+	LED (chiamare una funzione che fa brillare il led)							-2/3 ore
+	TEMPERATURA (?)
+
+TESTING															-una mattina per raccogliere idee e iniziare, più un giorno per finire ??
+	.....
+	.....
+	.....
+
 PRESENTAZIONE
-	PROGETTAZIONE VIDEO								-1 giorno
-	REALIZZAZIONE VIDEO								-1 giorno
+	PROGETTAZIONE VIDEO												-1 giorno
+	REALIZZAZIONE VIDEO												-1 giorno
 	ULTIMAZIONE FILE README
+
