@@ -8,7 +8,7 @@ void drawScores(){
     Graphics_setForegroundColor(&g_sContext, BLACK);
     for (i=0; i<5; i++){
         sprintf(value, "%d", bestScores[i]);
-        Graphics_drawString(&g_sContext, (int8_t *) value, 3, 112, BAR_SIZE + 20 + 9*i, TRANSPARENT_TEXT);
+        Graphics_drawString(&g_sContext, (int8_t *) value, 3, 110, BAR_SIZE + 18 + 9*i, TRANSPARENT_TEXT);
         totalScore += bestScores[i];
     }
     if (totalScore<100){
