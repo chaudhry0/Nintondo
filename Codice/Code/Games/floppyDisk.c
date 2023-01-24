@@ -17,7 +17,7 @@
  *        The light sensor is located on the top of the board.
  *        The light sensor is used to detect the light intensity.
  *        The light intensity is used to determine if the floppy disk should move up or down.
- *        The light intensity is measured in lux; vy default, the light intensity is set to 30 lux.
+ *        The light intensity is measured in lux; by default, the light intensity is set to 30 lux.
  *          - If the light intensity is less than 30 lux, the floppy disk will move up.
  *          - If the light intensity is greater than 30 lux, the floppy disk will move down.
  *      The game is played on a 128x136 screen. 
@@ -39,8 +39,8 @@
  *
  * @param[in] none
  * 
- * @param[global] score  Variable for storing the score of the game.
- * @param[global] gameOver  Variable for storing the state of the game.
+ * @var[global] score  Variable for storing the score of the game.
+ * @var[global] gameOver  Variable for storing the state of the game.
  * 
  * @var[local] floppyDisk  Location of the floppy disk in coordinates.
  * @var[local] portionSize  Width of the portion depending how many NUM_RAM sticks there are
@@ -207,7 +207,7 @@ void drawFloppyDiskBackground(){
  * 
  * @var[global] none
  * 
- * @var[local] nonen
+ * @var[local] none
  *
  * @return none --> void
  */
