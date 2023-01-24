@@ -120,7 +120,7 @@ examples of how a project can be used. Additional screenshots, code examples and
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
 <!-- DEVELOPEDGAMES -->
-## Developedgames
+## Developed Games
 - [SNAKE]
 
 The game became famous to be in every smartphone. The goal of the game is to eat as many apples as possible without never hitting your tail or any border. Every time an apple is eaten the snake length increases
