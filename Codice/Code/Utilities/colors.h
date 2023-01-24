@@ -14,6 +14,8 @@
 #define DARK_BLUE 0x28315c
 #define PURPLE 0x7b447d
 #define INDIGO 0x726d96
+#define LIGTH_PINK 0xe3c3ce
+#define PINK 0xd885a1
 
 
 
