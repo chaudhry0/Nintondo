@@ -51,30 +51,33 @@
  * @return none --> void
  */
 void runFloppyDisk() {
-     float lux = 0.0; 
-     FloppyDisk floppyDisk; 
-     int portionSize = 0; 
-     int currentPosition = 0; 
-     initFloppyDisk(&floppyDisk, &portionSize);
-     drawFloppyDiskBackground();
-     drawFloppyDisk(floppyDisk.x, floppyDisk.y);
-     drawScoreText();
-     drawScore(score);
-     while(!gameOver){
-         lux = OPT3001_getLux();
-         if(lux < MIN_THRESHOLD_LUX ) {
-              moveUpFloppyDisk(&floppyDisk);
-         }else {
-             moveDownFloppyDisk(&floppyDisk);
-         }
-         drawFloppyDisk(floppyDisk.x, floppyDisk.y);
-         clearRam(&currentPosition, &portionSize);
-         moveRam(&currentPosition, &portionSize);
-         wait(TIME_FLOPPYDISK_GAME);
-         drawRam(&currentPosition, &portionSize);
-         gameOver = (checkBorderCollisionF(floppyDisk.y + FLOPPY_HEIGHT, floppyDisk.y ,  MAX_Y_SIZE - BORDER, BORDER) ||
-                     checkRamCollisionF(&floppyDisk, &currentPosition, &portionSize));
-     }
+    showInitialTitle(imageFloppyDiskTitle);
+    drawFloppyDiskBackground();
+    showTutorialBig(imageTutorialFloppyDisk);
+    float lux = 0.0;
+    FloppyDisk floppyDisk;
+    int portionSize = 0;
+    int currentPosition = 0;
+    initFloppyDisk(&floppyDisk, &portionSize);
+    drawFloppyDiskBackground();
+    drawFloppyDisk(floppyDisk.x, floppyDisk.y);
+    drawScoreText();
+    drawScore(score);
+    while(!gameOver){
+        lux = OPT3001_getLux();
+        if(lux < MIN_THRESHOLD_LUX ) {
+            moveUpFloppyDisk(&floppyDisk);
+        }else {
+            moveDownFloppyDisk(&floppyDisk);
+        }
+        drawFloppyDisk(floppyDisk.x, floppyDisk.y);
+        clearRam(&currentPosition, &portionSize);
+        moveRam(&currentPosition, &portionSize);
+        wait(TIME_FLOPPYDISK_GAME);
+        drawRam(&currentPosition, &portionSize);
+        gameOver = (checkBorderCollisionF(floppyDisk.y + FLOPPY_HEIGHT, floppyDisk.y ,  MAX_Y_SIZE - BORDER, BORDER) ||
+                checkRamCollisionF(&floppyDisk, &currentPosition, &portionSize));
+    }
 }
 
 /*!

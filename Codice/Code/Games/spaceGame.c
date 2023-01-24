@@ -182,6 +182,8 @@ void shotBullet(Spacecraft spacecraft, Entity* bullets){
 
 void runSpaceGame(){
     showInitialTitle(imageSpaceInvadersTitle);
+    drawBackground();
+    showTutorialBig(imageTutorialSpaceInvaders);
     consumeButtonA(); // resets the variable storing if button A has been pressed
     int numBulletsActive = 0; // numbers of bullets on the screen
     int shotCountdown = 0; // countdown to avoid bullets spam

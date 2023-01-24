@@ -1,5 +1,5 @@
 #include "utilities.h"
-#include "Code/Utilities/colors.h"
+
 
 void initBestScores(){
     int i;
@@ -117,10 +117,21 @@ bool consumeButtonA(){
     return false;*/
 }
 
+void showTutorialBig(Graphics_Image image){
+    Graphics_drawImage(&g_sContext, &image, 0, CELL_SIZE_LARGE + MAX_HEIGHT/2 - CELL_SIZE_LARGE/2 - 6);
+    wait(TIME_TITLE_GAME);
+}
+
+void showTutorialSmall(Graphics_Image image){
+    Graphics_drawImage(&g_sContext, &image, 0, CELL_SIZE_LARGE + MAX_HEIGHT/2 - CELL_SIZE_LARGE/2);
+    wait(TIME_TITLE_GAME);
+}
+
 void showInitialTitle(Graphics_Image image){
     Graphics_drawImage(&g_sContext, &image, 0, CELL_SIZE_LARGE);
     wait(TIME_TITLE_GAME);
 }
+
 
 void ADC14_IRQHandler(void) {
     uint64_t status = ADC14_getEnabledInterruptStatus();

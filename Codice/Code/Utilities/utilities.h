@@ -2,10 +2,12 @@
 #define _UTILITIES_H_
 
 #include "Code/Utilities/libs.h"
+#include "Code/Utilities/colors.h"
+
 
 
 // [ GOLBAL CONSTANT ]
-#define TIME_TITLE_GAME 2000
+#define TIME_TITLE_GAME 1800
 #define TIME_GAMEOVER_GAME 4000
 #define MAX_HEIGHT 96
 #define MAX_WIDTH 128
@@ -40,6 +42,7 @@ void checkLastMove(); // ...
 void initGameData();
 bool consumeButtonA();
 void showInitialTitle(Graphics_Image image);
+void showTutorial(Graphics_Image image);
 
 
 // [ HANDLER ]

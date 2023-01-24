@@ -9,12 +9,12 @@ CODICE
 	  MENU (1 spazio vuoto)
 	  CONTROLLARE IMPLEMENTAZIONE WAIT (si può fare meglio?)			
 	  SISTEMARE FUNZIONE PER BUTTON A						
-[fatto, da controllare]	SISTEMARE POSIZIONE SCORE							
+[fatto] SISTEMARE POSIZIONE SCORE							
 [fatto] IMPEDIRE TOT SCORE OVER 99							
 [fatto] TOGLIERE GAME OVER PER ABOUT E SCORE					
-	  AGGIUNGERE DEFINE DOVE COMODO										-1 oretta al massimo
+	AGGIUNGERE DEFINE DOVE COMODO										-1 oretta al massimo
 [fatto] IMMAGINE FLOPPY DISK 						
-[fatto, da controllare]	IMMAGINI TUTORIAL (ci pensa il king <3)					
+[fatto] IMMAGINI TUTORIAL (ci pensa il king <3)					
 [fatto] TOGLIERE QUALSIASI COSA IN ITA (variabili, commenti,...)
 
 AGGIUNTE

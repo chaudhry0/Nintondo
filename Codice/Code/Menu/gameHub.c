@@ -65,7 +65,7 @@ void runGameHub(){
     }else{
         updateBestScore(4); // spaceGame
     }
-    if(menuNumber==0 ||  selectedGame<2){
+    if(menuNumber==0 || selectedGame<2){
         drawGameOver();
     }else{
         cleanDisplayGame();

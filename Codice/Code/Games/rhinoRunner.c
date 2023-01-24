@@ -3,6 +3,8 @@
 
 void runRhino() {
     showInitialTitle(imagetitleRhino);
+    drawRhinoBackground();
+    showTutorialSmall(imageTutorialRhino);
     prova = 0;
     Rhino rhino;
     int counterRhino;

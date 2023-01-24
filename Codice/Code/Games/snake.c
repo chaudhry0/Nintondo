@@ -142,6 +142,8 @@ bool checkSnakeCollision(List snakeBody) {
 
 void runSnake() {
     showInitialTitle(imageSnakeTitle);
+    drawSnakeBackground();
+    showTutorialSmall(imageTutorialSnake);
     bool lightGreenCell = true;
     int speed = 300;
     int lastX = 0;
