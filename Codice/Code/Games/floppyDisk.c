@@ -39,8 +39,8 @@
  *
  * @param[in] none
  * 
- * @param[global] score  Variable for storing the score of the game.
- * @param[global] gameOver  Variable for storing the state of the game.
+ * @var[global] score  Variable for storing the score of the game.
+ * @var[global] gameOver  Variable for storing the state of the game.
  * 
  * @var[local] floppyDisk  Location of the floppy disk in coordinates.
  * @var[local] portionSize  Width of the portion depending how many NUM_RAM sticks there are
