@@ -1,6 +1,42 @@
+/*******************************************************************************
+* Title                 :   RHINO RUNNER
+* Filename              :   rhinoRunner.c
+* Last Revision Date    :   24/01/2023
+* Notes                 :   None
+*******************************************************************************/
+/*******************************************************************************
+ * @file rhinoRunner.c
+ *
+ * @brief This module runs the rhino runner game.
+ *        The game is inspired by the google chrome game Dino "T-Rex Runner".
+ *        The player has to avoid the obstacles (cactus and birds).
+ *        The game is over when the player collides with an obstacle.
+ *        The player can jump by pressing the button A on the joystick.
+ *        When the button is released the rhino starts falling.
+ *        
+ *      
+ *
+ * @par       
+ * COPYRIGHT NOTICE: (c) 2023 Nintondo. All rights reserved.
+*******************************************************************************/
+/******************************************************************************
+* Includes
+*******************************************************************************/
 #include "rhinoRunner.h"
 #include "Code/Images/rhinoImages.h"
 
+/******************************************************************************
+* Function Definitions
+*******************************************************************************/
+/*!
+ * @brief This Function runs the rhino runner game.
+ *               
+ *
+ * @param[in] none
+ * 
+ * 
+ * @return none --> void
+ */
 void runRhino() {
     showInitialTitle(imagetitleRhino);
     drawRhinoBackground();
@@ -44,6 +80,16 @@ void runRhino() {
     }
 }
 
+/*!
+ * @brief Initializes all the useful variables.             
+ *
+ * 
+ * @param[in] rhinoPtr  Pointer to the rhino struct.
+ * @param[in] counterRhinoPtr  Pointer to the counterRhino variable.
+ * 
+ * 
+ * @return none --> void
+ */
 void initRhino(Rhino* rhinoPtr, int* counterRhinoPtr) {
     *counterRhinoPtr = 0;
     rhinoPtr->x = CELL_SIZE_LARGE;
@@ -52,7 +98,18 @@ void initRhino(Rhino* rhinoPtr, int* counterRhinoPtr) {
 }
 
 
-
+/*!
+ * @brief Initializes initializes an obstacle.
+ *        The obstacle can be a cactus or a bird.
+ *        The type of the obstacle is chosen randomly.            
+ *
+ * 
+ * @param[in] obstaclePtr  Pointer to the obstacle struct.
+ * @param[in] distance  Distance between the obstacle and the previous one.
+ * 
+ * 
+ * @return none --> void
+ */
 void initObstacle(Obstacle* obstaclePtr, int distance) {
     if (random(0, 2) == 2){
         obstaclePtr->type = BIRD;
@@ -65,10 +122,28 @@ void initObstacle(Obstacle* obstaclePtr, int distance) {
     }
 }
 
+/*!
+ * @brief The function draws the rhino background.
+ *
+ *               
+ * @param[in] none
+ * 
+ *
+ * @return none --> void
+ */
 void drawRhinoBackground() {
     Graphics_drawImage(&g_sContext, &imageRinoBackground, 0, CELL_SIZE_LARGE);
 }
 
+/*!
+ * @brief This function draws the background of the game.
+ *
+ *               
+ * @param[in] rhino  The rhino struct.
+ * 
+ *
+ * @return none --> void
+ */
 void drawRhino(Rhino rhino) {
     Graphics_drawImage(&g_sContext, &imageRino, rhino.x, rhino.y);
     if (prova == 1){
@@ -80,6 +155,19 @@ void drawRhino(Rhino rhino) {
     }
 }
 
+/*!
+ * @brief The function clears the rhino.
+ *        The rhino can be in 3 different states:
+ *          - NONE: the rhino is falling
+ *          - GOING_UP: the rhino is jumping
+ *          - GOING_DOWN: the rhino is falling after the jump
+ *          Only the part of the rhino that is moving is cleared.
+ *               
+ * @param[in] rhino  The rhino struct.
+ * 
+ *
+ * @return none --> void
+ */
 void clearRhino(Rhino rhino) {
     if (rhino.action == NONE){
         drawRect(rhino.x, rhino.x + RHINO_X_SIZE - 1, rhino.y - 1, rhino.y - GAME_SPEED, WHITE);
@@ -90,6 +178,21 @@ void clearRhino(Rhino rhino) {
     }
 }
 
+/*!
+ * @brief The function updates rhino position logically.
+ *        The rhino can be in 3 different states:
+ *         - NONE: the rhino is falling
+ *         - GOING_UP: the rhino is jumping  
+ *         - GOING_DOWN: the rhino is falling after the jump
+ *       The function updates the rhino position according to the state.
+ *             
+ * 
+ * @param[in] rhinoPtr  Pointer to the rhino struct.
+ * @param[in] counterRhinoPtr  Pointer to the counterRhino variable.
+ * 
+ * 
+ * @return none --> void
+ */
 void updateRhino(Rhino* rhinoPtr, int* counterRhinoPtr){
     if (rhinoPtr->action == NONE && getButtons() == 1){
         rhinoPtr->action = GOING_UP;
@@ -108,6 +211,16 @@ void updateRhino(Rhino* rhinoPtr, int* counterRhinoPtr){
     }
 }
 
+/*!
+ * @brief The function draws the obstacle.
+ *        The obstacle can be a cactus or a bird.
+ *
+ * 
+ * @param[in] obstacle  The obstacle struct.
+ * 
+ * 
+ * @return none --> void
+ */
 void drawObstacle(Obstacle obstacle) {
     if(obstacle.type == CACTUS){
         Graphics_drawImage(&g_sContext, &imageCactus, obstacle.x, obstacle.y);
@@ -116,6 +229,15 @@ void drawObstacle(Obstacle obstacle) {
     }
 }
 
+/*!
+ * @brief The function clears the obstacle.     
+ *
+ * 
+ * @param[in] obstacle  The obstacle struct.
+ * 
+ * 
+ * @return none --> void
+ */
 void clearObstacle(Obstacle obstacle) {
     if(obstacle.type == CACTUS){
         drawRect(obstacle.x + CACTUS_X_SIZE, obstacle.x + CACTUS_X_SIZE + GAME_SPEED - 1, MAX_HEIGHT-CACTUS_Y_SIZE, MAX_HEIGHT-1, WHITE);
@@ -124,6 +246,15 @@ void clearObstacle(Obstacle obstacle) {
     }
 }
 
+/*!
+ * @brief The function checks if the obstacle is out of the screen.
+ *
+ * 
+ * @param[in] obstacle  The obstacle struct.
+ * 
+ * 
+ * @return true if the obstacle is out of the screen, false otherwise.
+ */
 bool checkIfObstacleEnds(Obstacle obstacle) {
     if (obstacle.x <= 0 - CACTUS_X_SIZE && obstacle.type == CACTUS){
         return true;
@@ -133,6 +264,17 @@ bool checkIfObstacleEnds(Obstacle obstacle) {
     return false;
 }
 
+/*!
+ * @brief The function checks if the rhino collides vertically with an obstacle.
+ *        The function checks if the rhino collides with the obstacle in the y axis.
+ *             
+ * 
+ * @param[in] rhino  The rhino struct.
+ * @param[in] obstacle  The obstacle struct.
+ * 
+ * 
+ * @return true if the rhino collides with the obstacle, false otherwise.
+ */
 bool checkYCollision(Rhino rhino, Obstacle obstacle) {
     if (obstacle.type == CACTUS){
         if(rhino.y + RHINO_Y_SIZE >= obstacle.y){
@@ -144,6 +286,20 @@ bool checkYCollision(Rhino rhino, Obstacle obstacle) {
     return false;
 }
 
+/*!
+ * @brief The function checks if the rhino collides with the obstacle.
+ *        The obstacle can be a cactus or a bird.
+ *        The function checks if the rhino collides with the obstacle in the x axis.
+ *        If the rhino collides in the x axis, the function checks if the rhino collides in the y axis.
+ *        The function returns true if the rhino collides with the obstacle, false otherwise.
+ *
+ * 
+ * @param[in] rhino  The rhino struct.
+ * @param[in] obstacle  The obstacle struct.
+ * 
+ * 
+ * @return true if the rhino collides with the obstacle, false otherwise.
+ */
 bool checkRhinoCollision(Rhino rhino, Obstacle obstacle) {
     if (rhino.x <= obstacle.x && obstacle.x <= rhino.x + RHINO_X_SIZE){
         if(checkYCollision(rhino, obstacle)){
@@ -153,6 +309,17 @@ bool checkRhinoCollision(Rhino rhino, Obstacle obstacle) {
     return false;
 }
 
+/*!
+ * @brief The function updates the obstacle position.
+ *        The function updates the obstacle position according to the GAME_SPEED.
+ *        The obstacle moves to the left.
+ *             
+ * 
+ * @param[in] obstaclePtr  Pointer to the obstacle struct.
+ * 
+ * 
+ * @return none --> void
+ */
 void updateObstacle(Obstacle* obstaclePtr) {
     obstaclePtr->x -= GAME_SPEED;
 }
