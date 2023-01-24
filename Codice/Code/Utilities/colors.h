@@ -18,7 +18,6 @@
 #define PINK 0xd885a1
 
 
-
 // GREYSCALE
 #define WHITE 0xf1f7f8
 #define LIGTH_GREY 0xa1a1a1

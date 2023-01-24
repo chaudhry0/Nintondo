@@ -11,7 +11,12 @@ void drawScores(){
         Graphics_drawString(&g_sContext, (int8_t *) value, 3, 112, BAR_SIZE + 20 + 9*i, TRANSPARENT_TEXT);
         totalScore += bestScores[i];
     }
-    sprintf(value, "%d", totalScore);
+    if (totalScore<100){
+        sprintf(value, "%d", totalScore);
+    }else{
+        sprintf(value, "99");
+    }
+
     Graphics_drawString(&g_sContext, (int8_t *) value, 3, 110, 76 + BAR_SIZE, TRANSPARENT_TEXT);
 }
 

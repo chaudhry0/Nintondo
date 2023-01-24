@@ -60,8 +60,14 @@ void runGameHub(){
                 break;
         }
     }
-    if (selectedGame<5){
-        updateBestScore(selectedGame); // DA CONTROLLARE!
+    if (menuNumber==0){
+        updateBestScore(selectedGame);
+    }else{
+        updateBestScore(4); // spaceGame
     }
-    drawGameOver();
+    if(menuNumber==0 ||  selectedGame<2){
+        drawGameOver();
+    }else{
+        cleanDisplayGame();
+    }
 }
