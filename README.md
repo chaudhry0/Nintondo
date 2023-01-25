@@ -157,12 +157,12 @@ Project Link: [https://github.com/chaudhry0/Nintondo](https://github.com/chaudhr
 
 <!-- ACKNOWLEDGMENTS -->
 ## Acknowledgments
-
+* [Embedded Software for the Internet of Things by Dr. Kasım Sinan Yıldırım](https://sinanyil81.github.io/courses/trento/2021/iot/)
 * [Code Composer Studio User's Guide](https://software-dl.ti.com/ccs/esd/documents/users_guide/index.html)
+* [MSP432® Peripheral Driver Library](https://schaumont.dyn.wpi.edu/ece4703b22/_downloads/7a8fc22c23fd2706dfd4d3f5256fad98/msp432-driverlib-user.pdf)
 * [MSP Graphics Library](https://software-dl.ti.com/msp430/msp430_public_sw/mcu/msp430/SIMPLELINK_MSP432_SDK/1.20.00.45/exports/docs/grlib/grlib-UsersGuide.pdf)
 * [C Coding Standars](https://barrgroup.com/sites/default/files/barr_c_coding_standard_2018.pdf)
-* []()
-* []()
+
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
