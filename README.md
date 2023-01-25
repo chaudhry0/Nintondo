@@ -10,7 +10,7 @@
 <h3 align="center">Nintondo</h3>
 
   <p align="center">
-    powered by Unitn students
+    powered by students of the University of Trento
     <br />
     <a href="https://github.com/chaudhry0/Nintondo/tree/master/Documentazione"><strong>Explore the documentations»</strong></a>
     <br />
