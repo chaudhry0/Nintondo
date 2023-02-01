@@ -53,15 +53,7 @@ void cleanBottomBar(){
     drawRect(CELL_SIZE_LARGE - 1, MAX_WIDTH - CELL_SIZE_LARGE, MAX_HEIGHT + CELL_SIZE_LARGE, MAX_HEIGHT + 2* CELL_SIZE_LARGE, RED);
 }
 
-uint16_t getButtons(){
-    if (!GPIO_getInputPinValue(GPIO_PORT_P5,GPIO_PIN1)){  // A
-        return 1;
-    }
-    if (!GPIO_getInputPinValue(GPIO_PORT_P3,GPIO_PIN5)){  // B
-        return 2;
-    }
-    return 0;
-}
+
 
 void drawRect(int xMin, int xMax, int yMin, int yMax, uint32_t color) {
     Graphics_Rectangle rect;
@@ -89,14 +81,30 @@ void checkLastMove(){
 void initGameData(){
     score = 0;
     gameOver = false;
+    consumeButtonA();   // resets bottom A before the games appear
 }
 
 void TA2_N_IRQHandler(void) {
     Timer_A_clearInterruptFlag(TIMER_A2_BASE);
 }
 
-// 3.5 5.1
+
+
+// Old function to get buttonA pressed condition
+/*uint16_t getButtons(){
+    if (!GPIO_getInputPinValue(GPIO_PORT_P5,GPIO_PIN1)){  // A
+        return 1;
+    }
+    if (!GPIO_getInputPinValue(GPIO_PORT_P3,GPIO_PIN5)){  // B
+        return 2;
+    }
+    return 0;
+}*/
+
+
 void PORT5_IRQHandler(void){
+    // Port 5 pin 1 ---> buttonA
+    // Port 3 pin 5 ---> buttonB
     __disable_irq();
     if (P5->IFG & BIT1){
         buttonA = 1;
@@ -111,10 +119,6 @@ bool consumeButtonA(){
         return true;
     }
     return false;
-    /*if (!GPIO_getInputPinValue(GPIO_PORT_P5,GPIO_PIN1)){
-        return true;
-    }
-    return false;*/
 }
 
 void showTutorialBig(Graphics_Image image){

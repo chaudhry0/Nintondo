@@ -21,7 +21,7 @@ void cleanDisplayGame(){
 }
 
 void runGameHub(){
-    consumeButtonA();   //to reset bottom A before the games appear
+    consumeButtonA();   // resets bottom A before the games appear
     runMenu();
     cleanDisplayGame();
     initGameData();
@@ -48,7 +48,7 @@ void runGameHub(){
                 runSpaceGame();
                 break;
             case 1:
-                runSuperDario();
+                //runSuperDario();
                 break;
             case 2:
                 runBestScores();

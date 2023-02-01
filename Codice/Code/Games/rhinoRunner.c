@@ -194,13 +194,14 @@ void clearRhino(Rhino rhino) {
  * @return none --> void
  */
 void updateRhino(Rhino* rhinoPtr, int* counterRhinoPtr){
-    if (rhinoPtr->action == NONE && getButtons() == 1){
+    if (rhinoPtr->action == NONE && buttonA == 1){
         rhinoPtr->action = GOING_UP;
     }
     if (rhinoPtr->action == GOING_UP){
         rhinoPtr->y -= GAME_SPEED;
-        if (++(*counterRhinoPtr) == JUMP_COUNTER || getButtons() == 0){
+        if (++(*counterRhinoPtr) == JUMP_COUNTER){
             rhinoPtr->action = GOING_DOWN;
+            consumeButtonA(); // resets the buttonA
         }
     }
     if (rhinoPtr->action == GOING_DOWN){
