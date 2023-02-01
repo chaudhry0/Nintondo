@@ -77,6 +77,7 @@ Welcome to Nintondo repository! In order to get started and have a working local
 #### We have used products manufactured by Texas Instruments Incorporated (TI)
 - <a href="https://www.amazon.com/Development-Boards-Kits-MSP432P401R-LaunchPad/dp/B01LWR1MSO">MSP432P401R LaunchPad</a>  (not available on the official site)
 - <a href="https://www.ti.com/tool/BOOSTXL-EDUMKII">BOOSTXL-EDUMKII</a>  (Educational BoosterPack MKII)
+- <a href="https://a.co/d/8gtmkFi">USB micro b </a> (data cable)
 
 ### Software Prerequisites
 
