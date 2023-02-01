@@ -73,7 +73,12 @@ Do a search and replace with your text editor for the following: `github_usernam
 
 Welcome to Nintondo repository! In order to get started and have a working local copy of Nintondo follow these simple example steps.
 
-### Prerequisites
+### Hardware Prerequisites
+#### We have used products manufactured by Texas Instruments Incorporated (TI)
+- <a href="https://www.amazon.com/Development-Boards-Kits-MSP432P401R-LaunchPad/dp/B01LWR1MSO">MSP432P401R LaunchPad</a>  (not available on the official site)
+- <a href="https://www.ti.com/tool/BOOSTXL-EDUMKII">BOOSTXL-EDUMKII</a>  (Educational BoosterPack MKII)
+
+### Software Prerequisites
 
 #### Installing TI CSS and ARM compiler for <a href="https://www.ti.com/product/MSP432P401R">MSP432P401R</a>
 - We will use <a href="https://www.ti.com/tool/CCSTUDIO"> Code Composer Studio (CCS) Integrated Development Environment (IDE)</a> from Texas Instruments.
