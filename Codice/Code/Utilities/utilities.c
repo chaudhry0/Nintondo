@@ -3,7 +3,7 @@
 
 void initBestScores(){
     int i;
-    for (i=0; i<5; i++){
+    for (i=0; i<NUM_GAMES; i++){
         bestScores[i] = 0;
     }
 }
@@ -50,7 +50,7 @@ void drawScore(int score) {
 }
 
 void cleanBottomBar(){
-    drawRect(CELL_SIZE_LARGE - 1, MAX_WIDTH - CELL_SIZE_LARGE, MAX_HEIGHT + CELL_SIZE_LARGE, MAX_HEIGHT + 2* CELL_SIZE_LARGE, RED);
+    drawRect(CELL_LARGE - 1, MAX_WIDTH - CELL_LARGE, MAX_HEIGHT + CELL_LARGE, MAX_HEIGHT + 2* CELL_LARGE, RED);
 }
 
 
@@ -122,18 +122,18 @@ bool consumeButtonA(){
 }
 
 void showTutorialBig(Graphics_Image image){
-    Graphics_drawImage(&g_sContext, &image, 0, CELL_SIZE_LARGE + MAX_HEIGHT/2 - CELL_SIZE_LARGE/2 - 6);
-    wait(TIME_TITLE_GAME);
+    Graphics_drawImage(&g_sContext, &image, 0, CELL_LARGE + MAX_HEIGHT/2 - CELL_LARGE/2 - 6);
+    wait(SHORT_TIME);
 }
 
 void showTutorialSmall(Graphics_Image image){
-    Graphics_drawImage(&g_sContext, &image, 0, CELL_SIZE_LARGE + MAX_HEIGHT/2 - CELL_SIZE_LARGE/2);
-    wait(TIME_TITLE_GAME);
+    Graphics_drawImage(&g_sContext, &image, 0, CELL_LARGE + MAX_HEIGHT/2 - CELL_LARGE/2);
+    wait(SHORT_TIME);
 }
 
 void showInitialTitle(Graphics_Image image){
-    Graphics_drawImage(&g_sContext, &image, 0, CELL_SIZE_LARGE);
-    wait(TIME_TITLE_GAME);
+    Graphics_drawImage(&g_sContext, &image, 0, CELL_LARGE);
+    wait(SHORT_TIME);
 }
 
 

@@ -4,7 +4,7 @@
 void initBricks(){
     int i;
     for (i=0; i<MAX_BRICK; i++){
-        bricks[i].x = random(0, 15) * CELL_SIZE_SMALL + 1;
+        bricks[i].x = random(0, 15) * CELL_SMALL + 1;
         bricks[i].y = BRICKS_HEIGTH;
     }
 }
@@ -13,8 +13,8 @@ bool checkBrickCollision(Dario dario, int* index){
     int i;
     for (i=0; i<MAX_BRICK; i++){
         if ((dario.x + DARIO_WIDTH >= bricks[i].x &&
-             bricks[i].x + CELL_SIZE_SMALL > dario.x) &&
-            (dario.y <= bricks[i].y + CELL_SIZE_SMALL - 4)){
+             bricks[i].x + CELL_SMALL > dario.x) &&
+            (dario.y <= bricks[i].y + CELL_SMALL - 4)){
             *index = i;
             return true;
         }
@@ -26,8 +26,8 @@ bool checkBrickLateralCollision(Dario dario){
     int i;
     for (i=0; i<MAX_BRICK; i++){
         if ((dario.x + DARIO_WIDTH >= bricks[i].x &&
-             bricks[i].x + CELL_SIZE_SMALL > dario.x) &&
-            (dario.y < bricks[i].y + CELL_SIZE_SMALL)){
+             bricks[i].x + CELL_SMALL > dario.x) &&
+            (dario.y < bricks[i].y + CELL_SMALL)){
             return true;
         }
     }
@@ -89,7 +89,7 @@ void updateDario(Dario* darioPtr){
     }
     int index;
     if (checkBrickCollision(*darioPtr, &index) && canMove == 1){
-        drawRect(bricks[index].x, bricks[index].x + CELL_SIZE_SMALL - 1, bricks[index].y + CELL_SIZE_SMALL - 1, bricks[index].y, 0xff0000);
+        drawRect(bricks[index].x, bricks[index].x + CELL_SMALL - 1, bricks[index].y + CELL_SMALL - 1, bricks[index].y, 0xff0000);
         darioPtr->y += DARIO_SPEED;
         darioPtr->yDirection = D;
     }
@@ -97,7 +97,7 @@ void updateDario(Dario* darioPtr){
 }
 
 void drawDarioBackground(){
-    Graphics_drawImage(&g_sContext, &imageDarioBackground, 0, CELL_SIZE_LARGE);
+    Graphics_drawImage(&g_sContext, &imageDarioBackground, 0, CELL_LARGE);
 }
 
 void drawDario(Dario dario){

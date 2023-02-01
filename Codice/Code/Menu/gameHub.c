@@ -3,21 +3,19 @@
 
 void drawLogo(){
     drawRect(0, MAX_WIDTH - 1, 0, BAR_SIZE + MAX_HEIGHT + BAR_SIZE - 1, WHITE);
-    Graphics_drawImage(&g_sContext, &imageLogo, 16, 52);
-    wait(1500);
+    Graphics_drawImage(&g_sContext, &imageLogo, CELL_LARGE, BAR_SIZE + 36);
+    wait(LONG_TIME);
     cleanDisplayGame();
     Graphics_drawImage(&g_sContext, &imageBackground, 0, 0);
 }
 
 void drawGameOver(){
-    Graphics_drawImage(&g_sContext, &imageGameOver, 16, 48);
-    wait(TIME_GAMEOVER_GAME);
-    cleanDisplayGame();
-    cleanBottomBar();
+    Graphics_drawImage(&g_sContext, &imageGameOver, CELL_LARGE, BAR_SIZE + 32);
+    wait(LONG_TIME);
 }
 
 void cleanDisplayGame(){
-    drawRect(0, MAX_WIDTH - 1, CELL_SIZE_LARGE, MAX_HEIGHT + CELL_SIZE_LARGE - 1, WHITE);
+    drawRect(0, MAX_WIDTH - 1, CELL_LARGE, MAX_HEIGHT + CELL_LARGE - 1, WHITE);
 }
 
 void runGameHub(){
@@ -60,14 +58,10 @@ void runGameHub(){
                 break;
         }
     }
-    if (menuNumber==0){
-        updateBestScore(selectedGame);
-    }else{
-        updateBestScore(4); // spaceGame
-    }
-    if(menuNumber==0 || selectedGame<2){
+    if (menuNumber==0 || selectedGame<2){
+        updateBestScore(selectedGame + menuNumber * NUM_ELEMENTS);
         drawGameOver();
-    }else{
-        cleanDisplayGame();
+        cleanBottomBar();
     }
+    cleanDisplayGame();
 }

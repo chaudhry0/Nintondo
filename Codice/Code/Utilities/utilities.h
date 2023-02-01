@@ -7,13 +7,14 @@
 
 
 // [ GOLBAL CONSTANT ]
-#define TIME_TITLE_GAME 1800
-#define TIME_GAMEOVER_GAME 4000
+#define SHORT_TIME 1500
+#define LONG_TIME 3000
 #define MAX_HEIGHT 96
 #define MAX_WIDTH 128
-#define CELL_SIZE_SMALL 8
-#define CELL_SIZE_LARGE 16
+#define CELL_SMALL 8
+#define CELL_LARGE 16
 #define BAR_SIZE 16
+#define NUM_GAMES 5
 
 
 // [ GLOBAL VARIABLES ]

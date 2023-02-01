@@ -41,7 +41,7 @@ void initSnakeBody(List* snakeBody){
     initList(snakeBody);
     int i = 0;
     for (i=0; i<INITIAL_LENGTH; i++){
-        push(snakeBody, i+1, CELL_SIZE_SMALL - 1);
+        push(snakeBody, i+1, CELL_SMALL - 1);
     }
 }
 
@@ -139,7 +139,7 @@ void moveSnake(List* snakeBodyPtr, enum Moving* moving, int xHead, int yHead, in
  * @return none --> void
  */
 void drawSnakeBackground() {
-    Graphics_drawImage(&g_sContext, &imageSnakeBackground, 0, CELL_SIZE_SMALL * 2);
+    Graphics_drawImage(&g_sContext, &imageSnakeBackground, 0, CELL_SMALL * 2);
 }
 
 /*!
@@ -155,16 +155,16 @@ void drawSnakeBackground() {
  */
 void clearSnake(int tailx, int taily, bool* lightGreenCell){
     if (*lightGreenCell){
-        drawRect(CELL_SIZE_SMALL * tailx,
-                 CELL_SIZE_SMALL * tailx + CELL_SIZE_SMALL -1,
-                 CELL_SIZE_SMALL * taily,
-                 CELL_SIZE_SMALL * taily + CELL_SIZE_SMALL -1,
+        drawRect(CELL_SMALL * tailx,
+                 CELL_SMALL * tailx + CELL_SMALL -1,
+                 CELL_SMALL * taily,
+                 CELL_SMALL * taily + CELL_SMALL -1,
                  LIGTH_GREEN);
     }else {
-        drawRect(CELL_SIZE_SMALL * tailx,
-                 CELL_SIZE_SMALL * tailx + CELL_SIZE_SMALL -1,
-                 CELL_SIZE_SMALL * taily,
-                 CELL_SIZE_SMALL * taily + CELL_SIZE_SMALL -1,
+        drawRect(CELL_SMALL * tailx,
+                 CELL_SMALL * tailx + CELL_SMALL -1,
+                 CELL_SMALL * taily,
+                 CELL_SMALL * taily + CELL_SMALL -1,
                  GREEN);
     }
     *lightGreenCell = !(*lightGreenCell);
@@ -181,7 +181,7 @@ void clearSnake(int tailx, int taily, bool* lightGreenCell){
  * @return none --> void
  */
 void drawSnakeCell(int x, int y) {
-    Graphics_drawImage(&g_sContext, &imageSnakeBody, x * CELL_SIZE_SMALL, y * CELL_SIZE_SMALL);
+    Graphics_drawImage(&g_sContext, &imageSnakeBody, x * CELL_SMALL, y * CELL_SMALL);
 }
 
 /*!
@@ -231,7 +231,7 @@ void generateRandomApple(List snakeBody, Apple* apple) {
  * @return none --> void
  */
 void drawApple(Apple apple) {
-    Graphics_drawImage(&g_sContext, &imageSnakeApple, apple.x * CELL_SIZE_SMALL, apple.y * CELL_SIZE_SMALL);
+    Graphics_drawImage(&g_sContext, &imageSnakeApple, apple.x * CELL_SMALL, apple.y * CELL_SMALL);
 }
 
 /*!

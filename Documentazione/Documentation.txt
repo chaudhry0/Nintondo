@@ -259,11 +259,12 @@
 		init functions
 			-initElements(Graphics_Image* elementsPtr);
 		moving/updating functions
-			-updateArrowAndElements(Graphics_Image* elementsPtr);
+			-updateArrow();
 		draw functions
 			-drawElement(Graphics_Image* imagePtr, int y);
 			-drawArrow();
 			-drawMenu(Graphics_Image* elementsPtr);
+			-cleanArrow();
 		run functions
 			-runMenu();
 

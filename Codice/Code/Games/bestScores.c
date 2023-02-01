@@ -69,7 +69,7 @@ void drawScores(){
  * @return none --> void
  */
 void runBestScores(){
-    Graphics_drawImage(&g_sContext, &imageBestScores, 0, 16);
+    Graphics_drawImage(&g_sContext, &imageBestScores, 0, CELL_LARGE);
     drawScores();
     while(!gameOver){
         if (consumeButtonA()){

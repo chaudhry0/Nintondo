@@ -77,7 +77,7 @@ void runFloppyDisk() {
         wait(TIME_FLOPPYDISK_GAME);
         drawRam(&currentPosition, &portionSize);
         gameOver = (checkBorderCollisionF(floppyDisk.y + FLOPPY_HEIGHT, floppyDisk.y ,  MAX_Y_SIZE - BORDER, BORDER) ||
-                checkRamCollisionF(&floppyDisk, &currentPosition, &portionSize));
+        checkRamCollisionF(&floppyDisk, &currentPosition, &portionSize));
     }
 }
 

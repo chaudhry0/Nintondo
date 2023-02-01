@@ -2,27 +2,19 @@
 #include <Code/Images/menuImages.h>
 
 void drawElement(Graphics_Image* imagePtr, int y){
-    Graphics_drawImage(&g_sContext, imagePtr, 16, y);
+    Graphics_drawImage(&g_sContext, imagePtr, CELL_LARGE, y);
 }
 
 void drawArrow(){
-    int y = 40 + 16 * selectedGame;
-    switch(lastMove){
-        case 1:
-            break;
-        case 3:
-            break;
-        default:
-            break;
-    }
-    Graphics_drawImage(&g_sContext, &imageArrow, 112, y);
+    int tmpY = BAR_SIZE + CELL_LARGE + CELL_SMALL + CELL_LARGE * selectedGame;
+    Graphics_drawImage(&g_sContext, &imageArrow, MAX_WIDTH - CELL_LARGE, tmpY);
 }
 
 void drawMenu(Graphics_Image* elementsPtr){
     Graphics_drawImage(&g_sContext, &imageTextSelectGame, 23, 26);
        int i;
        for (i=0; i<NUM_ELEMENTS; i++){
-           drawElement(elementsPtr + i, 40 + 16 * i);
+           drawElement(elementsPtr + i, BAR_SIZE + CELL_LARGE + CELL_SMALL + CELL_LARGE * i);
        }
 }
 
@@ -41,52 +33,56 @@ void initElements(Graphics_Image* elementsPtr){
     }
 }
 
-void updateArrowAndElements(Graphics_Image* elementsPtr){
+void updateArrow(){
     if (lastMove == 1){ // pushing UP
-        if (selectedGame != 0){ // if the selected game isn't the first of the relative list
-            selectedGame--;
-            int tmpY = 40 + 16 * selectedGame + 16;
-            drawRect(112, 127, tmpY, tmpY+15, WHITE); // clean arrow
-        } else if (menuNumber == 1) { // if you are on the second menu
-            menuNumber = 0; // change menuNumber
-            selectedGame = NUM_ELEMENTS - 1; // change the current selected game
-            initElements(elementsPtr); // inits new Titles
-            drawMenu(elementsPtr); // draw the new menu
-            drawRect(112, 128, 40, 40+16, WHITE);
-        }
+        selectedGame--;
+    }else if (lastMove == 3){ // pushing DOWN
+        selectedGame++;
     }
-    if (lastMove == 3){ // pushing DOWN
-        if (selectedGame != NUM_ELEMENTS - 1){ // if the selected game isn't the last of the relative list
-            selectedGame++;
-            int tmpY = 40 + 16 * selectedGame - 16;
-            drawRect(112, 128, tmpY, tmpY+16, WHITE); // clean arrow
-        } else if (menuNumber == 0){ // if you are on the first menu
-            menuNumber = 1; // change menuNumber
-            selectedGame = 0; // change the current selected game
-            initElements(elementsPtr); // inits new Titles
-            drawMenu(elementsPtr); // draw the new menu
-            int tmpY = 40 + 16 * (NUM_ELEMENTS - 1);
-            drawRect(112, 128, tmpY, tmpY+16, WHITE);
-        }
-    }
+}
+
+void cleanArrow(){
+    int tmpY = BAR_SIZE + CELL_LARGE + CELL_SMALL + CELL_LARGE * selectedGame;
+    drawRect(MAX_WIDTH - CELL_LARGE, MAX_WIDTH, tmpY, tmpY + CELL_LARGE - 1, WHITE);
 }
 
 void runMenu(){
     bool gameSelected = false;
     selectedGame = 0;
     menuNumber = 0;
-    Graphics_Image imageElements[4];
+    Graphics_Image imageElements[NUM_ELEMENTS];
     direction = 0;
     initElements(&imageElements[0]);
     drawMenu(&imageElements[0]);
     drawArrow();
 
     while (!gameSelected){
-        __sleep(); // LPM or something similar
+        __sleep(); // LPM
         if (direction){
-            updateArrowAndElements(&imageElements[0]);
+            cleanArrow();
+            updateArrow();
+            if (menuNumber == 0){
+                if (selectedGame == -1){
+                    selectedGame = 0;
+                }else if (selectedGame == NUM_ELEMENTS){
+                    selectedGame = 0;
+                    menuNumber = 1;
+                    initElements(&imageElements[0]);
+                    drawMenu(&imageElements[0]);
+                }
+            }
+            else if (menuNumber == 1){
+                if (selectedGame == NUM_ELEMENTS){
+                    selectedGame = NUM_ELEMENTS - 1;
+                }else if (selectedGame == -1){
+                    selectedGame = NUM_ELEMENTS - 1;
+                    menuNumber = 0;
+                    initElements(&imageElements[0]);
+                    drawMenu(&imageElements[0]);
+                }
+            }
             drawArrow();
-            wait(150);
+            wait(MENU_SPEED);
         }
         if (consumeButtonA()){
             gameSelected = true;

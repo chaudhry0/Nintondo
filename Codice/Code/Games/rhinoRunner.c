@@ -92,7 +92,7 @@ void runRhino() {
  */
 void initRhino(Rhino* rhinoPtr, int* counterRhinoPtr) {
     *counterRhinoPtr = 0;
-    rhinoPtr->x = CELL_SIZE_LARGE;
+    rhinoPtr->x = CELL_LARGE;
     rhinoPtr->y = MAX_HEIGHT - RHINO_Y_SIZE;
     rhinoPtr->action = NONE;
 }
@@ -132,7 +132,7 @@ void initObstacle(Obstacle* obstaclePtr, int distance) {
  * @return none --> void
  */
 void drawRhinoBackground() {
-    Graphics_drawImage(&g_sContext, &imageRinoBackground, 0, CELL_SIZE_LARGE);
+    Graphics_drawImage(&g_sContext, &imageRinoBackground, 0, CELL_LARGE);
 }
 
 /*!

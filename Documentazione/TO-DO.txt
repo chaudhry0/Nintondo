@@ -1,18 +1,18 @@
 TANTA DOCUMENTAZIONE												TEMPO
-- file/diagramma con tutte le funzioni, (manca poco)								-da finire in una mattina o un pomeriggio
+- file/diagramma con tutte le funzioni   										-da finire in una mattina o un pomeriggio
 - commentare tutte le funzioni nei file										-una mattina o pomeriggio
 - fare un commentone in cui si descrive come funziona il gioco per ogni gioco				-un paio d'ore
 
-CODICE 
-	  CONST										
-	  CONTROLLARE VARIABILI (globali -> locali)					
+CODICE
+[fatto] CONST										
+[quasi-fatto] CONTROLLARE VARIABILI (globali -> locali)					
 	  MENU (1 spazio vuoto)
 	  CONTROLLARE IMPLEMENTAZIONE WAIT (si può fare meglio?)			
 [fatto] SISTEMARE FUNZIONE PER BUTTON A						
 [fatto] SISTEMARE POSIZIONE SCORE							
 [fatto] IMPEDIRE TOT SCORE OVER 99							
 [fatto] TOGLIERE GAME OVER PER ABOUT E SCORE					
-  	AGGIUNGERE DEFINE DOVE COMODO										-1 oretta al massimo
+[quasi-fatto] AGGIUNGERE DEFINE DOVE COMODO										-1 oretta al massimo
 [fatto] IMMAGINE FLOPPY DISK 						
 [fatto] IMMAGINI TUTORIAL (ci pensa il king <3)					
 [fatto] TOGLIERE QUALSIASI COSA IN ITA (variabili, commenti,...)

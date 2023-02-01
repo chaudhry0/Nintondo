@@ -53,7 +53,7 @@ void initBall(Ball* ballPtr){
  * @return none --> void
  */
 void drawPongBackground(){
-    Graphics_drawImage(&g_sContext, &imagePongBackground, 0, CELL_SIZE_LARGE);
+    Graphics_drawImage(&g_sContext, &imagePongBackground, 0, CELL_LARGE);
 }
 
 /*!
@@ -69,9 +69,9 @@ void drawPongBackground(){
 void drawPongUser(int userUpperY, int lastUserY){
     Graphics_drawImage(&g_sContext, &imagePongUser, 0, userUpperY);
     if (lastUserY < userUpperY){ // moving down
-        drawRect(0, 3, userUpperY - 1, userUpperY -2, GREEN);
+        drawRect(0, PONG_UNIT - 1, userUpperY - 1, userUpperY - PLAYERS_SPEED, GREEN);
     } else if (lastUserY > userUpperY){ // moving down
-        drawRect(0, 3, userUpperY + CELL_SIZE_LARGE , userUpperY + CELL_SIZE_LARGE + 1, GREEN);
+        drawRect(0, PONG_UNIT - 1, userUpperY + CELL_LARGE , userUpperY + CELL_LARGE + 1, GREEN);
     }
 }
 
@@ -86,11 +86,11 @@ void drawPongUser(int userUpperY, int lastUserY){
  * @return none --> void
  */
 void drawPongEnemy(int enemyUpperY, int lastEnemyY){
-    Graphics_drawImage(&g_sContext, &imagePongEnemy, 124, enemyUpperY);
+    Graphics_drawImage(&g_sContext, &imagePongEnemy, MAX_WIDTH - PONG_UNIT, enemyUpperY);
     if (lastEnemyY < enemyUpperY){ // moving down
-        drawRect(124, 127, enemyUpperY - 1, enemyUpperY -4, GREEN);
-    } else if (lastEnemyY > enemyUpperY){ // moving down
-        drawRect(124, 127, enemyUpperY + CELL_SIZE_LARGE , enemyUpperY + CELL_SIZE_LARGE + 3, GREEN);
+        drawRect(MAX_WIDTH - PONG_UNIT, MAX_WIDTH - 1, enemyUpperY - 1, enemyUpperY - PONG_UNIT, GREEN);
+    } else if (lastEnemyY > enemyUpperY){ // moving up
+        drawRect(MAX_WIDTH - PONG_UNIT, MAX_WIDTH - 1, enemyUpperY + CELL_LARGE , enemyUpperY + CELL_LARGE + PONG_UNIT - 1, GREEN);
     }
 }
 
@@ -104,7 +104,7 @@ void drawPongEnemy(int enemyUpperY, int lastEnemyY){
  * @return none --> void
  */
 void drawBall(Ball ball){
-    drawRect(ball.x - ball.xVel, ball.x - ball.xVel + 3, ball.y - ball.yVel, ball.y - ball.yVel + 3, GREEN);
+    drawRect(ball.x - ball.xVel, ball.x - ball.xVel + PONG_UNIT - 1, ball.y - ball.yVel, ball.y - ball.yVel + PONG_UNIT - 1, GREEN);
     Graphics_drawImage(&g_sContext, &imagePongBall, ball.x, ball.y);
 }
 
@@ -125,13 +125,13 @@ void moveUser(int* userUpperYPtr, int* lastUserYPtr){
     *lastUserYPtr = *userUpperYPtr;
     switch(direction){
         case 1: // UP
-            if (*userUpperYPtr > CELL_SIZE_LARGE){
-                *userUpperYPtr -= 2;
+            if (*userUpperYPtr > CELL_LARGE){
+                *userUpperYPtr -= PLAYERS_SPEED;
             }
             break;
         case 3: // DOWN
-            if (*userUpperYPtr < 96){
-                *userUpperYPtr += 2;
+            if (*userUpperYPtr < MAX_HEIGHT){
+                *userUpperYPtr += PLAYERS_SPEED;
             }
             break;
         default:
@@ -155,11 +155,11 @@ void moveUser(int* userUpperYPtr, int* lastUserYPtr){
 void moveEnemy(int* enemyUpperYPtr, int* lastEnemyYPtr, Ball ball){
     if (random(1, 100) > 28){
         *lastEnemyYPtr = *enemyUpperYPtr;
-        if (*enemyUpperYPtr + 7 > ball.y + 1 && *enemyUpperYPtr > CELL_SIZE_LARGE){
-            *enemyUpperYPtr -= 4;
+        if (*enemyUpperYPtr + CELL_SMALL - PONG_UNIT/2 > ball.y && *enemyUpperYPtr > BAR_SIZE){
+            *enemyUpperYPtr -= PONG_UNIT;
         }
-        if (*enemyUpperYPtr + CELL_SIZE_LARGE - 1 - 7 < ball.y + 2 && *enemyUpperYPtr + CELL_SIZE_LARGE - 1 < 111){
-            *enemyUpperYPtr += 4;
+        if (*enemyUpperYPtr + CELL_SMALL - PONG_UNIT/2 < ball.y && *enemyUpperYPtr + CELL_LARGE - 1 < 111){
+            *enemyUpperYPtr += PONG_UNIT;
         }
     }
 }
@@ -194,8 +194,8 @@ void moveBall(Ball* ballPtr){
  */
 bool checkUserCollision(int userUpperY, Ball ball){
     int i;
-    for (i=0; i<CELL_SIZE_LARGE; i++){
-        if (userUpperY + i == ball.y || userUpperY + i == ball.y + 3){
+    for (i=0; i<CELL_LARGE; i++){
+        if (userUpperY + i == ball.y || userUpperY + i == ball.y + PONG_UNIT - 1){
             return true;
         }
     }
@@ -217,8 +217,8 @@ bool checkUserCollision(int userUpperY, Ball ball){
  */
 bool checkEnemyCollision(int enemyUpperY, Ball ball){
     int i;
-    for (i=0; i<CELL_SIZE_LARGE; i++){
-        if (enemyUpperY + i == ball.y || enemyUpperY + i == ball.y + 3){
+    for (i=0; i<CELL_LARGE; i++){
+        if (enemyUpperY + i == ball.y || enemyUpperY + i == ball.y + PONG_UNIT - 1){
             return true;
         }
     }
@@ -238,7 +238,7 @@ bool checkEnemyCollision(int enemyUpperY, Ball ball){
  * @return false --> if the ball does not collide with the border
  */
 bool checkPongBorderCollision(Ball ball){
-    if (ball.y <= 20 || ball.y + 3 >= 107){
+    if (ball.y <= BAR_SIZE + PONG_UNIT || ball.y + PONG_UNIT >= MAX_HEIGHT + BAR_SIZE - PONG_UNIT){
         return true;
     }
     return false;
@@ -325,7 +325,7 @@ void runPong(){
         if (checkPongBorderCollision(ball)){
             invertBallYDirection(&ball);
         }
-        if (ball.x == 4){
+        if (ball.x == PONG_UNIT){
             if (checkUserCollision(userUpperY, ball)){
                 invertBallXDirection(&ball);
                 updateBallY(&ball);
@@ -334,7 +334,7 @@ void runPong(){
                 gameOver = true;
             }
         }
-        if (ball.x + 3 == 123){
+        if (ball.x + PONG_UNIT == MAX_WIDTH - PONG_UNIT - PONG_UNIT/PLAYERS_SPEED){
             if (checkEnemyCollision(enemyUpperY, ball)){
                 invertBallXDirection(&ball);
                 updateBallY(&ball);
@@ -342,6 +342,6 @@ void runPong(){
                 gameOver = true;
             }
         }
-        wait(20);
+        wait(PONG_SPEED);
     }
 }
