@@ -1,11 +1,11 @@
 /*******************************************************************************
 * Title                 :   SPACE INVADERS
-* Filename              :   spaceInvaders.h
+* Filename              :   spaceGame.c
 * Last Revision Date    :   01/02/2023
 * Notes                 :   None
 *******************************************************************************/
 /*******************************************************************************
- * @file spaceInvaders.h
+ * @file spaceGame.c
  *
  * @brief this module runs the space invaders game
  *        To play the game, the player has to move the spacecraft with the left and right using joystick
