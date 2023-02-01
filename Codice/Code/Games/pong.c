@@ -37,8 +37,8 @@
  * @return none --> void
  */
 void initBall(Ball* ballPtr){
-    ballPtr->x = 100;
-    ballPtr->y = 70;
+    ballPtr->x = MAX_WIDTH/2;
+    ballPtr->y = BAR_SIZE + MAX_HEIGHT/2;
     ballPtr->xVel = -2;
     ballPtr->yVel = 0;
 }
