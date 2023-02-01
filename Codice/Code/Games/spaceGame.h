@@ -1,11 +1,11 @@
 /*******************************************************************************
 * Title                 :   SPACE INVADERS
-* Filename              :   spaceInvaders.h
+* Filename              :   spaceGame.h
 * Last Revision Date    :   01/02/2023
 * Notes                 :   None
 *******************************************************************************/
 /*******************************************************************************
- * @file spaceInvaders.h
+ * @file spaceGame.h
  *
  * @brief This is the header file for the space invaders game
  *        It contains all the useful functions and variables for the game
