@@ -1,12 +1,37 @@
+/*******************************************************************************
+* Title                 :   SPACE INVADERS
+* Filename              :   spaceInvaders.h
+* Last Revision Date    :   25/01/2023
+* Notes                 :   None
+*******************************************************************************/
+/*******************************************************************************
+ * @file spaceInvaders.h
+ *
+ * @brief This is the header file for the space invaders game
+ *        It contains all the useful functions and variables for the game
+ * 
+ * @par       
+ * COPYRIGHT NOTICE: (c) 2023 Nintondo. All rights reserved.
+*******************************************************************************/
+
 #ifndef CODE_GAMES_SPACEGAME_H_
 #define CODE_GAMES_SPACEGAME_H_
 
+/******************************************************************************
+* Includes
+*******************************************************************************/
 #include "Code/Utilities/utilities.h"
 
+/******************************************************************************
+* Macros
+*******************************************************************************/
 #define NUM_ENEMIES 3
 #define NUM_BULLETS 3
 #define SPACEINVADERS_SPEED 100
 
+/******************************************************************************
+* Typedefs
+*******************************************************************************/
 typedef struct Spacecraft{
     int x;
 }Spacecraft;
@@ -17,7 +42,9 @@ typedef struct Entity{
     bool isActive;
 }Entity;
 
-
+/******************************************************************************
+* Function Prototypes
+*******************************************************************************/
 // [FUNCTIONS]
 // init functions
     void initBullets(Entity* bullets); // initializes every bullet
@@ -52,3 +79,6 @@ typedef struct Entity{
 
 
 #endif
+
+/*** End of File **************************************************************/
+
