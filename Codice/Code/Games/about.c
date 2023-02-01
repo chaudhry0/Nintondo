@@ -1,14 +1,63 @@
+/*******************************************************************************
+* Title                 :   ABOUT
+* Filename              :   about.c
+* Last Revision Date    :   01/02/2023
+* Notes                 :   None
+*******************************************************************************/
+/*******************************************************************************
+ * @file about.c
+ *
+ * @brief This module shows the about screen.
+ * 
+ * @par       
+ * COPYRIGHT NOTICE: (c) 2023 Nintondo. All rights reserved.
+*******************************************************************************/
+/******************************************************************************
+* Includes
+*******************************************************************************/
 #include "Code/Games/about.h"
 #include "Code/Images/abaoutImages.h"
 
+/******************************************************************************
+* Function Definitions
+*******************************************************************************/
+
+/*!
+ * @brief This Function is to draw the first image of the about screen
+ *                
+ *
+ * @param[in] none
+ *
+ * 
+ * @return none --> void
+ */
 void drawAbout1(){
     Graphics_drawImage(&g_sContext, &imageAbout1, 0, BAR_SIZE);
 }
 
+/*!
+ * @brief This Function is to draw the second image of the about screen
+ *                
+ *
+ * @param[in] none
+ *
+ * 
+ * @return none --> void
+ */
 void drawAbout2(){
     Graphics_drawImage(&g_sContext, &imageAbout2, 0, BAR_SIZE);
 }
 
+/*!
+ * @brief This Function is to run the about screen.
+ *        It draws the first image and then waits for the user to press A.
+ *                
+ *
+ * @param[in] none
+ *
+ * 
+ * @return none --> void
+ */
 void runAbout(){
     int numAbout = 0;
     drawAbout1();
@@ -25,3 +74,6 @@ void runAbout(){
         }
     }
 }
+
+
+/*** end of file ***/
