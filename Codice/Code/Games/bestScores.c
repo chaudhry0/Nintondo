@@ -50,8 +50,9 @@ void drawScores(){
         totalScore += bestScores[i];
     }
     if (totalScore<999){
-        totalScore = 333;
         sprintf(value, "%d", totalScore);
+    } else{
+        sprintf(value, "%d", 999);
     }
     Graphics_drawString(&g_sContext, (int8_t *) value, 4, 104, 76 + BAR_SIZE, TRANSPARENT_TEXT);
 }

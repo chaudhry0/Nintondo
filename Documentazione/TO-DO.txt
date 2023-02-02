@@ -5,14 +5,14 @@ TANTA DOCUMENTAZIONE												TEMPO
 
 CODICE
 [fatto] CONST										
-[quasi-fatto] CONTROLLARE VARIABILI (globali -> locali)					
+[fatto] CONTROLLARE VARIABILI (globali -> locali)					
 	  MENU (1 spazio vuoto)
 	  CONTROLLARE IMPLEMENTAZIONE WAIT (si può fare meglio?)			
 [fatto] SISTEMARE FUNZIONE PER BUTTON A						
 [fatto] SISTEMARE POSIZIONE SCORE							
 [fatto] IMPEDIRE TOT SCORE OVER 99							
 [fatto] TOGLIERE GAME OVER PER ABOUT E SCORE					
-[quasi-fatto] AGGIUNGERE DEFINE DOVE COMODO										-1 oretta al massimo
+[fatto] AGGIUNGERE DEFINE DOVE COMODO										-1 oretta al massimo
 [fatto] IMMAGINE FLOPPY DISK 						
 [fatto] IMMAGINI TUTORIAL (ci pensa il king <3)					
 [fatto] TOGLIERE QUALSIASI COSA IN ITA (variabili, commenti,...)

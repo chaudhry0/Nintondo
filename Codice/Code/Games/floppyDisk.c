@@ -240,7 +240,7 @@ void drawRam(int* currentPosition, int* portionSize) {
             Graphics_drawImage(&g_sContext, &imageRam, currentPortion * (*portionSize)  - (*currentPosition) + (*portionSize),
                                MAX_Y_SIZE - ptr->data -BORDER);
             //top ram
-            imageRam.ySize = (MAX_Y_SIZE - 2*BORDER) - ptr->data - RAM_HEIGHT_GAP;
+            imageRam.ySize = (MAX_Y_SIZE - 2 * BORDER) - ptr->data - RAM_HEIGHT_GAP;
             Graphics_drawImage(&g_sContext, &imageRam, currentPortion * (*portionSize)  - (*currentPosition) + (*portionSize), BORDER);
         }
         ptr = ptr->next;
@@ -296,11 +296,11 @@ void clearRam(int* currentPosition, int* portionSize) {
             //bottom ram
             drawRect(currentPortion * (*portionSize)  - (*currentPosition) + (*portionSize) + 1 + RAM_WIDTH - SPEED_RAM,
                      currentPortion * (*portionSize)  - (*currentPosition) + (*portionSize) + BORDER + 3,
-                     MAX_Y_SIZE -  ptr->data -BORDER , MAX_Y_SIZE - BORDER -1 , LIGTH_BLUE);
+                     MAX_Y_SIZE -  ptr->data -BORDER, MAX_Y_SIZE - BORDER - 1, LIGTH_BLUE);
             //bottom top
             drawRect(currentPortion * (*portionSize)  - (*currentPosition)+ (*portionSize) + 1 +  RAM_WIDTH - SPEED_RAM,
                      currentPortion * (*portionSize)  - (*currentPosition) + (*portionSize) + BORDER + 3,
-                     BORDER, (MAX_Y_SIZE - 2*BORDER) - ptr->data - RAM_HEIGHT_GAP + BORDER , //-1, penso che era l'origine del bug
+                     BORDER, (MAX_Y_SIZE - 2 * BORDER) - ptr->data - RAM_HEIGHT_GAP + BORDER , //-1, penso che era l'origine del bug
                      LIGTH_BLUE);
         }
     ptr = ptr->next;
@@ -358,7 +358,7 @@ bool checkRamCollisionF(FloppyDisk* floppyDisk, int* currentPosition, int* porti
     while(ptr!=NULL && !temp) {
         if(ptr->data != 0) {
             if (FLOPPY_SPAWN_X + FLOPPY_WIDTH >= currentPortion * (*portionSize)  - (*currentPosition) + (*portionSize) &&
-                currentPortion * (*portionSize)  - (*currentPosition) + (*portionSize) >= 8 ) {
+                currentPortion * (*portionSize)  - (*currentPosition) + (*portionSize) >= CELL_SMALL ) {
                 // When the Floppy Disk is inside the RAM area it also checks for border collision
                 temp = checkBorderCollisionF(floppyDisk->y + FLOPPY_HEIGHT, floppyDisk->y ,
                                              MAX_Y_SIZE - BORDER - ptr->data , MAX_Y_SIZE - BORDER - ptr->data - RAM_HEIGHT_GAP);

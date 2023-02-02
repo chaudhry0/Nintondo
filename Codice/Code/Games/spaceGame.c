@@ -53,14 +53,14 @@ void drawBackground(){
 void updateSpacecraft(Spacecraft* spacecraft){
     switch(direction){
         case 2:
-            if(spacecraft->x + 8 < 119){
-                spacecraft->x += 8;
+            if(spacecraft->x + CELL_SMALL < MAX_WIDTH - CELL_SMALL - 1){
+                spacecraft->x += CELL_SMALL;
                 lastMove = 2;
             }
             break;
         case 4:
-            if (spacecraft->x > 8){
-                spacecraft->x -= 8;
+            if (spacecraft->x > CELL_SMALL){
+                spacecraft->x -= CELL_SMALL;
                 lastMove = 4;
             }
             break;
@@ -81,7 +81,7 @@ void updateSpacecraft(Spacecraft* spacecraft){
  * @return none --> void
  */
 void updateBullet(Entity* bullets, int i){
-    (bullets + i)->y -= 4;
+    (bullets + i)->y -= CELL_SMALL / 2;
 }
 
 /*!
@@ -137,7 +137,7 @@ void cleanBullet(Entity bullets[], int i){
  * @return none --> void
  */
 void drawSpacecraft(Spacecraft spacecraft){
-    Graphics_drawImage(&g_sContext, &imageSpacecraft, spacecraft.x - 4, 96);
+    Graphics_drawImage(&g_sContext, &imageSpacecraft, spacecraft.x - CELL_SMALL / 2, MAX_HEIGHT);
 }
 
 /*!
@@ -154,10 +154,10 @@ void drawSpacecraft(Spacecraft spacecraft){
 void cleanSpacecraft(Spacecraft spacecraft){
     switch(lastMove){
         case 2:
-            drawRect(spacecraft.x - 8 - 4, spacecraft.x - 1 - 4, 96, 111, DARK_BLUE);
+            drawRect(spacecraft.x - CELL_SMALL - CELL_SMALL / 2, spacecraft.x - 1 - CELL_SMALL / 2, MAX_HEIGHT, MAX_HEIGHT + CELL_LARGE - 1, DARK_BLUE);
             break;
         case 4:
-            drawRect(spacecraft.x + 16 - 4, spacecraft.x + 23 + 4, 96, 111, DARK_BLUE);
+            drawRect(spacecraft.x + CELL_LARGE - CELL_SMALL / 2, spacecraft.x + CELL_LARGE + CELL_SMALL - 1 + CELL_SMALL, MAX_HEIGHT, MAX_HEIGHT + CELL_LARGE - 1, DARK_BLUE);
             break;
         default:
             break;
@@ -212,13 +212,7 @@ void initBullets(Entity* bullets){
 void initEnemies(Entity* enemies){
     int i;
     for (i=0; i<NUM_ENEMIES; i++){
-        int x = random(1, 14) * 8;
-        while(!checkNotDupilcates(enemies, x)){ 
-            x = random(1, 14) * 8;
-        }
-        (enemies + i)->x = x;
-        (enemies + i)->y = 16;
-        (enemies + i)->isActive = true;
+        initSingleEnemy(enemies, i);
     }
 }
 
@@ -233,9 +227,9 @@ void initEnemies(Entity* enemies){
  * @return none --> void
  */
 void initSingleEnemy(Entity* enemies, int i){
-    int x = random(1, 14) * 8;
+    int x = random(1, 14) * CELL_SMALL;
     while(!checkNotDupilcates(enemies, x)){ 
-        x = random(1, 14) * 8;
+        x = random(1, 14) * CELL_SMALL;
     }
     (enemies + i)->x = x;
     (enemies + i)->y = 18;
@@ -253,7 +247,7 @@ void initSingleEnemy(Entity* enemies, int i){
  * @return none --> void
  */
 void updateEnemies(Entity* enemies, int i){
-    (enemies + i)->y += 2;
+    (enemies + i)->y += CELL_SMALL / 4;
 }
 
 /*!
@@ -281,7 +275,7 @@ void drawEnemy(Entity enemies[], int i){
  * @return none --> void
  */
 void cleanEnemyMovement(Entity enemies[], int i){
-    drawRect(enemies[i].x, enemies[i].x + 7, enemies[i].y - 1, enemies[i].y - 2, DARK_BLUE);
+    drawRect(enemies[i].x, enemies[i].x + CELL_SMALL - 1, enemies[i].y - 1, enemies[i].y - 2, DARK_BLUE);
 }
 
 /*!
@@ -295,7 +289,7 @@ void cleanEnemyMovement(Entity enemies[], int i){
  * @return none --> void
  */
 void cleanEnemy(Entity enemies[], int i){
-    drawRect(enemies[i].x, enemies[i].x + 7, enemies[i].y, enemies[i].y + 7, DARK_BLUE);
+    drawRect(enemies[i].x, enemies[i].x + CELL_SMALL - 1, enemies[i].y, enemies[i].y + CELL_SMALL - 1, DARK_BLUE);
 }
 
 /*!
@@ -311,7 +305,7 @@ void cleanEnemy(Entity enemies[], int i){
 void drawBulletsCompleteBar(){
     int i;
     for (i=0; i<NUM_BULLETS; i++){
-        Graphics_drawImage(&g_sContext, &imageBulletBar, 122, 87 - i * 9);
+        drawBulletBar(i);
     }
 }
 
@@ -325,9 +319,9 @@ void drawBulletsCompleteBar(){
  * @return none --> void
  */
 void cleanBulletBar(int numBulletsActive){
-    int y1 = 87 - (3 - numBulletsActive) * 9;
-    int y2 = 92 - (3 - numBulletsActive) * 9;
-    drawRect(122, 125, y1, y2, BLUE);
+    int y1 = MAX_HEIGHT - 9 - (3 - numBulletsActive) * 9;
+    int y2 = MAX_HEIGHT - 4 - (3 - numBulletsActive) * 9;
+    drawRect(MAX_WIDTH - 6, MAX_WIDTH - 6 + 3, y1, y2, BLUE);
 }
 
 /*!
@@ -341,7 +335,7 @@ void cleanBulletBar(int numBulletsActive){
  * @return none --> void
  */
 void drawBulletBar(int numBulletsActive){
-    Graphics_drawImage(&g_sContext, &imageBulletBar, 122, 87 - (2 - numBulletsActive) * 9);
+    Graphics_drawImage(&g_sContext, &imageBulletBar, MAX_WIDTH - 6, MAX_HEIGHT - 9 - (2 - numBulletsActive) * 9);
 }
 
 /*!
@@ -379,7 +373,7 @@ bool checkLooseCondition(Entity enemies[]){
     int i;
     for (i=0; i<NUM_ENEMIES; i++){
         if (enemies[i].isActive){
-            if (enemies[i].y >= 88){
+            if (enemies[i].y >= MAX_HEIGHT - CELL_SMALL){
                 return true;
             }
         }
@@ -419,7 +413,7 @@ bool checkIfBulletAvailable(Entity bullets[]){
  * @return bool --> true if the bullet has reached the end of the screen, false otherwise
  */
 bool checkBulletEnds(Entity bullets[], int i){
-    if (bullets[i].y == 16){
+    if (bullets[i].y == BAR_SIZE){
         return true;
     }
     return false;
@@ -442,7 +436,7 @@ void shotBullet(Spacecraft spacecraft, Entity* bullets){
         if (!(bullets + i)->isActive){
             (bullets + i)->isActive = true;
             (bullets + i)->x = spacecraft.x + 2;
-            (bullets + i)->y = 92;
+            (bullets + i)->y = MAX_HEIGHT - CELL_SMALL / 2;
             return;
         }
     }
@@ -466,7 +460,7 @@ void runSpaceGame(){
     int numBulletsActive = 0; // numbers of bullets on the screen
     int shotCountdown = 0; // countdown to avoid bullets spam
     Spacecraft spacecraft;
-    spacecraft.x = 8;
+    spacecraft.x = CELL_SMALL;
     Entity bullets[NUM_BULLETS];
     initBullets(bullets);
     Entity enemies[NUM_ENEMIES];
@@ -475,7 +469,7 @@ void runSpaceGame(){
     drawBulletsCompleteBar();
     drawScoreText();
     drawScore(score);
-    wait(100);
+    wait(SPACEINVADERS_SPEED);
 
     while(!gameOver){
         updateSpacecraft(&spacecraft);
@@ -489,7 +483,7 @@ void runSpaceGame(){
             }
         } else{
             shotCountdown--;
-            consumeButtonA(); // MMMh
+            consumeButtonA();
         }
         int i;
         for (i=0; i<NUM_BULLETS; i++){
