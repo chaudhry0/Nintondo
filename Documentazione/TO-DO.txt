@@ -7,7 +7,7 @@ CODICE
 [fatto] CONST										
 [fatto] CONTROLLARE VARIABILI (globali -> locali)					
 	  MENU (1 spazio vuoto)
-	  CONTROLLARE IMPLEMENTAZIONE WAIT (si può fare meglio?)			
+[fatto] CONTROLLARE IMPLEMENTAZIONE WAIT (si può fare meglio?) (no, no, sta shalla)
 [fatto] SISTEMARE FUNZIONE PER BUTTON A						
 [fatto] SISTEMARE POSIZIONE SCORE							
 [fatto] IMPEDIRE TOT SCORE OVER 99							
@@ -18,8 +18,8 @@ CODICE
 [fatto] TOGLIERE QUALSIASI COSA IN ITA (variabili, commenti,...)
 
 AGGIUNTE
-	LED (chiamare una funzione che fa brillare il led)							-2/3 ore
-	TEMPERATURA (?)
+[fatto] LED (chiamare una funzione che fa brillare il led)							-2/3 ore
+        TEMPERATURA (?)
 
 TESTING															-una mattina per raccogliere idee e iniziare, più un giorno per finire ??
 	.....
