@@ -10,8 +10,10 @@ void drawLogo(){
 }
 
 void drawGameOver(){
+    startLEDBlinking();
     Graphics_drawImage(&g_sContext, &imageGameOver, CELL_LARGE, BAR_SIZE + 32);
-    wait(LONG_TIME);
+    wait(LONG_TIME - 250);
+    stopLEDBlinking();
 }
 
 void cleanDisplayGame(){

@@ -46,6 +46,8 @@ void showInitialTitle(Graphics_Image image);
 void showTutorial(Graphics_Image image);
 void showTutorialBig(Graphics_Image image);
 void showTutorialSmall(Graphics_Image image);
+void startLEDBlinking();
+void stopLEDBlinking();
 
 
 // [ HANDLER ]

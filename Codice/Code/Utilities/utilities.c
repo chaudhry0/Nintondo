@@ -150,3 +150,13 @@ void ADC14_IRQHandler(void) {
     if (!(P4IN & GPIO_PIN1))
         buttonPressed = 1;*/
 }
+
+void startLEDBlinking(){
+    //Timer_A_setOutputForOutputModeOutBitValue(TIMER_A0_BASE, TIMER_A_CAPTURECOMPARE_REGISTER_3, TIMER_A_OUTPUTMODE_OUTBITVALUE);
+    Timer_A_startCounter(TIMER_A0_BASE, TIMER_A_UP_MODE);
+}
+
+void stopLEDBlinking(){
+    //Timer_A_setOutputForOutputModeOutBitValue(TIMER_A0_BASE, TIMER_A_CAPTURECOMPARE_REGISTER_3, TIMER_A_OUTPUTMODE_OUTBITVALUE_LOW);
+    Timer_A_stopTimer(TIMER_A0_BASE);
+}

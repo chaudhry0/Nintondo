@@ -7,6 +7,31 @@ const Timer_A_ContinuousModeConfig continuousModeConfig = {
         TIMER_A_DO_CLEAR                    // Clear Counter
 };
 
+/* Timer_A Compare Configuration Parameter  (PWM) */
+Timer_A_CompareModeConfig compareConfig_PWM = {
+        TIMER_A_CAPTURECOMPARE_REGISTER_3,          // Use CCR3
+        TIMER_A_CAPTURECOMPARE_INTERRUPT_DISABLE,   // Disable CCR interrupt
+        TIMER_A_OUTPUTMODE_TOGGLE_SET,              // Toggle output but
+        23437                                        // 50% Duty Cycle
+        };
+
+/* Timer_A Up Configuration Parameter */
+const Timer_A_UpModeConfig upConfig = {
+        TIMER_A_CLOCKSOURCE_SMCLK,                // SMCLK = 3 MhZ
+        TIMER_A_CLOCKSOURCE_DIVIDER_64,                                   // SMCLK/12 = 250 KhZ
+        46874,                                  // 40 ms tick period
+        TIMER_A_TAIE_INTERRUPT_DISABLE,         // Disable Timer interrupt
+        TIMER_A_CCIE_CCR0_INTERRUPT_DISABLE,    // Disable CCR0 interrupt
+        TIMER_A_DO_CLEAR                        // Clear value
+        };
+
+void _ledInit(){
+    GPIO_setAsPeripheralModuleFunctionOutputPin(GPIO_PORT_P2, GPIO_PIN6,
+    GPIO_PRIMARY_MODULE_FUNCTION);
+    Timer_A_configureUpMode(TIMER_A0_BASE, &upConfig);
+    Timer_A_initCompare(TIMER_A0_BASE, &compareConfig_PWM);
+}
+
 void _adcInit() {
     /* Configures Pin 6.0 and 4.4 as ADC input */
     GPIO_setAsPeripheralModuleFunctionInputPin(GPIO_PORT_P6, GPIO_PIN0, GPIO_TERTIARY_MODULE_FUNCTION);
@@ -62,7 +87,7 @@ void configurePushButtons() {
     MAP_GPIO_enableInterrupt(GPIO_PORT_P3,GPIO_PIN5);
 }
 
-void configureTimerA() {
+void configureTimer_A2_BASE() {
     Timer_A_configureContinuousMode(TIMER_A2_BASE, &continuousModeConfig); // setup clock for the wait function
     Interrupt_enableInterrupt(INT_TA2_N); // enabling interrupts and going to sleep
     Timer_A_startCounter(TIMER_A2_BASE, TIMER_A_CONTINUOUS_MODE); // Starting the Timer_A2 in continuous mode
@@ -94,10 +119,11 @@ void _hwInit() {
     CS_initClockSignal(CS_SMCLK, CS_DCOCLK_SELECT, CS_CLOCK_DIVIDER_1);
     CS_initClockSignal(CS_ACLK, CS_REFOCLK_SELECT, CS_CLOCK_DIVIDER_1);
     // other configurations/initializations
-    configureTimerA();
+    configureTimer_A2_BASE();
     _lightSensorInit();
     _graphicsInit();
     _adcInit();
+    _ledInit();
     configurePushButtons();
     _initButton();
 
