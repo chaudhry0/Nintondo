@@ -5,9 +5,12 @@ TANTA DOCUMENTAZIONE												TEMPO
 [fatto] aggiunto template più commmenti in tutti i file della cartella "/Code/Games/"
 [fatto] aggiunto template più commmenti in tutti i file della cartella "/Code/Menu/"
 [da completare]  fare il file README come decritto dal prof (vedi link sulle slide)
-- lista dei problemi/issues che abbiamo incontrato e come gli abbiamo affrontati? es. (immagini, array snake, test accelerometro che non funziona, divisione task, migrazione da drive a github )
-- future work: cosa vorremmo implementare/aggiungere/modificare nel futuro. (fare un gioco l'accelerometro)
-	poichè è fututro (quindi non lo facciamo) si può dire qualsiasi ca***ta  ---->>>  es. fare una cosa multiplayer invece di usare la rete Internet classsica usiamo le SND con latenza minima
+- lista dei problemi/issues che abbiamo incontrato e come gli abbiamo affrontati? 
+   es. (immagini, array snake, test accelerometro che non funziona, divisione task, migrazione da drive a github )
+- future work: cosa vorremmo implementare/aggiungere/modificare nel futuro. 
+	poichè è fututro (quindi non lo facciamo) si può dire qualsiasi ca***ta  -->  
+	--> es. fare una cosa multiplayer invece di usare la rete Internet classsica usiamo le SND con latenza minima
+	--> fare un gioco l'accelerometro
 CODICE
 [fatto] CONST										
 [fatto] CONTROLLARE VARIABILI (globali -> locali)					
