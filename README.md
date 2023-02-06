@@ -158,6 +158,35 @@ One of the most famous arcade game. The goal of this game is to hit every enemy 
  
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
+<!-- ROADMAP -->
+## Roadmap
+
+| TASK | Haroon Chaudhry | Samuel Casagrande | Francesco Poinelli |
+| :---         |     :---:      |    :---:      |    :---:      | 
+| Project planning | X | X | X | 
+| Collect ideas |  X | X | X | 
+| Project structure |  X | X | X | 
+| Snake |  X | X | X | 
+| Floppy Disk |  X |  |  |
+| Pong |   | X |  | 
+| Rhino Runner |   |  | X | 
+| Space invaders |   | X |  | 
+| Accelerometer issue |  X | X | X | 
+| Images |   | X |  | 
+| General Comments |  X | X | X | 
+| Specific Comments |  X |  |  |   
+| Added templates to all files |  X |  |  |   
+| Tutorials |   |  | X | 
+| Led |   | X |  | 
+| Readme file |  X |  |  |  
+| Testing Documentation |  X |  |  |  
+| Actual testing |  X | X | X | 
+| Video |  X | X | X | 
+| Other issues |  X | X | X | 
+
+<p align="right">(<a href="#readme-top">back to top</a>)</p>
+
+
 <!-- ABOUT US -->
 ## About us
 
