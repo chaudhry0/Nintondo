@@ -54,13 +54,19 @@
 
 [![Boosterpack image][boosterpack]](https://www.ti.com/tool/BOOSTXL-EDUMKII)
 
-Welcome to Nintondo, your one-stop-shop for all your gaming needs! Inspired by the Nintendo Switch, we bring you an exciting collection of some of the most popular arcade games. Our project aims to provide an immersive gaming experience for players of all ages.
+Welcome to Nintondo!
+your one-stop-shop for all your gaming needs!
 
-With Nintondo, you can choose from a variety of games, each offering unique game modes and rules. Whether you're a fan of action, puzzle (coming soon!), or strategy games, we've got you covered. Our library of games is constantly growing, ensuring that you'll always have something new to play.
+Nintondo is a game hub that brings back the classic arcade games with a modern twist. As a tribute to the Nintendo switch, our project is designed to bring the joy of arcade games to everyone. We have handpicked some of the most popular arcade games and developed them for your entertainment.
 
-At Nintondo, we're passionate about gaming and strive to provide the best possible experience for our users. Our team has worked tirelessly to bring you the best in gaming, and we hope you enjoy playing our games as much as we enjoyed making them.
+In Nintondo, you can choose from a variety of games including snake, pong, space invaders, floppy disk and rhino runner. Each game is unique in its own way and will bring back memories of the classic arcade games. While some of the games are inspired by popular games, they still have their own game modes and rules, so be ready to enjoy a new experience.
+
+The Nintondo project is powered by a microcontroller manufactured by Texas Instruments, ensuring that the games run smoothly and efficiently. The hardware is designed to handle multiple games, so you can switch between games without any interruptions.
+
+We believe that everyone deserves to experience the joy of arcade games, and that's why we have developed Nintondo.
 
 So, grab your controllers and get ready to experience the fun and excitement of Nintondo! We can't wait to see you on the virtual battlefield.
+
 
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
