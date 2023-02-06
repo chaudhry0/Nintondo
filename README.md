@@ -158,8 +158,19 @@ One of the most famous arcade game. The goal of this game is to hit every enemy 
  
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
+<!-- ABOUT US -->
+## About us
+
+We are a group of three students pursuing a degree in Computer Science, Communications and Electronics Engineering at the University of Trento. Our passion for technology and innovation has led us to create this project for our Embedded Software for the Internet of Things course, taught by Dr. Kasım Sinan Yıldırım.
+
+Our goal is to provide innovative and practical solutions for the Internet of Things. We believe that the potential of the Internet of Things is immense and has the power to transform our daily lives in ways we have yet to imagine. Our project is a small step towards realizing this potential.
+We are constantly striving to improve our skills and knowledge in the field of computer science, communications, and electronics engineering. Our aim is to make a positive impact in the world of technology and contribute to the growth of the Internet of Things.
+
+If you have any questions or want to know more about our project, feel free to reach out to us through the emails listed in the next Section. 
+We would be more than happy to hear from you.
+
 <!-- CONTACT -->
-## Contact
+## Contacts
 
 -   Haroon Chaudhry Mohammad - [@twitter_handle](https://twitter.com/twitter_handle) - h.chaudhrymohammd@studenti.unitn.it
 -   Samuel Casagrande Cecchin - [@twitter_handle](https://twitter.com/twitter_handle) - s.casagrandececchin@studenti.unitn.it
@@ -180,6 +191,8 @@ Project Link: [https://github.com/chaudhry0/Nintondo](https://github.com/chaudhr
 
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
+
+Thank you for visiting our page!
 
 <!-- MARKDOWN LINKS & IMAGES -->
 [boosterpack]: images/IMG_boosterpack.PNG
