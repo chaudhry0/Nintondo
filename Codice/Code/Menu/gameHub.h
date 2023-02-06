@@ -1,6 +1,23 @@
+/*******************************************************************************
+* Title                 :   GAME HUB
+* Filename              :   gameHub.h
+* Last Revision Date    :   06/02/2023
+* Notes                 :   None
+*******************************************************************************/
+/*******************************************************************************
+ * @file gameHub.h
+ *
+ * @brief This is the header file for the game hub.
+ * 
+ * @par       
+* COPYRIGHT NOTICE: (c) 2023 Nintondo. All rights reserved.
+*******************************************************************************/
 #ifndef _CODE_GAMES_GAMEHUB_H_
 #define _CODE_GAMES_GAMEHUB_H_
 
+/******************************************************************************
+* Includes
+*******************************************************************************/
 #include "menu.h"
 #include "Code/Games/snake.h"
 #include "Code/Games/floppyDisk.h"
@@ -11,7 +28,9 @@
 #include "Code/Games/bestScores.h"
 #include "Code/Games/about.h"
 
-
+/******************************************************************************
+* Function Prototypes
+*******************************************************************************/
 // [ FUNCTIONS ]
 // init functions
 // moving/updating functions
@@ -26,3 +45,5 @@
 
 
 #endif /* _CODE_GAMES_GAMEHUB_H_ */
+
+/*** End of File **************************************************************/
