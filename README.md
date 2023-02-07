@@ -166,19 +166,25 @@ One of the most famous arcade game. The goal of this game is to hit every enemy 
 | Project planning | X | X | X | 
 | Collect ideas |  X | X | X | 
 | Project structure |  X | X | X | 
+| Utilities / common functions |  X | X | X |
 | Snake |  X | X | X | 
-| Floppy Disk |  X |  |  |
+| Organizing Code Files (initial) |  X |  |  |
 | Pong |   | X |  | 
+| Floppy Disk |  X |  |  |
 | Rhino Runner |   |  | X | 
 | Space invaders |   | X |  | 
-| Accelerometer issue |  X | X | X | 
+| Best score |   |  | X | 
 | Images |   | X |  | 
+| Menu |   | X |  |
+| Menu fixing |   |  | X |
+| Accelerometer issue |  X | X | X | 
 | General Comments |  X | X | X | 
-| Specific Comments |  X |  |  |   
-| Added templates to all files |  X |  |  |   
+| Added templates / Specific comments  |  X |  |  |
+| Migration to GitHub | X  |  |  |
 | Tutorials |   |  | X | 
 | Led |   | X |  | 
-| Readme file |  X |  |  |  
+| Readme file |  X |  |  |
+| Documentation.txt file |   |  | X | 
 | Testing Documentation |  X |  |  |  
 | Actual testing |  X | X | X | 
 | Video |  X | X | X | 
