@@ -18,23 +18,22 @@
 #define CODE_UTILITIES_COINFLIP_H_
 
 /******************************************************************************
-* Includes
+* [ INCLUDES ]
 *******************************************************************************/
 #include "Code/Utilities/init.h"
 
 /******************************************************************************
-* Macros
+* [ MACROS ]
 *******************************************************************************/
 #define COIN_X  44
 #define COIN_Y  44
 #define ANIMATION_TIME  50
 
 /******************************************************************************
-* Function Prototypes
+* [ FUNCTIONS PROTOTYPES ]
 *******************************************************************************/
-// draw function
-void drawHead();
-void drawTail();
+// init/draw/logic functions 
+void initArray(Graphics_Image* arrayPtr); // initializes the array of coin images
 void drawCoinBackground();
 // run function
 void runCoinFlip(); // runs the coinFlip game
