@@ -20,13 +20,13 @@
  * COPYRIGHT NOTICE: (c) 2023 Nintondo. All rights reserved.
 *******************************************************************************/
 /******************************************************************************
-* Includes
+* [ INCLUDES ]
 *******************************************************************************/
 #include "rhinoRunner.h"
 #include "Code/Images/rhinoImages.h"
 
 /******************************************************************************
-* Function Definitions
+* [ FUNCTIONS DEFINITIONS ]
 *******************************************************************************/
 /*!
  * @brief This Function runs the rhino runner game.
@@ -324,3 +324,5 @@ bool checkRhinoCollision(Rhino rhino, Obstacle obstacle) {
 void updateObstacle(Obstacle* obstaclePtr) {
     obstaclePtr->x -= GAME_SPEED;
 }
+
+/*** End of File **************************************************************/

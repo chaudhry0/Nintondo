@@ -1,5 +1,7 @@
 {
     "files.associations": {
-        "init.h": "c"
+        "init.h": "c",
+        "utilities.h": "c",
+        "spacegame.h": "c"
     }
 }

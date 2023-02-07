@@ -18,19 +18,19 @@
 #define CODE_GAMES_SPACEGAME_H_
 
 /******************************************************************************
-* Includes
+* [ INCLUDES ]
 *******************************************************************************/
 #include "Code/Utilities/utilities.h"
 
 /******************************************************************************
-* Macros
+* [ MACROS ]
 *******************************************************************************/
 #define NUM_ENEMIES 3
 #define NUM_BULLETS 3
 #define SPACEINVADERS_SPEED 100
 
 /******************************************************************************
-* Typedefs
+* [ TYPEDEFS STRUCTS]
 *******************************************************************************/
 typedef struct Spacecraft{
     int x;
@@ -43,9 +43,8 @@ typedef struct Entity{
 }Entity;
 
 /******************************************************************************
-* Function Prototypes
+* [ FUNCTIONS PROTOTYPES ]
 *******************************************************************************/
-// [FUNCTIONS]
 // init functions
     void initBullets(Entity* bullets); // initializes every bullet
     void initEnemies(Entity* enemies); // initializes every enemy

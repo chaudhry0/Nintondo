@@ -18,12 +18,12 @@
 #define CODE_GAMES_RHINORUNNER_H_
 
 /******************************************************************************
-* Includes
+* [ INCLUDES ]
 *******************************************************************************/
 #include "Code/Utilities/init.h"
 
 /******************************************************************************
-* Macros
+* [ MACROS ]
 *******************************************************************************/
 #define JUMP_COUNTER 10
 
@@ -40,13 +40,13 @@
 #define GAME_SPEED 4
 
 /******************************************************************************
-* Enum
+* [ ENUMS ]
 *******************************************************************************/
 enum Type {CACTUS, BIRD};
 enum Action {NONE, GOING_UP, GOING_DOWN};
 
 /******************************************************************************
-* Typedefs
+* [ TYPEDEFS STRUCTS]
 *******************************************************************************/
 typedef struct Rhino{
     int x;
@@ -63,9 +63,8 @@ typedef struct Obstacle{
 int prova;
 
 /******************************************************************************
-* Function Prototypes
+* [ FUNCTIONS PROTOTYPES ]
 *******************************************************************************/
-// [FUNCTIONS]
 // init functions
 void initRhino(Rhino* rhinoPtr, int* counterRhinoPtr); // initializes the rhino
 void initObstacle(Obstacle* obstaclePtr, int distance); // initializes an obstacle
