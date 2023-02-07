@@ -42,8 +42,8 @@ int score; // game score
 bool gameOver; // game status
 int direction; // value read from Joystick buffer
 int lastMove; // previous move performed (equals to "direction" but not reset every time)
-int buttonA;
-int bestScores[5];
+int buttonA; // value read from Button A
+int bestScores[5]; // array to store best scores
 
 /******************************************************************************
 * [ FUNCTIONS PROTOTYPES ]
@@ -55,18 +55,18 @@ void wait(uint32_t interval); // waits some milliseconds
 int random(int min, int max); // generates a random number
 void drawScoreText(); // draws the current score
 void drawScore(int score); // draws the current score
-void cleanBottomBar();
+void cleanBottomBar(); // cleans the bottom bar
 uint16_t getButtons(); // returns 1 if A pressed, 2 if B pressed (Joystick), 0 otherwise
 void drawRect(int xMin, int xMax, int yMin, int yMax, uint32_t color); // Generic function to draw Rectangle for cleaning purpose
-void checkLastMove(); // ...
-void initGameData();
-bool consumeButtonA();
-void showInitialTitle(Graphics_Image image);
-void showTutorial(Graphics_Image image);
-void showTutorialBig(Graphics_Image image);
-void showTutorialSmall(Graphics_Image image);
-void startLEDBlinking();
-void stopLEDBlinking();
+void checkLastMove(); // This Function is to check joystick movement
+void initGameData(); // This Function is to initialize the game data
+bool consumeButtonA(); // This Function is to consume the button A
+void startLEDBlinking(); // This Function is to start the LED blinking
+void stopLEDBlinking(); // This Function is to stop the LED blinking
+void showInitialTitle(Graphics_Image image); // This Function is to show the initial title
+void showTutorial(Graphics_Image image); // This Function is to show the tutorial
+void showTutorialBig(Graphics_Image image); //  This Function is to show the large tutorial
+void showTutorialSmall(Graphics_Image image); // his Function is to show the small tutorial
 
 /******************************************************************************
 * [ HANDLER ]
