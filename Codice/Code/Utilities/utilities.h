@@ -1,12 +1,29 @@
+/*******************************************************************************
+* Title                 :   UTILITIES
+* Filename              :   utilities.h
+* Last Revision Date    :   07/02/2023
+* Notes                 :   None
+*******************************************************************************/
+/*******************************************************************************
+ * @file utilities.h
+ *
+ * @brief This is the header file for the utilities. 
+ * 
+ * @par       
+ * COPYRIGHT NOTICE: (c) 2023 Nintondo. All rights reserved.
+*******************************************************************************/
 #ifndef _UTILITIES_H_
 #define _UTILITIES_H_
 
+/******************************************************************************
+* [ INCLUDES ]
+*******************************************************************************/
 #include "Code/Utilities/libs.h"
 #include "Code/Utilities/colors.h"
 
-
-
-// [ GOLBAL CONSTANT ]
+/******************************************************************************
+* [ MACROS  GOLBAL CONSTANT ]
+*******************************************************************************/
 #define SHORT_TIME 1500
 #define LONG_TIME 3000
 #define MAX_HEIGHT 96
@@ -16,8 +33,9 @@
 #define BAR_SIZE 16
 #define NUM_GAMES 5
 
-
-// [ GLOBAL VARIABLES ]
+/******************************************************************************
+* [ GLOBAL VARIABLES ]
+*******************************************************************************/
 static uint16_t resultsBuffer[2]; // buffer to store Joystick samples
 Graphics_Context g_sContext; // Graphic library context
 int score; // game score
@@ -27,8 +45,9 @@ int lastMove; // previous move performed (equals to "direction" but not reset ev
 int buttonA;
 int bestScores[5];
 
-
-// [ FUNCTIONS ]
+/******************************************************************************
+* [ FUNCTIONS PROTOTYPES ]
+*******************************************************************************/  
 void initBestScores();
 void updateBestScore(int selectedGame);
 uint32_t getTimeMils(); // returns Timer_A counter
@@ -49,10 +68,13 @@ void showTutorialSmall(Graphics_Image image);
 void startLEDBlinking();
 void stopLEDBlinking();
 
-
-// [ HANDLER ]
+/******************************************************************************
+* [ HANDLER ]
+*******************************************************************************/ 
 void TA2_N_IRQHandler(void); // handler for timer_A
 void ADC14_IRQHandler(void); // handler for Joystick
 
 
 #endif /* _UTILITIES_H_ */
+
+/*** End of File **************************************************************/
