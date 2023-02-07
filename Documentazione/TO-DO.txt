@@ -2,6 +2,7 @@ TANTA DOCUMENTAZIONE												TEMPO
 - file/diagramma con tutte le funzioni   										-da finire in una mattina o un pomeriggio
 - commentare tutte le funzioni nei file										-una mattina o pomeriggio
 - fare un commentone in cui si descrive come funziona il gioco per ogni gioco				-un paio d'ore
+- fare un diagramma per la struttura del progetto (come sono collegati i vari file e cartelle).
 [fatto] aggiunto template più commmenti in tutti i file della cartella "/Code/Games/"
 [fatto] aggiunto template più commmenti in tutti i file della cartella "/Code/Menu/"
 [da completare]  fare il file README come decritto dal prof (vedi link sulle slide)
