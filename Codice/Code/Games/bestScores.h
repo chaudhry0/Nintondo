@@ -16,12 +16,12 @@
 #define CODE_GAMES_BESTSCORES_H_
 
 /******************************************************************************
-* Includes
+* [ INCLUDES ]
 *******************************************************************************/
 #include "Code/Utilities/init.h"
 
 /******************************************************************************
-* Function Prototypes
+* [ FUNCTIONS PROTOTYPES ]
 *******************************************************************************/
 // draw functions
 void drawScores(); // function of drawing a table with the best score from every game

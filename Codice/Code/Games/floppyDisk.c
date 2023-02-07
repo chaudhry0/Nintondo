@@ -25,14 +25,14 @@
  * COPYRIGHT NOTICE: (c) 2023 Nintondo. All rights reserved.
 *******************************************************************************/
 /******************************************************************************
-* Includes
+* [ INCLUDES ]
 *******************************************************************************/
 #include "floppyDisk.h"
 #include "Code/Images/floppyDiskImages.h"
 #include "Code/Utilities/linkedList.h"
 
 /******************************************************************************
-* Function Definitions
+* [ FUNCTIONS DEFINITIONS ]
 *******************************************************************************/
 /*!
  * @brief This Function runs the floppy disk game and all the functions needed to play the game.
@@ -374,4 +374,5 @@ bool checkRamCollisionF(FloppyDisk* floppyDisk, int* currentPosition, int* porti
     free(ptr);
     return temp;
 }
+
 /*** end of file ***/

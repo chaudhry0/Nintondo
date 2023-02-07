@@ -16,7 +16,7 @@
 #define _CODE_GAMES_GAMEHUB_H_
 
 /******************************************************************************
-* Includes
+* [ INCLUDES ]
 *******************************************************************************/
 #include "menu.h"
 #include "Code/Games/snake.h"
@@ -29,19 +29,17 @@
 #include "Code/Games/about.h"
 
 /******************************************************************************
-* Function Prototypes
+* [ FUNCTIONS PROTOTYPES]
 *******************************************************************************/
-// [ FUNCTIONS ]
 // init functions
 // moving/updating functions
 // bool functions
 // draw functions
-    void drawLogo(); // draws initial text "Ninotondo"
-    void drawGameOver(); //draws the GameOver image (equal for all games)
-    void cleanDisplayGame(); // clean the display (only the central section, not the red bars)
+void drawLogo(); // draws initial text "Ninotondo"
+void drawGameOver(); //draws the GameOver image (equal for all games)
+void cleanDisplayGame(); // clean the display (only the central section, not the red bars)
 // run functions
-    void runGameHub(); // runMenu function
-
+void runGameHub(); // runMenu function
 
 
 #endif /* _CODE_GAMES_GAMEHUB_H_ */

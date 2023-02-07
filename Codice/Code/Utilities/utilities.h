@@ -22,7 +22,7 @@
 #include "Code/Utilities/colors.h"
 
 /******************************************************************************
-* [ MACROS  GOLBAL CONSTANT ]
+* [ MACROS - GOLBAL CONSTANT ]
 *******************************************************************************/
 #define SHORT_TIME 1500
 #define LONG_TIME 3000

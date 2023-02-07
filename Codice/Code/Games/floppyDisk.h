@@ -18,12 +18,12 @@
 #define CODE_GAMES_FLOPPYDISK_H_
 
 /******************************************************************************
-* Includes
+* [ INCLUDES ]
 *******************************************************************************/
 #include "Code/Utilities/init.h"
 
 /******************************************************************************
-* Macros
+* [ MACROS ]
 *******************************************************************************/
 // [DISPLAY]
 #define MAX_Y_SIZE 128
@@ -44,18 +44,16 @@
 #define MIN_THRESHOLD_LUX 30
 
 /******************************************************************************
-* Typedefs
+* [ TYPEDEFS STRUCTS]
 *******************************************************************************/
-// [STRUCT]
 typedef struct FloppyDisk {
     int x;
     int y;
 } FloppyDisk;
 
 /******************************************************************************
-* Function Prototypes
+* [ FUNCTIONS PROTOTYPES ]
 *******************************************************************************/
-// [FUNCTIONS]
 // init functions
 void initFloppyDisk();  // initializes floppy spawn point and game score
 // moving/updating functions
