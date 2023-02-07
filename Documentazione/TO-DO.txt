@@ -30,9 +30,8 @@ AGGIUNTE
 [fatto] LED (chiamare una funzione che fa brillare il led)									-2/3 ore
 
 TESTING															-una mattina per raccogliere idee e iniziare, più un giorno per finire ??
-	.....
-	.....
-	.....
+	mettere printf nei file
+	finire file excel
 
 PRESENTAZIONE
 	PROGETTAZIONE VIDEO												-1 giorno
