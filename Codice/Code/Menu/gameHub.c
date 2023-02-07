@@ -38,7 +38,9 @@
 void drawLogo(){
     drawRect(0, MAX_WIDTH - 1, 0, BAR_SIZE + MAX_HEIGHT + BAR_SIZE - 1, WHITE);
     Graphics_drawImage(&g_sContext, &imageLogo, CELL_LARGE, BAR_SIZE + 36);
+    startLEDBlinking();
     wait(LONG_TIME);
+    stopLEDBlinking();
     cleanDisplayGame();
     Graphics_drawImage(&g_sContext, &imageBackground, 0, 0);
 }

@@ -16,11 +16,23 @@
 * Includes
 *******************************************************************************/
 #include "coinFlip.h"
-//#include "Code/Images/coinFlipImages.h"
+#include "Code/Images/coinFlipImages.h"
 
 /******************************************************************************
 * Function Definitions
 *******************************************************************************/
+
+
+void initArray(Graphics_Image* arrayPtr){
+    *(arrayPtr) = imageCoinHead1;
+    *(arrayPtr + 1) = imageCoinVertical;
+    *(arrayPtr + 2) = imageCoinHead2;
+    *(arrayPtr + 3) = imageCoinHead;
+    *(arrayPtr + 4) = imageCoinTail1;
+    *(arrayPtr + 5) = imageCoinVertical;
+    *(arrayPtr + 6) = imageCoinTail2;
+    *(arrayPtr + 7) = imageCoinTail;
+}
 /*!
  * @brief This Function is to draw the head animation of the coin.
  *
@@ -30,36 +42,28 @@
  *
  * @return none --> void
  */
-void drawHead(){
-    wait(ANIMATION_TIME);
-    Graphics_drawImage(&g_sContext, &imageCoinHead1, COIN_X, COIN_Y);
-    wait(ANIMATION_TIME);
-    Graphics_drawImage(&g_sContext, &imageCoinHead2, COIN_X, COIN_Y);
-    wait(ANIMATION_TIME);
-    Graphics_drawImage(&g_sContext, &imageCoinHead3, COIN_X, COIN_Y);
-    wait(ANIMATION_TIME);
-    Graphics_drawImage(&g_sContext, &imageCoinHead4, COIN_X, COIN_Y);
+int runAnimation(Graphics_Image* arrayPtr){
+    int i;
+    for(i=0; i<16; i++){
+        Graphics_drawImage(&g_sContext, arrayPtr + i % 8, COIN_X, COIN_Y);
+        wait(ANIMATION_TIME);
+    }
+    int toss = random(0,1);
+    if (toss == 1){
+        for(i=0; i<4; i++){
+            Graphics_drawImage(&g_sContext, arrayPtr + i, COIN_X, COIN_Y);
+            wait(ANIMATION_TIME);
+        }
+    }
+    for(i=0; i<4; i++){
+        Graphics_drawImage(&g_sContext, arrayPtr + i + toss * 4, COIN_X, COIN_Y);
+        wait(ANIMATION_TIME + i * 50);
+    }
+
+
+    return toss;
 }
 
-/*!
- * @brief This Function is to draw the tail animation of the coin.
- *
- *
- * @param[in] --> none
- *
- *
- * @return none --> void
- */
-void drawTail(){
-    wait(ANIMATION_TIME);
-    Graphics_drawImage(&g_sContext, &imageCoinTail1, COIN_X, COIN_Y);
-    wait(ANIMATION_TIME);
-    Graphics_drawImage(&g_sContext, &imageCoinTail2, COIN_X, COIN_Y);
-    wait(ANIMATION_TIME);
-    Graphics_drawImage(&g_sContext, &imageCoinTail3, COIN_X, COIN_Y);
-    wait(ANIMATION_TIME);
-    Graphics_drawImage(&g_sContext, &imageCoinTail4, COIN_X, COIN_Y);
-}
 /*!
  * @brief This Function is to clean the area where the coin was.
  *
@@ -87,27 +91,18 @@ void runCoinFlip(){
     drawCoinBackground();
     showTutorialSmall(imageTutorialCoin);
     drawCoinBackground();
-    Graphics_drawImage(&g_sContext, &imageCoinTail4, COIN_X, COIN_Y);
-    int toss;
-    bool nome;
+    Graphics_Image coinImages[8];
+    initArray(&coinImages[0]);
+    Graphics_drawImage(&g_sContext, &imageCoinTail, COIN_X, COIN_Y);
+    direction = 0;  //resets direction
     while(!gameOver){
-        if(direction == 1){ //moving joystick UP
-            toss = random(3,4)
+        if(direction == 1){
+            runAnimation(&coinImages[0]);
         }
-        for(toss){
-            if (nome){
-                draw head
-                nome !=nome
-            }else{
-                draw tail
-                nome !=nome
-            }
-        }
-        toss = 0;
-
-        if (bottone a){
+        if (consumeButtonA()){
             gameOver = true;
         }
+        direction = 0;
     }
 }
 

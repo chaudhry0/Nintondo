@@ -17,13 +17,13 @@
  * COPYRIGHT NOTICE: (c) 2023 Nintondo. All rights reserved.
 *******************************************************************************/
 /******************************************************************************
-* [ INCLUDES ]
+* Includes
 *******************************************************************************/
 #include <Code/Menu/menu.h>
 #include <Code/Images/menuImages.h>
 
 /******************************************************************************
-* [ FUNCTIONS DEFINITIONS ]
+* Function Definitions
 *******************************************************************************/
 
 /*!
@@ -89,7 +89,7 @@ void initElements(Graphics_Image* elementsPtr){
     }
     if (menuNumber == 1){
         *(elementsPtr) = imageTextSpaceInvaders;
-        *(elementsPtr + 1) = imageTextSnake;
+        *(elementsPtr + 1) = imageTextCoin;
         *(elementsPtr + 2) = imageTextBestScores;
         *(elementsPtr + 3) = imageTextAbout;
     }
@@ -179,4 +179,4 @@ void runMenu(){
     }
 }
 
-/*** End of File **************************************************************/
+/*** end of file ***/
