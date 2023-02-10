@@ -47,12 +47,12 @@ void runRhino() {
     Obstacle obstacle1;
     Obstacle obstacle2;
     initRhino(&rhino, &counterRhino);
-    drawRhinoBackground();
     drawRhino(rhino);
     drawScoreText();
     drawScore(score);
     initObstacle(&obstacle1, 0);
     initObstacle(&obstacle2, 80);
+    consumeButtonA(); // last reset before the games starts
 
     while(!gameOver){
         updateRhino(&rhino, &counterRhino);

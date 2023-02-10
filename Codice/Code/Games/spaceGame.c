@@ -50,8 +50,8 @@ void drawBackground(){
  * 
  * @return none --> void
  */
-void updateSpacecraft(Spacecraft* spacecraft){
-    switch(direction){
+void updateSpacecraft(Spacecraft* spacecraft, uint8_t dir){
+    switch(dir){
         case 2:
             if(spacecraft->x + CELL_SMALL < MAX_WIDTH - CELL_SMALL - 1){
                 spacecraft->x += CELL_SMALL;
@@ -456,7 +456,6 @@ void runSpaceGame(){
     showInitialTitle(imageSpaceInvadersTitle);
     drawBackground();
     showTutorialBig(imageTutorialSpaceInvaders);
-    consumeButtonA(); // resets the variable storing if button A has been pressed
     uint8_t numBulletsActive = 0; // numbers of bullets on the screen
     uint8_t shotCountdown = 0; // countdown to avoid bullets spam
     Spacecraft spacecraft;
@@ -465,14 +464,14 @@ void runSpaceGame(){
     initBullets(bullets);
     Entity enemies[NUM_ENEMIES];
     initEnemies(enemies);
-    drawBackground();
     drawBulletsCompleteBar();
     drawScoreText();
     drawScore(score);
+    consumeButtonA(); // last reset before the games starts
     wait(SPACEINVADERS_SPEED);
 
     while(!gameOver){
-        updateSpacecraft(&spacecraft);
+        updateSpacecraft(&spacecraft, direction);
         if (shotCountdown == 0){ // if allowed
             if (consumeButtonA()){ // if button pressed
                 if (checkIfBulletAvailable(bullets)){ // if at least one bullet avialable

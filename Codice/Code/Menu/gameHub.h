@@ -35,7 +35,7 @@
 // moving/updating functions
 // bool functions
 // draw functions
-void drawLogo(); // draws initial text "Ninotondo"
+void drawLogo(); // draws initial text "Nintondo"
 void drawGameOver(); //draws the GameOver image (equal for all games)
 void cleanDisplayGame(); // clean the display (only the central section, not the red bars)
 // run functions

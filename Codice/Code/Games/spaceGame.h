@@ -50,7 +50,7 @@ typedef struct Entity{
     void initEnemies(Entity* enemies); // initializes every enemy
     void initSingleEnemy(Entity* enemies, uint8_t i); // initializes a single enemy
 // moving/updating functions
-    void updateSpacecraft(Spacecraft* spacecraft); // updates the spacecraft basing on player inputs
+    void updateSpacecraft(Spacecraft* spacecraft, uint8_t dir); // updates the spacecraft basing on player inputs
     void updateBullet(Entity* bullets, uint8_t i); // updates bullets
     void updateEnemies(Entity* enemies, uint8_t i); // updates enemies
     void shotBullet(Spacecraft spacecraft, Entity* bullets); // shots a bullet basing on the spacecraft position
