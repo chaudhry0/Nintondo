@@ -323,12 +323,12 @@ void clearRam(uint8_t* currentPosition, uint8_t* portionSize) {
             //bottom ram
             drawRect(currentPortion * (*portionSize)  - (*currentPosition) + (*portionSize) + 1 + RAM_WIDTH - SPEED_RAM,
                      currentPortion * (*portionSize)  - (*currentPosition) + (*portionSize) + BORDER,
-                     MAX_Y_SIZE -  ptr->data -BORDER, MAX_Y_SIZE - BORDER - 1, BLACK);
+                     MAX_Y_SIZE -  ptr->data -BORDER, MAX_Y_SIZE - BORDER - 1, LIGTH_BLUE);
             //bottom top
             drawRect(currentPortion * (*portionSize)  - (*currentPosition)+ (*portionSize) + 1 +  RAM_WIDTH - SPEED_RAM,
                      currentPortion * (*portionSize)  - (*currentPosition) + (*portionSize) + BORDER,
                      BORDER, (MAX_Y_SIZE - 2 * BORDER) - ptr->data - RAM_HEIGHT_GAP + BORDER - 1 ,
-                     BLACK);
+                     LIGTH_BLUE);
         }
     ptr = ptr->next;
     currentPortion++;
