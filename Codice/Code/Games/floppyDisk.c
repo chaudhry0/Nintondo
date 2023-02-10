@@ -56,6 +56,7 @@ void runFloppyDisk() {
     drawFloppyDiskBackground();
     showTutorialBig(imageTutorialFloppyDisk);
     uint32_t lux = 0.0;
+    uint8_t thresholdVariation = calculateThresholdVariation();
     FloppyDisk floppyDisk;
     uint8_t portionSize = 0;
     uint8_t currentPosition = 0;
@@ -66,8 +67,8 @@ void runFloppyDisk() {
     drawScore(score);
     while(!gameOver){
         lux = OPT3001_getLux();
-        //printf("%d \n", lux);
-        if(lux < MIN_THRESHOLD_LUX ) {
+        //printf("lux:%d; thresholdVariation:%d \n", lux, thresholdVariation);
+        if(lux < MIN_THRESHOLD_LUX + thresholdVariation ) {
             moveUpFloppyDisk(&floppyDisk);
         }else {
             moveDownFloppyDisk(&floppyDisk);
@@ -80,6 +81,31 @@ void runFloppyDisk() {
         gameOver = (checkBorderCollisionF(floppyDisk.y + FLOPPY_HEIGHT, floppyDisk.y ,  MAX_Y_SIZE - BORDER, BORDER) ||
         checkRamCollisionF(&floppyDisk, &currentPosition, &portionSize));
     }
+}
+
+/*!
+ * @brief This Function calculates the threshold variation depending on the lux value.
+ *        If the lux value is greater than 1000, the threshold variation is set to 100.
+ *        If the lux value is less than 1000, the threshold variation is set to 0.
+ *               
+ *
+ * @param[in] none
+ * 
+ * @var[global] none
+ * 
+ * @var[local] lux  Variable for storing lux value returned from OPT3001
+ * @var[local] thresholdVariation  Variable for storing the threshold variation.
+ *
+ * 
+ * @return thresholdVariation --> uint8_t
+*/
+uint8_t calculateThresholdVariation() {
+    uint32_t lux = OPT3001_getLux();
+    uint8_t thresholdVariation = 0;
+    if(lux > 1000) {
+        thresholdVariation = 100;
+    }
+    return thresholdVariation;
 }
 
 /*!
@@ -296,13 +322,13 @@ void clearRam(uint8_t* currentPosition, uint8_t* portionSize) {
         if(ptr->data != 0){
             //bottom ram
             drawRect(currentPortion * (*portionSize)  - (*currentPosition) + (*portionSize) + 1 + RAM_WIDTH - SPEED_RAM,
-                     currentPortion * (*portionSize)  - (*currentPosition) + (*portionSize) + BORDER + 3,
-                     MAX_Y_SIZE -  ptr->data -BORDER, MAX_Y_SIZE - BORDER - 1, LIGTH_BLUE);
+                     currentPortion * (*portionSize)  - (*currentPosition) + (*portionSize) + BORDER,
+                     MAX_Y_SIZE -  ptr->data -BORDER, MAX_Y_SIZE - BORDER - 1, BLACK);
             //bottom top
             drawRect(currentPortion * (*portionSize)  - (*currentPosition)+ (*portionSize) + 1 +  RAM_WIDTH - SPEED_RAM,
-                     currentPortion * (*portionSize)  - (*currentPosition) + (*portionSize) + BORDER + 3,
-                     BORDER, (MAX_Y_SIZE - 2 * BORDER) - ptr->data - RAM_HEIGHT_GAP + BORDER , //-1, penso che era l'origine del bug
-                     LIGTH_BLUE);
+                     currentPortion * (*portionSize)  - (*currentPosition) + (*portionSize) + BORDER,
+                     BORDER, (MAX_Y_SIZE - 2 * BORDER) - ptr->data - RAM_HEIGHT_GAP + BORDER - 1 ,
+                     BLACK);
         }
     ptr = ptr->next;
     currentPortion++;

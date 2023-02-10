@@ -56,6 +56,7 @@ typedef struct FloppyDisk {
 *******************************************************************************/
 // init functions
 void initFloppyDisk();  // initializes floppy spawn point and game score
+uint8_t calculateThresholdVariation(); // calculates the threshold variation based on the current lux value
 // moving/updating functions
 void moveUpFloppyDisk(FloppyDisk* floppyDisk); // Decrements Y coordinate of the floppy disk
 void moveDownFloppyDisk(FloppyDisk* floppyDisk); // Increments Y coordinate of the floppy disk
