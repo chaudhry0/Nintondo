@@ -12,7 +12,7 @@ void testGameOver();
 void testDrawRect();
 void testPong();
 
-// ---------------
+// --------------- Floppy Disk ---------------
 
 void testFloppyDiskMovement();
 void testRamMovement();
@@ -28,14 +28,12 @@ void main(void) {
     testFloppyDiskMovement();
     wait(1000);
     clean();
-
     // testing menu
     testDrawArrow();
     wait(1000);
     testMenu();
     wait(1000);
     clean();
-
     // testing gameHub and utilities
     testRandomGeneratorFunction();
     wait(1000);
@@ -47,10 +45,12 @@ void main(void) {
     */
 
     // testing pong
-    testPongUserAndEnemy()
-//    testFloppyDiskMovement();
-//    wait(1000);
-//    testRamMovement();
+    //testPongUserAndEnemy()
+    //testin floppy disk
+    testFloppyDiskMovement();
+    wait(1000);
+    clean();
+    testRamMovement();
     wait(1000);
     clean();
 
@@ -204,7 +204,7 @@ void testPongUserAndEnemy(){
 
 
 
-// ----------------------------
+// ---------------------------- FLOPPY DISK TESTS ----------------------------
 void testFloppyDiskMovement() {
     uint8_t y = 16;
     uint8_t x = 16;
@@ -220,16 +220,17 @@ void testFloppyDiskMovement() {
 }
 
 void testRamMovement() {
-    head = NULL;
+    FloppyDisk floppyDisk;
+    uint8_t portionSize = 0;
     uint8_t currentPosition = 0;
-    uint8_t x = 0;
-    uint8_t portionSize = (MAX_X_SIZE/ NUM_RAM);
-    insert_end(0);
-    for(x = 128; currentPosition >= 2; x-=2) {
+    initFloppyDisk(&floppyDisk, &portionSize);
+    int x = 0;
+    for(x = 272; x >= 2; x-=2) {
         moveRam(&currentPosition, &portionSize);
         drawRam(&currentPosition, &portionSize);
-        //clearRam(&currentPosition, &portionSize);
+        clearRam(&currentPosition, &portionSize);
     }
 }
+
 
 
