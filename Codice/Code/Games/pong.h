@@ -46,7 +46,7 @@ typedef struct Ball {
 // init functions
 void initBall(Ball* ballPtr); // initializes the ball
 // moving/updating functions
-void moveUser(uint8_t* userUpperYPtr, uint8_t* lastUserYPtr); // moves the user
+void moveUser(uint8_t* userUpperYPtr, uint8_t* lastUserYPtr, uint8_t dir); // moves the user
 void moveEnemy(uint8_t* enemyUpperYPtr, uint8_t* lastEnemyYPtr, Ball ball); // moves the enemy
 void moveBall(Ball* ballPtr); // moves the ball
 void invertBallXDirection(Ball* ballPtr); // inverts the ball horizontal direction

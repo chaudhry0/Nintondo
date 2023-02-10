@@ -121,9 +121,9 @@ void drawBall(Ball ball){
  * 
  * @return none --> void
  */
-void moveUser(uint8_t* userUpperYPtr, uint8_t* lastUserYPtr){
+void moveUser(uint8_t* userUpperYPtr, uint8_t* lastUserYPtr, uint8_t dir){
     *lastUserYPtr = *userUpperYPtr;
-    switch(direction){
+    switch(dir){
         case 1: // UP
             if (*userUpperYPtr > CELL_LARGE){
                 *userUpperYPtr -= PLAYERS_SPEED;
@@ -316,7 +316,7 @@ void runPong(){
     drawScore(score);
 
     while(!gameOver){
-        moveUser(&userUpperY, &lastUserY);
+        moveUser(&userUpperY, &lastUserY, direction);
         moveEnemy(&enemyUpperY, &lastEnemyY, ball);
         moveBall(&ball);
         drawPongUser(userUpperY, lastUserY);
