@@ -49,27 +49,27 @@ enum Action {NONE, GOING_UP, GOING_DOWN};
 * [ TYPEDEFS STRUCTS]
 *******************************************************************************/
 typedef struct Rhino{
-    int x;
-    int y;
+    uint8_t x;
+    uint8_t y;
     enum Action action;
 } Rhino;
 
 typedef struct Obstacle{
-    int x;
-    int y;
+    int16_t x;
+    int16_t y;
     enum Type type;
 } Obstacle;
 
-int prova;
+uint8_t selectAnimation; // selects the animation of the rhino
 
 /******************************************************************************
 * [ FUNCTIONS PROTOTYPES ]
 *******************************************************************************/
 // init functions
-void initRhino(Rhino* rhinoPtr, int* counterRhinoPtr); // initializes the rhino
-void initObstacle(Obstacle* obstaclePtr, int distance); // initializes an obstacle
+void initRhino(Rhino* rhinoPtr, uint8_t* counterRhinoPtr); // initializes the rhino
+void initObstacle(Obstacle* obstaclePtr, uint8_t distance); // initializes an obstacle
 // moving/updating functions
-void updateRhino(Rhino* rhinoPtr, int* counterRhinoPtr); // updates rhino position
+void updateRhino(Rhino* rhinoPtr, uint8_t* counterRhinoPtr); // updates rhino position
 void updateObstacle(Obstacle* obstaclePtr); // updates an obstacle
 // bool functions
 bool checkIfObstacleEnds(Obstacle obstacle); // checks if an obstacle has reached the end of the screen

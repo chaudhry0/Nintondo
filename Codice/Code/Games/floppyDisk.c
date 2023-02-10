@@ -55,10 +55,10 @@ void runFloppyDisk() {
     showInitialTitle(imageFloppyDiskTitle);
     drawFloppyDiskBackground();
     showTutorialBig(imageTutorialFloppyDisk);
-    float lux = 0.0;
+    uint32_t lux = 0.0;
     FloppyDisk floppyDisk;
-    int portionSize = 0;
-    int currentPosition = 0;
+    uint8_t portionSize = 0;
+    uint8_t currentPosition = 0;
     initFloppyDisk(&floppyDisk, &portionSize);
     drawFloppyDiskBackground();
     drawFloppyDisk(floppyDisk.x, floppyDisk.y);
@@ -66,6 +66,7 @@ void runFloppyDisk() {
     drawScore(score);
     while(!gameOver){
         lux = OPT3001_getLux();
+        //printf("%d \n", lux);
         if(lux < MIN_THRESHOLD_LUX ) {
             moveUpFloppyDisk(&floppyDisk);
         }else {
@@ -101,14 +102,14 @@ void runFloppyDisk() {
  * 
  * @return none --> void
  */
-void initFloppyDisk(FloppyDisk* floppyDisk, int* portionSize) {
+void initFloppyDisk(FloppyDisk* floppyDisk, uint8_t* portionSize) {
     head = NULL; 
     score = 0;
     gameOver = false;
     *portionSize = (MAX_X_SIZE/ NUM_RAM);
     floppyDisk->x = FLOPPY_SPAWN_X;
     floppyDisk->y = (MAX_Y_SIZE/2)-FLOPPY_SPAWN_X;
-    int i;
+    uint8_t i;
     for(i=0; i < NUM_RAM; i++){
         insert_end(0);
     }
@@ -171,12 +172,12 @@ void moveDownFloppyDisk(FloppyDisk* floppyDisk){
  *
  * @return none --> void
  */
-void moveRam(int* currentPosition, int* portionSize){
+void moveRam(uint8_t* currentPosition, uint8_t* portionSize){
     // this is useful if there are at least two or more portion
     if((*currentPosition) > (*portionSize) + RAM_WIDTH){
         (*currentPosition) -= (*portionSize);
         delete_begin();
-        int height = random(10, MAX_Y_SIZE - (2*BORDER) - RAM_HEIGHT_GAP);
+        uint8_t height = random(10, MAX_Y_SIZE - (2*BORDER) - RAM_HEIGHT_GAP);
         //if(height <= 10) height = 0;
         insert_end(height);
     }
@@ -212,7 +213,7 @@ void drawFloppyDiskBackground(){
  *
  * @return none --> void
  */
-void drawFloppyDisk(int x, int y) {
+void drawFloppyDisk(uint8_t x, uint8_t y) {
     Graphics_drawImage(&g_sContext, &imageFloppyDisk, x , y );
 }
 
@@ -230,8 +231,8 @@ void drawFloppyDisk(int x, int y) {
  *
  * @return none --> void
  */
-void drawRam(int* currentPosition, int* portionSize) {
-    int currentPortion= 0;
+void drawRam(uint8_t* currentPosition, uint8_t* portionSize) {
+    uint8_t currentPortion= 0;
     struct node* ptr = head;
     while(ptr!=NULL) {
         if(ptr->data != 0){
@@ -265,7 +266,7 @@ void drawRam(int* currentPosition, int* portionSize) {
  *
  * @return none --> void
  */
-void clearFloppyDisk(int lastX, int LastY, int up, int down){
+void clearFloppyDisk(uint8_t lastX, uint8_t LastY, int8_t up, int8_t down){
     drawRect(lastX,
              lastX + FLOPPY_WIDTH ,
              LastY + up,
@@ -288,8 +289,8 @@ void clearFloppyDisk(int lastX, int LastY, int up, int down){
  *
  * @return none --> void
  */
-void clearRam(int* currentPosition, int* portionSize) {
-    int currentPortion= 0;
+void clearRam(uint8_t* currentPosition, uint8_t* portionSize) {
+    uint8_t currentPortion= 0;
     struct node* ptr = head;
     while(ptr!=NULL) {
         if(ptr->data != 0){
@@ -326,7 +327,7 @@ void clearRam(int* currentPosition, int* portionSize) {
  * @return true if the floppy disk collides with the border.
  * @return false if the floppy disk doesn't collide with the border.
  */
-bool checkBorderCollisionF(int bottom, int top, int min, int max) {
+bool checkBorderCollisionF(uint8_t bottom, uint8_t top, uint8_t min, uint8_t max) {
     if (bottom >= min  || top <= max ) {
         return true;
     } else{
@@ -351,9 +352,9 @@ bool checkBorderCollisionF(int bottom, int top, int min, int max) {
  * @return true if the floppy disk is inside the ram sticks.
  * @return false if the floppy disk is not inside the ram sticks.
  */
-bool checkRamCollisionF(FloppyDisk* floppyDisk, int* currentPosition, int* portionSize) {
+bool checkRamCollisionF(FloppyDisk* floppyDisk, uint8_t* currentPosition, uint8_t* portionSize) {
     bool temp=false;
-    int currentPortion= 0;
+    uint8_t currentPortion= 0;
     struct node* ptr = head;
     while(ptr!=NULL && !temp) {
         if(ptr->data != 0) {

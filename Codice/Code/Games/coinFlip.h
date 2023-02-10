@@ -36,6 +36,7 @@
 void initArray(Graphics_Image* arrayPtr); // initializes the array of coin images
 void drawCoinBackground();
 // run function
+uint8_t runAnimation(Graphics_Image* arrayPtr); // runs the coin animation
 void runCoinFlip(); // runs the coinFlip game
 
 #endif /* CODE_UTILITIES_COINFLIP_H_ */

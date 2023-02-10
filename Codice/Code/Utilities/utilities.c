@@ -33,7 +33,7 @@
  * @return none --> void
  */
 void initBestScores(){
-    int i;
+    uint8_t i;
     for (i=0; i<NUM_GAMES; i++){
         bestScores[i] = 0;
     }
@@ -48,7 +48,7 @@ void initBestScores(){
  * 
  * @return none --> void
  */
-void updateBestScore(int selectedGame){
+void updateBestScore(uint8_t selectedGame){
     if (score > bestScores[selectedGame]){
         bestScores[selectedGame] = score;
     }
@@ -99,9 +99,9 @@ void wait(uint32_t interval){
  * @param[in] max --> the maximum number
  *
  * 
- * @return int --> the random number
+ * @return uint8_t --> the random number
  */
-int random(int min, int max) {
+int8_t random(int8_t min, int8_t max) {
     return (rand()%(max-min+1))+min;
 }
 
@@ -128,7 +128,7 @@ void drawScoreText(){
  * 
  * @return none --> void
  */
-void drawScore(int score) {
+void drawScore(uint16_t score) {
     char temp[10];
     drawRect(80, 100, 115, 125, RED);
     Graphics_setForegroundColor(&g_sContext, WHITE);
@@ -162,7 +162,7 @@ void cleanBottomBar(){
  * 
  * @return none --> void
  */
-void drawRect(int xMin, int xMax, int yMin, int yMax, uint32_t color) {
+void drawRect(uint8_t xMin, uint8_t xMax, uint8_t yMin, uint8_t yMax, uint32_t color) {
     Graphics_Rectangle rect;
     rect.xMin = xMin;
     rect.xMax = xMax;
@@ -348,7 +348,7 @@ void ADC14_IRQHandler(void) {
     }
     checkLastMove();
 
-    /*int buttonPressed = 0;    //sensitive stick button
+    /*uint8_t buttonPressed = 0;    //sensitive stick button
     if (!(P4IN & GPIO_PIN1))
         buttonPressed = 1;*/
 }

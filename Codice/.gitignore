@@ -13,3 +13,8 @@
 /startup_msp432p401r_ccs.c
 /system_msp432p401r.c
 .vscode
+/Debug__opt_for_speed__3/
+/Debug__opt_for_speed__5/
+/Debug__opt_level__1/
+/Debug__opt_level__2/
+/Debug__opt_level__4/

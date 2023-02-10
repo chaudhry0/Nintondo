@@ -38,26 +38,26 @@
 *******************************************************************************/
 static uint16_t resultsBuffer[2]; // buffer to store Joystick samples
 Graphics_Context g_sContext; // Graphic library context
-int score; // game score
+uint16_t score; // game score
 bool gameOver; // game status
-int direction; // value read from Joystick buffer
-int lastMove; // previous move performed (equals to "direction" but not reset every time)
-int buttonA; // value read from Button A
-int bestScores[5]; // array to store best scores
+uint8_t direction; // value read from Joystick buffer
+uint8_t lastMove; // previous move performed (equals to "direction" but not reset every time)
+uint8_t buttonA; // value read from Button A
+uint16_t bestScores[5]; // array to store best scores
 
 /******************************************************************************
 * [ FUNCTIONS PROTOTYPES ]
 *******************************************************************************/  
 void initBestScores();
-void updateBestScore(int selectedGame);
+void updateBestScore(uint8_t selectedGame);
 uint32_t getTimeMils(); // returns Timer_A counter
 void wait(uint32_t interval); // waits some milliseconds
-int random(int min, int max); // generates a random number
+int8_t random(int8_t min, int8_t max); // generates a random number
 void drawScoreText(); // draws the current score
-void drawScore(int score); // draws the current score
+void drawScore(uint16_t score); // draws the current score
 void cleanBottomBar(); // cleans the bottom bar
 uint16_t getButtons(); // returns 1 if A pressed, 2 if B pressed (Joystick), 0 otherwise
-void drawRect(int xMin, int xMax, int yMin, int yMax, uint32_t color); // Generic function to draw Rectangle for cleaning purpose
+void drawRect(uint8_t xMin, uint8_t xMax, uint8_t yMin, uint8_t yMax, uint32_t color); // Generic function to draw Rectangle for cleaning purpose
 void checkLastMove(); // This Function is to check joystick movement
 void initGameData(); // This Function is to initialize the game data
 bool consumeButtonA(); // This Function is to consume the button A

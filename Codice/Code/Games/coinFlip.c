@@ -57,13 +57,13 @@ void initArray(Graphics_Image* arrayPtr){
  *
  * @return none --> void
  */
-int runAnimation(Graphics_Image* arrayPtr){
-    int i;
+uint8_t runAnimation(Graphics_Image* arrayPtr){
+    uint8_t i;
     for(i=0; i<16; i++){
         Graphics_drawImage(&g_sContext, arrayPtr + i % 8, COIN_X, COIN_Y);
         wait(ANIMATION_TIME);
     }
-    int toss = random(0,1);
+    uint8_t toss = random(0,1);
     if (toss == 1){
         for(i=0; i<4; i++){
             Graphics_drawImage(&g_sContext, arrayPtr + i, COIN_X, COIN_Y);

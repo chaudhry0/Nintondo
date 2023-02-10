@@ -41,9 +41,9 @@ void runRhino() {
     showInitialTitle(imagetitleRhino);
     drawRhinoBackground();
     showTutorialSmall(imageTutorialRhino);
-    prova = 0;
+    selectAnimation = 0;
     Rhino rhino;
-    int counterRhino;
+    uint8_t counterRhino;
     Obstacle obstacle1;
     Obstacle obstacle2;
     initRhino(&rhino, &counterRhino);
@@ -90,7 +90,7 @@ void runRhino() {
  * 
  * @return none --> void
  */
-void initRhino(Rhino* rhinoPtr, int* counterRhinoPtr) {
+void initRhino(Rhino* rhinoPtr, uint8_t* counterRhinoPtr) {
     *counterRhinoPtr = 0;
     rhinoPtr->x = CELL_LARGE;
     rhinoPtr->y = MAX_HEIGHT - RHINO_Y_SIZE;
@@ -110,7 +110,7 @@ void initRhino(Rhino* rhinoPtr, int* counterRhinoPtr) {
  * 
  * @return none --> void
  */
-void initObstacle(Obstacle* obstaclePtr, int distance) {
+void initObstacle(Obstacle* obstaclePtr, uint8_t distance) {
     if (random(0, 2) == 2){
         obstaclePtr->type = BIRD;
         obstaclePtr->x = MAX_WIDTH - BIRD_X_SIZE + 1 + distance;
@@ -146,12 +146,12 @@ void drawRhinoBackground() {
  */
 void drawRhino(Rhino rhino) {
     Graphics_drawImage(&g_sContext, &imageRino, rhino.x, rhino.y);
-    if (prova == 1){
+    if (selectAnimation == 1){
         imageRino.pPixel = pixelRino2;
-        prova = 0;
+        selectAnimation = 0;
     } else{
         imageRino.pPixel = pixelRino;
-        prova++;
+        selectAnimation++;
     }
 }
 
@@ -193,7 +193,7 @@ void clearRhino(Rhino rhino) {
  * 
  * @return none --> void
  */
-void updateRhino(Rhino* rhinoPtr, int* counterRhinoPtr){
+void updateRhino(Rhino* rhinoPtr, uint8_t* counterRhinoPtr){
     if (rhinoPtr->action == NONE && buttonA == 1){
         rhinoPtr->action = GOING_UP;
     }

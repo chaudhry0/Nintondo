@@ -113,7 +113,7 @@ void runGameHub(){
                 runSpaceGame();
                 break;
             case 1:
-                //runSuperDario();
+                runCoinFlip();
                 break;
             case 2:
                 runBestScores();
@@ -125,7 +125,7 @@ void runGameHub(){
                 break;
         }
     }
-    if (menuNumber==0 || selectedGame<2){
+    if (menuNumber==0 || selectedGame< 1){
         updateBestScore(selectedGame + menuNumber * NUM_ELEMENTS);
         drawGameOver();
         cleanBottomBar();

@@ -39,7 +39,7 @@
  */
 void initSnakeBody(List* snakeBody){
     initList(snakeBody);
-    int i = 0;
+    uint8_t i = 0;
     for (i=0; i<INITIAL_LENGTH; i++){
         push(snakeBody, i+1, CELL_SMALL - 1);
     }
@@ -82,9 +82,9 @@ bool checkIfOpposite(enum Moving moving) {
  * 
  * @return node --> void
  */
-void moveSnake(List* snakeBodyPtr, enum Moving* moving, int xHead, int yHead, int* lastXPtr, int* lastYPtr){
-    int xVel = 0;
-    int yVel = 0;
+void moveSnake(List* snakeBodyPtr, enum Moving* moving, uint8_t xHead, uint8_t yHead, uint8_t* lastXPtr, uint8_t* lastYPtr){
+    int8_t xVel = 0;
+    int8_t yVel = 0;
     if (!checkIfOpposite(*moving)){
         switch(lastMove){
             case 1:
@@ -153,7 +153,7 @@ void drawSnakeBackground() {
  * 
  * @return none --> void
  */
-void clearSnake(int tailx, int taily, bool* lightGreenCell){
+void clearSnake(uint8_t tailx, uint8_t taily, bool* lightGreenCell){
     if (*lightGreenCell){
         drawRect(CELL_SMALL * tailx,
                  CELL_SMALL * tailx + CELL_SMALL -1,
@@ -180,7 +180,7 @@ void clearSnake(int tailx, int taily, bool* lightGreenCell){
  * 
  * @return none --> void
  */
-void drawSnakeCell(int x, int y) {
+void drawSnakeCell(uint8_t x, uint8_t y) {
     Graphics_drawImage(&g_sContext, &imageSnakeBody, x * CELL_SMALL, y * CELL_SMALL);
 }
 
@@ -194,7 +194,7 @@ void drawSnakeCell(int x, int y) {
  * @return none --> void
  */
 void drawSnakeFull(List snakeBody) {
-    int i;
+    uint8_t i;
     for (i=0; i<snakeBody.length; i++){
         drawSnakeCell(getElem(snakeBody, i + 1).x, getElem(snakeBody, i + 1).y);
     }
@@ -213,7 +213,7 @@ void drawSnakeFull(List snakeBody) {
 void generateRandomApple(List snakeBody, Apple* apple) {
     apple->x = random(0, 15);
     apple->y = random(2, 13);
-    int i;
+    uint8_t i;
     for (i=0; i<snakeBody.length; i++){
         if (apple->x == getElem(snakeBody, snakeBody.length - i).x && apple->y == getElem(snakeBody, snakeBody.length - i).y){
             generateRandomApple(snakeBody, apple);
@@ -279,7 +279,7 @@ bool checkBorderCollision(List snakeBody) {
  * @return true if the snake collides with itself, false otherwise.
  */
 bool checkSnakeCollision(List snakeBody) {
-    int i = 0;
+    uint8_t i = 0;
     for (i=3; i<=snakeBody.length-1; i++){
         if ((getLastElem(snakeBody).x == getElem(snakeBody, snakeBody.length - i).x) &&
            (getLastElem(snakeBody).y == getElem(snakeBody, snakeBody.length - i).y)){
@@ -304,9 +304,9 @@ void runSnake() {
     drawSnakeBackground();
     showTutorialSmall(imageTutorialSnake);
     bool lightGreenCell = true;
-    int speed = 300;
-    int lastX = 0;
-    int lastY = 0;
+    int16_t speed = SNAKE_SPEED;
+    uint8_t lastX = 0;
+    uint8_t lastY = 0;
     lastMove = 0;
     List snakeBody;
     Apple apple;

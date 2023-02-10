@@ -40,9 +40,9 @@
  * @return none --> void
  */
 void drawScores(){
-    int totalScore = 0;
+    uint16_t totalScore = 0;
     char value[10];
-    int i;
+    uint8_t i;
     Graphics_setForegroundColor(&g_sContext, BLACK);
     for (i=0; i<5; i++){
         sprintf(value, "%d", bestScores[i]);

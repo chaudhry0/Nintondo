@@ -66,7 +66,7 @@ void drawPongBackground(){
  * 
  * @return none --> void
  */
-void drawPongUser(int userUpperY, int lastUserY){
+void drawPongUser(uint8_t userUpperY, uint8_t lastUserY){
     Graphics_drawImage(&g_sContext, &imagePongUser, 0, userUpperY);
     if (lastUserY < userUpperY){ // moving down
         drawRect(0, PONG_UNIT - 1, userUpperY - 1, userUpperY - PLAYERS_SPEED, GREEN);
@@ -85,7 +85,7 @@ void drawPongUser(int userUpperY, int lastUserY){
  * 
  * @return none --> void
  */
-void drawPongEnemy(int enemyUpperY, int lastEnemyY){
+void drawPongEnemy(uint8_t enemyUpperY, uint8_t lastEnemyY){
     Graphics_drawImage(&g_sContext, &imagePongEnemy, MAX_WIDTH - PONG_UNIT, enemyUpperY);
     if (lastEnemyY < enemyUpperY){ // moving down
         drawRect(MAX_WIDTH - PONG_UNIT, MAX_WIDTH - 1, enemyUpperY - 1, enemyUpperY - PONG_UNIT, GREEN);
@@ -121,7 +121,7 @@ void drawBall(Ball ball){
  * 
  * @return none --> void
  */
-void moveUser(int* userUpperYPtr, int* lastUserYPtr){
+void moveUser(uint8_t* userUpperYPtr, uint8_t* lastUserYPtr){
     *lastUserYPtr = *userUpperYPtr;
     switch(direction){
         case 1: // UP
@@ -152,7 +152,7 @@ void moveUser(int* userUpperYPtr, int* lastUserYPtr){
  * 
  * @return none --> void
  */
-void moveEnemy(int* enemyUpperYPtr, int* lastEnemyYPtr, Ball ball){
+void moveEnemy(uint8_t* enemyUpperYPtr, uint8_t* lastEnemyYPtr, Ball ball){
     if (random(1, 100) > 28){
         *lastEnemyYPtr = *enemyUpperYPtr;
         if (*enemyUpperYPtr + CELL_SMALL - PONG_UNIT/2 > ball.y && *enemyUpperYPtr > BAR_SIZE){
@@ -192,8 +192,8 @@ void moveBall(Ball* ballPtr){
  * @return true --> if the ball collides with the user
  * @return false --> if the ball does not collide with the user
  */
-bool checkUserCollision(int userUpperY, Ball ball){
-    int i;
+bool checkUserCollision(uint8_t userUpperY, Ball ball){
+    uint8_t i;
     for (i=0; i<CELL_LARGE; i++){
         if (userUpperY + i == ball.y || userUpperY + i == ball.y + PONG_UNIT - 1){
             return true;
@@ -215,8 +215,8 @@ bool checkUserCollision(int userUpperY, Ball ball){
  * @return true --> if the ball collides with the enemy
  * @return false --> if the ball does not collide with the enemy
  */
-bool checkEnemyCollision(int enemyUpperY, Ball ball){
-    int i;
+bool checkEnemyCollision(uint8_t enemyUpperY, Ball ball){
+    uint8_t i;
     for (i=0; i<CELL_LARGE; i++){
         if (enemyUpperY + i == ball.y || enemyUpperY + i == ball.y + PONG_UNIT - 1){
             return true;
@@ -304,10 +304,10 @@ void runPong(){
     drawPongBackground();
     showTutorialSmall(imageTutorialPong);
     Ball ball;
-    int userUpperY = INITIAL_Y_POSITION;
-    int lastUserY = INITIAL_Y_POSITION;
-    int enemyUpperY = INITIAL_Y_POSITION;
-    int lastEnemyY = INITIAL_Y_POSITION;
+    uint8_t userUpperY = INITIAL_Y_POSITION;
+    uint8_t lastUserY = INITIAL_Y_POSITION;
+    uint8_t enemyUpperY = INITIAL_Y_POSITION;
+    uint8_t lastEnemyY = INITIAL_Y_POSITION;
     initBall(&ball);
     drawPongBackground();
     drawPongUser(userUpperY, lastUserY);

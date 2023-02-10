@@ -36,7 +36,7 @@
  * 
  * @return none --> void
  */
-void drawElement(Graphics_Image* imagePtr, int y){
+void drawElement(Graphics_Image* imagePtr, uint8_t y){
     Graphics_drawImage(&g_sContext, imagePtr, CELL_LARGE, y);
 }
 
@@ -50,7 +50,7 @@ void drawElement(Graphics_Image* imagePtr, int y){
  * @return none --> void
  */
 void drawArrow(){
-    int tmpY = BAR_SIZE + CELL_LARGE + CELL_SMALL + CELL_LARGE * selectedGame;
+    uint8_t tmpY = BAR_SIZE + CELL_LARGE + CELL_SMALL + CELL_LARGE * selectedGame;
     Graphics_drawImage(&g_sContext, &imageArrow, MAX_WIDTH - CELL_LARGE, tmpY);
 }
 
@@ -65,7 +65,7 @@ void drawArrow(){
  */
 void drawMenu(Graphics_Image* elementsPtr){
     Graphics_drawImage(&g_sContext, &imageTextSelectGame, 23, 26);
-       int i;
+       uint8_t i;
        for (i=0; i<NUM_ELEMENTS; i++){
            drawElement(elementsPtr + i, BAR_SIZE + CELL_LARGE + CELL_SMALL + CELL_LARGE * i);
        }
@@ -122,7 +122,7 @@ void updateArrow(){
  * @return none --> void
  */
 void cleanArrow(){
-    int tmpY = BAR_SIZE + CELL_LARGE + CELL_SMALL + CELL_LARGE * selectedGame;
+    uint8_t tmpY = BAR_SIZE + CELL_LARGE + CELL_SMALL + CELL_LARGE * selectedGame;
     drawRect(MAX_WIDTH - CELL_LARGE, MAX_WIDTH, tmpY, tmpY + CELL_LARGE - 1, WHITE);
 }
 

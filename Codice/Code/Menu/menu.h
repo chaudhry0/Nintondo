@@ -29,8 +29,8 @@
 /******************************************************************************
 * [ GLOBAL VARIABLES ]
 *******************************************************************************/
-int selectedGame; // index of the current selected game
-int menuNumber; // 0: first menu; 1: second menu
+int8_t selectedGame; // index of the current selected game
+uint8_t menuNumber; // 0: first menu; 1: second menu
 
 /******************************************************************************
 * [ FUNCTIONS PROTOTYPES ]
@@ -41,7 +41,7 @@ void initElements(Graphics_Image* elementsPtr);
 void updateArrow();
 // bool functions
 // draw functions
-void drawElement(Graphics_Image* imagePtr, int y);
+void drawElement(Graphics_Image* imagePtr, uint8_t y);
 void drawArrow();
 void drawMenu(Graphics_Image* elementsPtr);
 void cleanArrow();

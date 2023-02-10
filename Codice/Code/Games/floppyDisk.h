@@ -41,14 +41,14 @@
 #define SPEED_RAM 4
 #define SPEED_FLOPPY 2
 #define TIME_FLOPPYDISK_GAME 5
-#define MIN_THRESHOLD_LUX 30
+#define MIN_THRESHOLD_LUX 100
 
 /*****************************************************************C*************
 * [ TYPEDEFS STRUCTS]
 *******************************************************************************/
 typedef struct FloppyDisk {
-    int x;
-    int y;
+    uint8_t x;
+    uint8_t y;
 } FloppyDisk;
 
 /******************************************************************************
@@ -59,16 +59,16 @@ void initFloppyDisk();  // initializes floppy spawn point and game score
 // moving/updating functions
 void moveUpFloppyDisk(FloppyDisk* floppyDisk); // Decrements Y coordinate of the floppy disk
 void moveDownFloppyDisk(FloppyDisk* floppyDisk); // Increments Y coordinate of the floppy disk
-void moveRam(int* currentPosition, int* portionSize); // Increments currentPosition of the ram and generates random height for the next Ram. Delete the Ram that has already gone through.
+void moveRam(uint8_t* currentPosition, uint8_t* portionSize); // Increments currentPosition of the ram and generates random height for the next Ram. Delete the Ram that has already gone through.
 // draw/clear functions
 void drawFloppyDiskBackground(); // Draws the floppy disk background
-void drawFloppyDisk(int x, int y); // Draws a single snake body cell
-void drawRam(int* currentPosition, int* portionSize); // Draw all the rams that are contained in the list
-void clearFloppyDisk(int lastX, int LastY, int up, int down); // Eraser only few pixel of the floppy disk depending on SPEED_FLOPPY
-void clearRam(int* currentPosition, int* portionSize); // Eraser only few pixel of the ram depending on SPEED_FLOPPY
+void drawFloppyDisk(uint8_t x, uint8_t y); // Draws a single snake body cell
+void drawRam(uint8_t* currentPosition, uint8_t* portionSize); // Draw all the rams that are contained in the list
+void clearFloppyDisk(uint8_t lastX, uint8_t LastY, int8_t up, int8_t down); // Eraser only few pixel of the floppy disk depending on SPEED_FLOPPY
+void clearRam(uint8_t* currentPosition, uint8_t* portionSize); // Eraser only few pixel of the ram depending on SPEED_FLOPPY
 // collision functions
-bool checkBorderCollisionF(int bottom, int top, int min, int max); // Given bottom and top coordinates in Y axis, check if it collides with min and max
-bool checkRamCollisionF(FloppyDisk* floppyDisk,int* currentPosition, int* portionSize); // check collision between RAM and Floppy
+bool checkBorderCollisionF(uint8_t bottom, uint8_t top, uint8_t min, uint8_t max); // Given bottom and top coordinates in Y axis, check if it collides with min and max
+bool checkRamCollisionF(FloppyDisk* floppyDisk,uint8_t* currentPosition, uint8_t* portionSize); // check collision between RAM and Floppy
 
 // run function
 void runFloppyDisk();   // run the FloppyDisk game

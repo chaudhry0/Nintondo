@@ -59,7 +59,7 @@ void drawAbout2(){
  * @return none --> void
  */
 void runAbout(){
-    int numAbout = 0;
+    uint8_t numAbout = 0;
     drawAbout1();
     wait(500);
     while(!gameOver){

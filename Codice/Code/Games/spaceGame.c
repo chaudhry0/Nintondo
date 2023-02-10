@@ -75,12 +75,12 @@ void updateSpacecraft(Spacecraft* spacecraft){
  *                
  *
  * @param[in] Entity* bullets --> pointer to the bullets array
- * @param[in] int i --> index of the bullet to update
+ * @param[in] uint8_t i --> index of the bullet to update
  *
  * 
  * @return none --> void
  */
-void updateBullet(Entity* bullets, int i){
+void updateBullet(Entity* bullets, uint8_t i){
     (bullets + i)->y -= CELL_SMALL / 2;
 }
 
@@ -89,12 +89,12 @@ void updateBullet(Entity* bullets, int i){
  *       
  *
  * @param[in] Entity* bullets --> pointer to the bullets array
- * @param[in] int i --> index of the bullet to draw
+ * @param[in] uint8_t i --> index of the bullet to draw
  *
  * 
  * @return none --> void
  */
-void drawBullet(Entity bullets[], int i){
+void drawBullet(Entity bullets[], uint8_t i){
     Graphics_drawImage(&g_sContext, &imageBullet, bullets[i].x, bullets[i].y);
 }
 
@@ -104,12 +104,12 @@ void drawBullet(Entity bullets[], int i){
  *        Because the bullets have left their trail.
  *
  * @param[in] Entity* bullets --> pointer to the bullets array
- * @param[in] int i --> index of the bullet to clean
+ * @param[in] uint8_t i --> index of the bullet to clean
  *
  * 
  * @return none --> void
  */
-void cleanBulletMovement(Entity bullets[], int i){
+void cleanBulletMovement(Entity bullets[], uint8_t i){
     drawRect(bullets[i].x, bullets[i].x + 3, bullets[i].y + 4, bullets[i].y + 7, DARK_BLUE);
 }
 
@@ -118,12 +118,12 @@ void cleanBulletMovement(Entity bullets[], int i){
  *        Not the trail.
  *
  * @param[in] Entity* bullets --> pointer to the bullets array
- * @param[in] int i --> index of the bullet to clean
+ * @param[in] uint8_t i --> index of the bullet to clean
  *
  * 
  * @return none --> void
  */
-void cleanBullet(Entity bullets[], int i){
+void cleanBullet(Entity bullets[], uint8_t i){
     drawRect(bullets[i].x, bullets[i].x + 3, bullets[i].y, bullets[i].y + 3, DARK_BLUE);
 }
 
@@ -169,13 +169,13 @@ void cleanSpacecraft(Spacecraft spacecraft){
  *       
  *
  * @param[in] Entity enemies[] --> array of enemies
- * @param[in] int x --> xPosition to check
+ * @param[in] uint8_t x --> xPosition to check
  *
  * 
  * @return bool --> true if the xPosition is not occupied by an enemy, false otherwise
  */
-bool checkNotDupilcates(Entity enemies[], int x){
-    int i;
+bool checkNotDupilcates(Entity enemies[], uint8_t x){
+    uint8_t i;
     for (i=0; i<NUM_ENEMIES; i++){
         if (x == enemies[i].x){
             return false;
@@ -194,7 +194,7 @@ bool checkNotDupilcates(Entity enemies[], int x){
  * @return none --> void
  */
 void initBullets(Entity* bullets){
-    int i;
+    uint8_t i;
     for (i=0; i<NUM_BULLETS; i++){
         (bullets + i)->isActive = false;
     }
@@ -210,7 +210,7 @@ void initBullets(Entity* bullets){
  * @return none --> void
  */
 void initEnemies(Entity* enemies){
-    int i;
+    uint8_t i;
     for (i=0; i<NUM_ENEMIES; i++){
         initSingleEnemy(enemies, i);
     }
@@ -221,13 +221,13 @@ void initEnemies(Entity* enemies){
  *        The enemy is initialized with a random x position but not duplicated.
  *
  * @param[in] Entity* enemies --> pointer to the enemies array
- * @param[in] int i --> index of the enemy to initialize
+ * @param[in] uint8_t i --> index of the enemy to initialize
  *
  * 
  * @return none --> void
  */
-void initSingleEnemy(Entity* enemies, int i){
-    int x = random(1, 14) * CELL_SMALL;
+void initSingleEnemy(Entity* enemies, uint8_t i){
+    uint8_t x = random(1, 14) * CELL_SMALL;
     while(!checkNotDupilcates(enemies, x)){ 
         x = random(1, 14) * CELL_SMALL;
     }
@@ -241,12 +241,12 @@ void initSingleEnemy(Entity* enemies, int i){
  *        The enemies are moving down.
  *
  * @param[in] Entity* enemies --> pointer to the enemies array
- * @param[in] int i --> index of the enemy to update
+ * @param[in] uint8_t i --> index of the enemy to update
  *
  * 
  * @return none --> void
  */
-void updateEnemies(Entity* enemies, int i){
+void updateEnemies(Entity* enemies, uint8_t i){
     (enemies + i)->y += CELL_SMALL / 4;
 }
 
@@ -260,7 +260,7 @@ void updateEnemies(Entity* enemies, int i){
  * 
  * @return none --> void
  */
-void drawEnemy(Entity enemies[], int i){
+void drawEnemy(Entity enemies[], uint8_t i){
     Graphics_drawImage(&g_sContext, &imageSpaceEnemy, enemies[i].x, enemies[i].y);
 }
 
@@ -274,7 +274,7 @@ void drawEnemy(Entity enemies[], int i){
  * 
  * @return none --> void
  */
-void cleanEnemyMovement(Entity enemies[], int i){
+void cleanEnemyMovement(Entity enemies[], uint8_t i){
     drawRect(enemies[i].x, enemies[i].x + CELL_SMALL - 1, enemies[i].y - 1, enemies[i].y - 2, DARK_BLUE);
 }
 
@@ -288,7 +288,7 @@ void cleanEnemyMovement(Entity enemies[], int i){
  * 
  * @return none --> void
  */
-void cleanEnemy(Entity enemies[], int i){
+void cleanEnemy(Entity enemies[], uint8_t i){
     drawRect(enemies[i].x, enemies[i].x + CELL_SMALL - 1, enemies[i].y, enemies[i].y + CELL_SMALL - 1, DARK_BLUE);
 }
 
@@ -303,7 +303,7 @@ void cleanEnemy(Entity enemies[], int i){
  * @return none --> void
  */
 void drawBulletsCompleteBar(){
-    int i;
+    uint8_t i;
     for (i=0; i<NUM_BULLETS; i++){
         drawBulletBar(i);
     }
@@ -313,14 +313,14 @@ void drawBulletsCompleteBar(){
  * @brief This Function is to clean the bullert bar.
  *                
  *
- * @param[in] int numBulletsActive --> number of bullets active
+ * @param[in] uint8_t numBulletsActive --> number of bullets active
  *
  * 
  * @return none --> void
  */
-void cleanBulletBar(int numBulletsActive){
-    int y1 = MAX_HEIGHT - 9 - (3 - numBulletsActive) * 9;
-    int y2 = MAX_HEIGHT - 4 - (3 - numBulletsActive) * 9;
+void cleanBulletBar(uint8_t numBulletsActive){
+    uint8_t y1 = MAX_HEIGHT - 9 - (3 - numBulletsActive) * 9;
+    uint8_t y2 = MAX_HEIGHT - 4 - (3 - numBulletsActive) * 9;
     drawRect(MAX_WIDTH - 6, MAX_WIDTH - 6 + 3, y1, y2, BLUE);
 }
 
@@ -328,13 +328,13 @@ void cleanBulletBar(int numBulletsActive){
  * @brief This Function is to draw the bullet bar.
  *                
  *
- * @param[in] int numBulletsActive --> number of bullets active
+ * @param[in] uint8_t numBulletsActive --> number of bullets active
  * 
  *
  * 
  * @return none --> void
  */
-void drawBulletBar(int numBulletsActive){
+void drawBulletBar(uint8_t numBulletsActive){
     Graphics_drawImage(&g_sContext, &imageBulletBar, MAX_WIDTH - 6, MAX_HEIGHT - 9 - (2 - numBulletsActive) * 9);
 }
 
@@ -350,7 +350,7 @@ void drawBulletBar(int numBulletsActive){
  * 
  * @return bool --> true if the bullet hits the enemy, false otherwise
  */
-bool checkBulletHits(Entity bullets[], int i, Entity enemies[], int j){
+bool checkBulletHits(Entity bullets[], uint8_t i, Entity enemies[], uint8_t j){
     if (bullets[i].x - 2 == enemies[j].x){
         if (bullets[i].y <= enemies[j].y + 10){
             return true;
@@ -370,7 +370,7 @@ bool checkBulletHits(Entity bullets[], int i, Entity enemies[], int j){
  * @return bool --> true if an enemy has reached the maximum position, false otherwise
  */
 bool checkLooseCondition(Entity enemies[]){
-    int i;
+    uint8_t i;
     for (i=0; i<NUM_ENEMIES; i++){
         if (enemies[i].isActive){
             if (enemies[i].y >= MAX_HEIGHT - CELL_SMALL){
@@ -392,7 +392,7 @@ bool checkLooseCondition(Entity enemies[]){
  * @return bool --> true if the bullet is available, false otherwise
  */
 bool checkIfBulletAvailable(Entity bullets[]){
-    int i;
+    uint8_t i;
     for (i=0; i<NUM_BULLETS; i++){
         if (!bullets[i].isActive){
             return true;
@@ -412,7 +412,7 @@ bool checkIfBulletAvailable(Entity bullets[]){
  * 
  * @return bool --> true if the bullet has reached the end of the screen, false otherwise
  */
-bool checkBulletEnds(Entity bullets[], int i){
+bool checkBulletEnds(Entity bullets[], uint8_t i){
     if (bullets[i].y == BAR_SIZE){
         return true;
     }
@@ -431,7 +431,7 @@ bool checkBulletEnds(Entity bullets[], int i){
  * @return none --> void
  */
 void shotBullet(Spacecraft spacecraft, Entity* bullets){
-    int i;
+    uint8_t i;
     for (i=0; i<NUM_BULLETS; i++){
         if (!(bullets + i)->isActive){
             (bullets + i)->isActive = true;
@@ -457,8 +457,8 @@ void runSpaceGame(){
     drawBackground();
     showTutorialBig(imageTutorialSpaceInvaders);
     consumeButtonA(); // resets the variable storing if button A has been pressed
-    int numBulletsActive = 0; // numbers of bullets on the screen
-    int shotCountdown = 0; // countdown to avoid bullets spam
+    uint8_t numBulletsActive = 0; // numbers of bullets on the screen
+    uint8_t shotCountdown = 0; // countdown to avoid bullets spam
     Spacecraft spacecraft;
     spacecraft.x = CELL_SMALL;
     Entity bullets[NUM_BULLETS];
@@ -485,7 +485,7 @@ void runSpaceGame(){
             shotCountdown--;
             consumeButtonA();
         }
-        int i;
+        uint8_t i;
         for (i=0; i<NUM_BULLETS; i++){
             if (bullets[i].isActive){ // if bullet active
                 updateBullet(bullets, i);
@@ -496,7 +496,7 @@ void runSpaceGame(){
                     cleanBullet(bullets, i);
                     drawBulletBar(--numBulletsActive);
                 } else{
-                    int j;
+                    uint8_t j;
                     for (j=0; j<NUM_ENEMIES; j++){
                         if (enemies[j].isActive && bullets[i].isActive){
                             if (checkBulletHits(bullets, i, enemies, j)){ // if the bullet hits an enemy
@@ -513,7 +513,7 @@ void runSpaceGame(){
                 }
             }
         }
-        int j;
+        uint8_t j;
         for (j=0; j<NUM_ENEMIES; j++){
             if (enemies[j].isActive){
                 updateEnemies(enemies, j);

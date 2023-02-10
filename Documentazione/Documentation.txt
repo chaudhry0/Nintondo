@@ -121,17 +121,7 @@
 		-drawScores(); 								// function of drawing a table with the best score from every game
 	run function
 		-runBestScores(); 							// runs drawScore and the score screen remains until button A is clicked
-  superDario
-	initBricks();
-	checkBrickCollision(Dario dario, int* index);
-	checkBrickLateralCollision(Dario dario);
-	updateDario(Dario* darioPtr);
-	drawDario(Dario dario);
-	drawBricks();
-	getXDifference(Dario dario);
-	clearDario(Dario dario);
-	drawDarioBackground();
-	runSuperDario();
+
 
 	
 	
@@ -236,15 +226,7 @@
 		-imageBullet
 		-imageSpaceInvadersTitle
 
-  superDarioImages
-	palette	// qua i colori non sono presi da colors.h
-		-paletteDario[]			// nero, cielo, rosso, marrone, rosa, blu, bluchiaro, bianco
-		-paletteBrick[]			// sfumatura medio chiaro di marrone, sfumatura medio scuro di rosso-arancio
-		-paletteDarioBackground[]	// sfumatura medio scuro di verde, cielo, sfumatura chiaro di turchese, bianco, sfumatura di verde 
-	immages
-		-imageDario
-		-imageDarioBrick
-		-imageDarioBackground
+
 
 [ MENU ]
 	gameHub
