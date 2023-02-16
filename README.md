@@ -57,7 +57,7 @@
 Welcome to Nintondo!
 your one-stop-shop for all your gaming needs!
 
-Nintondo is a game hub that brings back the classic arcade games with a modern twist. As a tribute to the Nintendo switch, our project is designed to bring the joy of arcade games to everyone. We have handpicked some of the most popular arcade games and developed them for your entertainment.
+Nintondo is a game hub that brings back the classic arcade games with a modern twist. As a tribute to the popular Nintendo console, our project is designed to bring the joy of arcade games to everyone. We have handpicked some of the most popular arcade games and developed them for your entertainment.
 
 In Nintondo, you can choose from a variety of games including snake, pong, space invaders, floppy disk and rhino runner. Each game is unique in its own way and will bring back memories of the classic arcade games. While some of the games are inspired by popular games, they still have their own game modes and rules, so be ready to enjoy a new experience.
 
@@ -66,6 +66,15 @@ The Nintondo project is powered by a microcontroller manufactured by Texas Instr
 We believe that everyone deserves to experience the joy of arcade games, and that's why we have developed Nintondo.
 
 So, grab your controllers and get ready to experience the fun and excitement of Nintondo! We can't wait to see you on the virtual battlefield.
+
+<!-- DEVELOPEDGAMES -->
+### Developed Games
+- **SNAKE**: the game became famous to be in every smartphone. The goal of the game is to eat as many apples as possible without never hitting your tail or any border. Every time an apple is eaten the snake length increases
+- **PONG**: a game that simulates a Ping Pong match. The goal of the game is to not leave the ball hitting your side and to try to win the match
+- **RHINO RUNNER**: a funny game inspired to the famous Dino game developed by Google and that happears whenever the connection is down. The goal of this game is to dodge every enemy (cactus and birds)
+- **FLOPPY DISK**: a funny game inspired to the Flopppy Bird, a famous smartphone game that became viral some years ago. The main goal is to dodge every RAM bank
+- **SPACE INVADERS**: one of the most famous arcade game. The goal of this game is to hit every enemy spawning from the top of the screen with available bullets
+- **COIN FLIP**: simple game to challenge fate, great when you have to make important decisions
 
 
 
@@ -128,35 +137,43 @@ After installation:
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
-<!-- USAGE EXAMPLES -->
-## Usage
-examples of how a project can be used. Additional screenshots, code examples and demos
-
-<p align="right">(<a href="#readme-top">back to top</a>)</p>
-
-<!-- DEVELOPEDGAMES -->
-## Developed Games
-- [SNAKE]
-
-The game became famous to be in every smartphone. The goal of the game is to eat as many apples as possible without never hitting your tail or any border. Every time an apple is eaten the snake length increases
-
-- [PONG]
-
-A game that simulates a Ping Pong match. The goal of the game is to not leave the ball hitting your side and to try to win the match
-
-- [RHINO RUNNER]
-
-A funny game inspired to the famous Dino game developed by Google and that happears whenever the connection is down. The goal of this game is to dodge every enemy (cactus and birds)
-
-- [FLOPPY DISK]
-
-A funny game inspired to the Flopppy Bird, a famous smartphone game that became viral some years ago. The main goal is to dodge every RAM bank
-
-- [SPACE INVADERS]
-
-One of the most famous arcade game. The goal of this game is to hit every enemy spawning from the top of the screen with available bullets
- 
-<p align="right">(<a href="#readme-top">back to top</a>)</p>
+<!-- PROJECT LAYOUT -->
+## Project Layout
+```
+├── main
+├── testingMain
+└── [Code]
+     ├── [Games]
+     │    ├── about
+     │    ├── bestScore
+     │    ├── coinFlip
+     │    ├── floppyDisk
+     │    ├── pong
+     │    ├── rhinoRunner
+     │    ├── snake
+     │    └── spaceGame
+     ├── [Images]      
+     │    ├── aboutImages
+     │    ├── backgroundImages
+     |    ├── bestScoreImages
+     │    ├── coinFlipImages
+     │    ├── floppyDiskImages
+     |    ├── menuImages
+     │    ├── pongImages
+     │    ├── rhinoImages
+     │    ├── snakeImages
+     │    └── spaceGameImages
+     ├── [Menu]
+     │    ├── gameHub
+     │    └── menu
+     └── [Utilities]
+          ├── colors
+          ├── init
+          ├── libs
+          ├── linkedList
+          ├── list
+          └── utilities
+```
 
 <!-- ROADMAP -->
 ## Roadmap
@@ -213,6 +230,7 @@ We would be more than happy to hear from you.
 
 
 Project Link: [https://github.com/chaudhry0/Nintondo](https://github.com/chaudhry0/Nintondo)
+Presentation Link: soon
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
@@ -229,7 +247,7 @@ Project Link: [https://github.com/chaudhry0/Nintondo](https://github.com/chaudhr
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
-Thank you for visiting our page!
+Thank you for visiting our page! Enjoy you experience with Nintondo!
 
 <!-- MARKDOWN LINKS & IMAGES -->
 [boosterpack]: images/IMG_boosterpack.PNG
