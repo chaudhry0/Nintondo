@@ -229,8 +229,8 @@ We would be more than happy to hear from you.
 -   Francesco Poinelli - [@twitter_handle](https://twitter.com/twitter_handle) - francesco.poinelli@studenti.unitn.it
 
 
-Project Link: [https://github.com/chaudhry0/Nintondo](https://github.com/chaudhry0/Nintondo)
-Presentation Link: [https://docs.google.com/presentation/d/1FjArqNzbcVRavWcu7ZA5t-i7vRcWXR6WLDtwkMczJLI/edit?usp=sharing] (https://docs.google.com/presentation/d/1FjArqNzbcVRavWcu7ZA5t-i7vRcWXR6WLDtwkMczJLI/edit?usp=sharing)
+Project Link: [https://github.com/chaudhry0/Nintondo](https://github.com/chaudhry0/Nintondo)\
+Presentation Link: [https://docs.google.com/presentation/d/1FjArqNzbcVRavWcu7ZA5t-i7vRcWXR6WLDtwkMczJLI/edit?usp=sharing](https://docs.google.com/presentation/d/1FjArqNzbcVRavWcu7ZA5t-i7vRcWXR6WLDtwkMczJLI/edit?usp=sharing)
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
