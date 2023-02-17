@@ -61,7 +61,7 @@ void drawAbout2(){
 void runAbout(){
     uint8_t numAbout = 0;
     drawAbout1();
-    wait(500);
+    wait(2000);
     while(!gameOver){
         if (consumeButtonA()){
             if (numAbout == 0){
