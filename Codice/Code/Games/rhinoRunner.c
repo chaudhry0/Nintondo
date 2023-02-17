@@ -59,12 +59,17 @@ void runRhino() {
         updateRhino(&rhino, &counterRhino);
         clearRhino(rhino);
         drawRhino(rhino);
-        updateObstacle(&obstacle1);
-        updateObstacle(&obstacle2);
-        clearObstacle(obstacle1);
-        clearObstacle(obstacle2);
-        drawObstacle(obstacle1);
-        drawObstacle(obstacle2);
+
+        if (!checkIfObstacleEnds(obstacle1)){
+            updateObstacle(&obstacle1);
+            drawObstacle(obstacle1);
+            clearObstacle(obstacle1);
+        }
+        if (!checkIfObstacleEnds(obstacle2)){
+            updateObstacle(&obstacle2);
+            drawObstacle(obstacle2);
+            clearObstacle(obstacle2);
+        }
 
         if (checkRhinoCollision(rhino, obstacle1) || checkRhinoCollision(rhino, obstacle2)){
             gameOver = true;
@@ -241,10 +246,21 @@ void drawObstacle(Obstacle obstacle) {
  * @return none --> void
  */
 void clearObstacle(Obstacle obstacle) {
-    if(obstacle.type == CACTUS){
-        drawRect(obstacle.x + CACTUS_X_SIZE, obstacle.x + CACTUS_X_SIZE + GAME_SPEED - 1, MAX_HEIGHT-CACTUS_Y_SIZE, MAX_HEIGHT-1, WHITE);
+    if (checkIfObstacleEnds(obstacle)){
+        if(obstacle.type == CACTUS){
+            drawRect(0, CACTUS_X_SIZE, MAX_HEIGHT-CACTUS_Y_SIZE, MAX_HEIGHT-1, WHITE);
+        }else{
+            drawRect(0, BIRD_X_SIZE, MAX_HEIGHT - BIRD_HEIGHT - BIRD_Y_SIZE, MAX_HEIGHT - BIRD_HEIGHT - 1, WHITE);
+        }
     }else{
-        drawRect(obstacle.x + BIRD_X_SIZE, obstacle.x + BIRD_X_SIZE + GAME_SPEED - 1, MAX_HEIGHT - BIRD_HEIGHT - BIRD_Y_SIZE, MAX_HEIGHT - BIRD_HEIGHT - 1, WHITE);
+        if(obstacle.type == CACTUS){
+            drawRect(obstacle.x + CACTUS_X_SIZE, obstacle.x + CACTUS_X_SIZE + GAME_SPEED - 1, MAX_HEIGHT-CACTUS_Y_SIZE, MAX_HEIGHT-1, WHITE);
+            //Graphics_drawStringCentered(&g_sContext, (int8_t *) "score: ", 7, 64, 20, TRANSPARENT_TEXT);
+            //printf("drawRect cactus (Xmax-Xmin): %d \n",(obstacle.x + CACTUS_X_SIZE + GAME_SPEED - 1) - (obstacle.x + CACTUS_X_SIZE));
+        }else{
+            drawRect(obstacle.x + BIRD_X_SIZE, obstacle.x + BIRD_X_SIZE + GAME_SPEED - 1, MAX_HEIGHT - BIRD_HEIGHT - BIRD_Y_SIZE, MAX_HEIGHT - BIRD_HEIGHT - 1, WHITE);
+            //printf("drawRect bird (Xmax-Xmin): %d \n",( obstacle.x + BIRD_X_SIZE + GAME_SPEED - 1) - (obstacle.x + BIRD_X_SIZE));
+        }
     }
 }
 
@@ -258,7 +274,7 @@ void clearObstacle(Obstacle obstacle) {
  * @return true if the obstacle is out of the screen, false otherwise.
  */
 bool checkIfObstacleEnds(Obstacle obstacle) {
-    if (obstacle.x <= 0 - CACTUS_X_SIZE && obstacle.type == CACTUS){
+    if (obstacle.x <= 0 - CACTUS_X_SIZE  && obstacle.type == CACTUS){
         return true;
     }else if (obstacle.x <= 0 - BIRD_X_SIZE && obstacle.type == BIRD){
         return true;
