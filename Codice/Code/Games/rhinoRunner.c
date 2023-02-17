@@ -41,6 +41,7 @@ void runRhino() {
     showInitialTitle(imagetitleRhino);
     drawRhinoBackground();
     showTutorialSmall(imageTutorialRhino);
+    drawRhinoBackground();
     selectAnimation = 0;
     Rhino rhino;
     uint8_t counterRhino;
