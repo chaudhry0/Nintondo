@@ -12,12 +12,13 @@
   <p align="center">
     powered by students of the University of Trento
     <br />
+    <a href="https://www.youtube.com/watch?v=m6_IWnPdxQk"><strong>Video presentation»</strong></a>
+    <br />
     <a href="https://docs.google.com/presentation/d/1FjArqNzbcVRavWcu7ZA5t-i7vRcWXR6WLDtwkMczJLI/edit?usp=sharing"><strong>Project presentation»</strong></a>
     <br />
     <a href="https://github.com/chaudhry0/Nintondo/tree/master/Documentazione"><strong>Explore the documentations»</strong></a>
     <br />
     <br />
-    <a href="https://www.youtube.com/watch?v=yPBUJ5CSmYQ">View video Demo</a>
     ·
     <a href="https://github.com/chaudhry0/Nintondo/issues">Report Bug</a>
     ·
@@ -235,7 +236,7 @@ We would be more than happy to hear from you.
 
 Project Link: [https://github.com/chaudhry0/Nintondo](https://github.com/chaudhry0/Nintondo)\
 PowerPoint Presentation Link: [https://docs.google.com/presentation/d/1FjArqNzbcVRavWcu7ZA5t-i7vRcWXR6WLDtwkMczJLI/edit?usp=sharing](https://docs.google.com/presentation/d/1FjArqNzbcVRavWcu7ZA5t-i7vRcWXR6WLDtwkMczJLI/edit?usp=sharing)
-Video Presentation Link: soon
+Video Presentation Link: [https://www.youtube.com/watch?v=m6_IWnPdxQk](https://www.youtube.com/watch?v=m6_IWnPdxQk)
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
