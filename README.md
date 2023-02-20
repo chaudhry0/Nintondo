@@ -4,7 +4,7 @@
 <br />
 <div align="center">
   <a>
-    <img src="images/banner.png" alt="Logo" width="whatever" height="whatever">
+    <img src="images/banner.png" alt="Logo" width="750" height="whatever">
   </a>
 
 <h3 align="center">Nintondo</h3>
@@ -57,7 +57,10 @@
 <!-- ABOUT THE PROJECT -->
 ## About The Project
 
-[![Boosterpack image][boosterpack]](https://www.ti.com/tool/BOOSTXL-EDUMKII)
+  <a>
+    <img src="images/IMG_boosterpack.png" alt="Boosterpack" width="750" height="whatever">
+  </a>
+
 
 Welcome to Nintondo!
 your one-stop-shop for all your gaming needs!
