@@ -81,7 +81,7 @@ void ADC14_IRQHandler(void) {
         resultsBuffer[0] = ADC14_getResult(ADC_MEM0); // Store ADC14 conversion results
         resultsBuffer[1] = ADC14_getResult(ADC_MEM1);
     }
-    checkLastMove();
+    checkLastMove(); // function call
 }
 
 /*  Handler for the pressed button interrupt event.

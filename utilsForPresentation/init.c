@@ -11,22 +11,22 @@ Timer_A_CompareModeConfig compareConfig_PWM = {
         TIMER_A_CAPTURECOMPARE_REGISTER_3,          // Use CCR3
         TIMER_A_CAPTURECOMPARE_INTERRUPT_DISABLE,   // Disable CCR interrupt
         TIMER_A_OUTPUTMODE_TOGGLE_SET,              // Toggle output but
-        23437                                        // 50% Duty Cycle
+        23437                                       // 50% Duty Cycle
         };
 
 /* Timer_A Up Configuration Parameter */
 const Timer_A_UpModeConfig upConfig = {
-        TIMER_A_CLOCKSOURCE_SMCLK,                // SMCLK = 3 MhZ
-        TIMER_A_CLOCKSOURCE_DIVIDER_64,                                   // SMCLK/12 = 250 KhZ
+        TIMER_A_CLOCKSOURCE_SMCLK,              // SMCLK = 3 MhZ
+        TIMER_A_CLOCKSOURCE_DIVIDER_64,         // SMCLK/64 = 46875 Hz
         46874,                                  // 40 ms tick period
         TIMER_A_TAIE_INTERRUPT_DISABLE,         // Disable Timer interrupt
         TIMER_A_CCIE_CCR0_INTERRUPT_DISABLE,    // Disable CCR0 interrupt
         TIMER_A_DO_CLEAR                        // Clear value
         };
 
+// Function to initialize the red LED (pin 6, port 2). It will works in the PWM mode
 void _ledInit(){
-    GPIO_setAsPeripheralModuleFunctionOutputPin(GPIO_PORT_P2, GPIO_PIN6,
-    GPIO_PRIMARY_MODULE_FUNCTION);
+    GPIO_setAsPeripheralModuleFunctionOutputPin(GPIO_PORT_P2, GPIO_PIN6, GPIO_PRIMARY_MODULE_FUNCTION);
     Timer_A_configureUpMode(TIMER_A0_BASE, &upConfig);
     Timer_A_initCompare(TIMER_A0_BASE, &compareConfig_PWM);
 }
@@ -54,15 +54,14 @@ void _adcInit() {
     ADC14_toggleConversionTrigger();
 }
 
+// Function to initialize the display
 void _graphicsInit() {
     Crystalfontz128x128_Init(); // Initializes display
-    Crystalfontz128x128_SetOrientation(LCD_ORIENTATION_UP); // Set default screen orientation
-    /* Initializes graphics context */
-    Graphics_initContext(&g_sContext, &g_sCrystalfontz128x128, &g_sCrystalfontz128x128_funcs);
-    Graphics_setForegroundColor(&g_sContext, GRAPHICS_COLOR_PURPLE);
-    Graphics_setBackgroundColor(&g_sContext, GRAPHICS_COLOR_WHITE);
-    GrContextFontSet(&g_sContext, &g_sFontFixed6x8);
-    Graphics_clearDisplay(&g_sContext);
+    Crystalfontz128x128_SetOrientation(LCD_ORIENTATION_UP); // Sets default screen orientation
+    Graphics_initContext(&g_sContext, &g_sCrystalfontz128x128, &g_sCrystalfontz128x128_funcs); // initializes the context
+    Graphics_setBackgroundColor(&g_sContext, GRAPHICS_COLOR_WHITE); // Sets the bg color font
+    GrContextFontSet(&g_sContext, &g_sFontFixed6x8); // Sets the default font
+    Graphics_clearDisplay(&g_sContext); // cleans the display
 }
 
 void _lightSensorInit() {
@@ -84,8 +83,6 @@ void configurePushButtons() {
     MAP_GPIO_enableInterrupt(GPIO_PORT_P3,GPIO_PIN5);
 }
 
-
-
 // Timer_A2 configuration, useful for the wait() function implementation
 void configureTimer_A2_BASE() {
     // configures the Timer_A2 in continuous mode
@@ -96,7 +93,7 @@ void configureTimer_A2_BASE() {
     Timer_A_startCounter(TIMER_A2_BASE, TIMER_A_CONTINUOUS_MODE);
 }
 
-
+// Function to initialize the the pin 1 of the port 5 (for the button A pressed event)
 void _initButton(){
     P5->SEL0 &= ~BIT1;
     P5->SEL0 &= ~BIT1;
@@ -110,24 +107,22 @@ void _initButton(){
 }
 
 void _hwInit() {
-    /* Halting WDT and disabling master interrupts */
-    WDT_A_holdTimer();
+    WDT_A_holdTimer(); // Halting WDT and disabling master interrupts
     Interrupt_disableMaster();
-    /* Set the core voltage level to VCORE1 */
-    PCM_setCoreVoltageLevel(PCM_VCORE1);
-    /* Initializes Clock System */
-    CS_setDCOCenteredFrequency(CS_DCO_FREQUENCY_3);
-    CS_initClockSignal(CS_MCLK, CS_DCOCLK_SELECT, CS_CLOCK_DIVIDER_1);
-    CS_initClockSignal(CS_HSMCLK, CS_DCOCLK_SELECT, CS_CLOCK_DIVIDER_1);
-    CS_initClockSignal(CS_SMCLK, CS_DCOCLK_SELECT, CS_CLOCK_DIVIDER_1);
-    CS_initClockSignal(CS_ACLK, CS_REFOCLK_SELECT, CS_CLOCK_DIVIDER_1);
-    // other configurations/initializations
-    configureTimer_A2_BASE();
-    _lightSensorInit();
-    _graphicsInit();
-    _adcInit();
-    _ledInit();
-    configurePushButtons();
-    _initButton();
-    srand(time(0));
+    PCM_setCoreVoltageLevel(PCM_VCORE1); // Set the core voltage level to VCORE1
+    // Initializes Clock System
+        CS_setDCOCenteredFrequency(CS_DCO_FREQUENCY_3);
+        CS_initClockSignal(CS_MCLK, CS_DCOCLK_SELECT, CS_CLOCK_DIVIDER_1);
+        CS_initClockSignal(CS_HSMCLK, CS_DCOCLK_SELECT, CS_CLOCK_DIVIDER_1);
+        CS_initClockSignal(CS_SMCLK, CS_DCOCLK_SELECT, CS_CLOCK_DIVIDER_1);
+        CS_initClockSignal(CS_ACLK, CS_REFOCLK_SELECT, CS_CLOCK_DIVIDER_1);
+    // Configurations and Initializations of sensors and hardware stuff
+        configureTimer_A2_BASE();
+        _lightSensorInit();
+        _graphicsInit();
+        _adcInit();
+        _ledInit();
+        configurePushButtons();
+        _initButton();
+        srand(time(0));
 }
