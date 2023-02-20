@@ -57,10 +57,10 @@
 <!-- ABOUT THE PROJECT -->
 ## About The Project
 
-  <a>
-    <img src="images/IMG_boosterpack.png" alt="Boosterpack" width="750" height="whatever">
-  </a>
-
+<div align="center">
+  <img style="float: right;" src="images/IMG_boosterpack.PNG" alt="Logo" width="250" height="whatever">
+</div>
+<br />
 
 Welcome to Nintondo!
 your one-stop-shop for all your gaming needs!
