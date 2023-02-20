@@ -229,9 +229,9 @@ We would be more than happy to hear from you.
 <!-- CONTACT -->
 ## Contacts
 
--   Haroon Chaudhry Mohammad - [@twitter_handle](https://twitter.com/twitter_handle) - h.chaudhrymohammd@studenti.unitn.it
--   Samuel Casagrande Cecchin - [@twitter_handle](https://twitter.com/twitter_handle) - s.casagrandececchin@studenti.unitn.it
--   Francesco Poinelli - [@twitter_handle](https://twitter.com/twitter_handle) - francesco.poinelli@studenti.unitn.it
+-   Haroon Chaudhry Mohammad - h.chaudhrymohammd@studenti.unitn.it
+-   Samuel Casagrande Cecchin - s.casagrandececchin@studenti.unitn.it
+-   Francesco Poinelli - francesco.poinelli@studenti.unitn.it
 
 
 Project Link: [https://github.com/chaudhry0/Nintondo](https://github.com/chaudhry0/Nintondo)\
