@@ -12,14 +12,16 @@
   <p align="center">
     powered by students of the University of Trento
     <br />
+    <a href="https://docs.google.com/presentation/d/1FjArqNzbcVRavWcu7ZA5t-i7vRcWXR6WLDtwkMczJLI/edit?usp=sharing"><strong>Project presentation»</strong></a>
+    <br />
     <a href="https://github.com/chaudhry0/Nintondo/tree/master/Documentazione"><strong>Explore the documentations»</strong></a>
     <br />
     <br />
-    <a href="https://github.com/github_username/repo_name">View video Demo</a>
+    <a href="https://www.youtube.com/watch?v=yPBUJ5CSmYQ">View video Demo</a>
     ·
-    <a href="https://github.com/github_username/repo_name/issues">Report Bug</a>
+    <a href="https://github.com/chaudhry0/Nintondo/issues">Report Bug</a>
     ·
-    <a href="https://github.com/github_username/repo_name/issues">Request Feature</a>
+    <a href="https://github.com/chaudhry0/Nintondo/issues">Request Feature</a>
   </p>
 </div>
 
@@ -33,18 +35,20 @@
       <a href="#about-the-project">About The Project</a>
       <ul>
         <li><a href="#built-with">Built With</a></li>
+        <li><a href="#developed-games">Developed Games</a></li>
       </ul>
     </li>
     <li>
       <a href="#getting-started">Getting Started</a>
       <ul>
-        <li><a href="#prerequisites">Prerequisites</a></li>
-        <li><a href="#installation">Installation</a></li>
+        <li><a href="#hardware-prerequisites">Hardware Prerequisites</a></li>
+        <li><a href="#software-prerequisites">Software Prerequisites</a></li>
+        <li><a href="#nintondo-installation">Nintondo Installation</a></li>
       </ul>
     </li>
-    <li><a href="#usage">Usage</a></li>
-    <li><a href="#developedgames">Developed Games</a></li>
-    <li><a href="#contact">Contact</a></li>
+    <li><a href="#project-layout">Project Layout</a></li>
+    <li><a href="#roadmap">Roadmap</a></li>
+    <li><a href="#about-us">About Us</a></li>
     <li><a href="#acknowledgments">Acknowledgments</a></li>
   </ol>
 </details>
@@ -230,7 +234,8 @@ We would be more than happy to hear from you.
 
 
 Project Link: [https://github.com/chaudhry0/Nintondo](https://github.com/chaudhry0/Nintondo)\
-Presentation Link: [https://docs.google.com/presentation/d/1FjArqNzbcVRavWcu7ZA5t-i7vRcWXR6WLDtwkMczJLI/edit?usp=sharing](https://docs.google.com/presentation/d/1FjArqNzbcVRavWcu7ZA5t-i7vRcWXR6WLDtwkMczJLI/edit?usp=sharing)
+PowerPoint Presentation Link: [https://docs.google.com/presentation/d/1FjArqNzbcVRavWcu7ZA5t-i7vRcWXR6WLDtwkMczJLI/edit?usp=sharing](https://docs.google.com/presentation/d/1FjArqNzbcVRavWcu7ZA5t-i7vRcWXR6WLDtwkMczJLI/edit?usp=sharing)
+Video Presentation Link: soon
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
