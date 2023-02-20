@@ -8,7 +8,7 @@ uint32_t getTimeMils(){
  *  it reaches it maximum value. So two different scenarios are managed: if this not happens and if not
  */
 void wait(uint32_t interval){
-    interval = interval / 2;
+    interval = interval / 2; // since 1000 ms = 512 ticks (about half)
     if (interval <= 60000){
         uint32_t start = getTimeMils();
         if (start + interval >= 65535){                 // if the CounterValue will be reset
