@@ -48,7 +48,7 @@
     </li>
     <li><a href="#project-layout">Project Layout</a></li>
     <li><a href="#roadmap">Roadmap</a></li>
-    <li><a href="#contact">Contact</a></li>
+    <li><a href="#about-us">About Us</a></li>
     <li><a href="#acknowledgments">Acknowledgments</a></li>
   </ol>
 </details>
