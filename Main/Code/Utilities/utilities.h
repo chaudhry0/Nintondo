@@ -71,8 +71,8 @@ void showTutorialSmall(Graphics_Image image); // his Function is to show the sma
 /******************************************************************************
 * [ HANDLER ]
 *******************************************************************************/ 
-void TA2_N_IRQHandler(void); // handler for timer_A
 void ADC14_IRQHandler(void); // handler for Joystick
+void PORT5_IRQHandler(void); // handler for button A
 
 
 #endif /* _UTILITIES_H_ */

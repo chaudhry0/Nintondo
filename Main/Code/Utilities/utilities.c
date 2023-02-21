@@ -211,18 +211,6 @@ void initGameData(){
     consumeButtonA();   // resets bottom A before the games appear
 }
 
-// Old function to get buttonA pressed condition
-/*uint16_t getButtons(){
-    if (!GPIO_getInputPinValue(GPIO_PORT_P5,GPIO_PIN1)){  // A
-        return 1;
-    }
-    if (!GPIO_getInputPinValue(GPIO_PORT_P3,GPIO_PIN5)){  // B
-        return 2;
-    }
-    return 0;
-}*/
-
-
 /*!
  * @brief This Function is to get the button A pressed condition.
  *        It also resets the button A pressed condition.
@@ -315,19 +303,6 @@ void showInitialTitle(Graphics_Image image){
 /******************************************************************************
 * [ HANDLER ]
 *******************************************************************************/ 
-/*!
- * @brief This is the Timer A2 interrupt service routine.
- *        It clears the interrupt flag.        
- *
- * @param[in] none 
- *
- * 
- * @return none --> void
- */
-void TA2_N_IRQHandler(void) {
-    Timer_A_clearInterruptFlag(TIMER_A2_BASE);
-}
-
 /*!
  * @brief This is the Joystick interrupt handler.
  *        It clears the interrupt flag.
