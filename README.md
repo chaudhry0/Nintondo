@@ -148,6 +148,7 @@ After installation:
 <!-- PROJECT LAYOUT -->
 ## Project Layout
 ```
+[Main]
 ├── main
 ├── testingMain
 └── [Code]
