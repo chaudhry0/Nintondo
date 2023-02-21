@@ -54,7 +54,7 @@
 void runFloppyDisk() {
     showInitialTitle(imageFloppyDiskTitle);
     drawFloppyDiskBackground();
-    showTutorialBig(imageTutorialFloppyDisk);
+    showTutorial(imageTutorialFloppyDisk, true);
     uint32_t lux = 0.0;
     uint8_t thresholdVariation = calculateThresholdVariation();
     FloppyDisk floppyDisk;

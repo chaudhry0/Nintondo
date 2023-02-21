@@ -56,7 +56,6 @@ int8_t random(int8_t min, int8_t max); // generates a random number
 void drawScoreText(); // draws the current score
 void drawScore(uint16_t score); // draws the current score
 void cleanBottomBar(); // cleans the bottom bar
-uint16_t getButtons(); // returns 1 if A pressed, 2 if B pressed (Joystick), 0 otherwise
 void drawRect(uint8_t xMin, uint8_t xMax, uint8_t yMin, uint8_t yMax, uint32_t color); // Generic function to draw Rectangle for cleaning purpose
 void checkLastMove(); // This Function is to check joystick movement
 void initGameData(); // This Function is to initialize the game data
@@ -64,9 +63,7 @@ bool consumeButtonA(); // This Function is to consume the button A
 void startLEDBlinking(); // This Function is to start the LED blinking
 void stopLEDBlinking(); // This Function is to stop the LED blinking
 void showInitialTitle(Graphics_Image image); // This Function is to show the initial title
-void showTutorial(Graphics_Image image); // This Function is to show the tutorial
-void showTutorialBig(Graphics_Image image); //  This Function is to show the large tutorial
-void showTutorialSmall(Graphics_Image image); // his Function is to show the small tutorial
+void showTutorial(Graphics_Image image, bool largeFlag); //  This Function is to show the tutorial image
 
 /******************************************************************************
 * [ HANDLER ]

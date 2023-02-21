@@ -455,7 +455,7 @@ void shotBullet(Spacecraft spacecraft, Entity* bullets){
 void runSpaceGame(){
     showInitialTitle(imageSpaceInvadersTitle);
     drawBackground();
-    showTutorialBig(imageTutorialSpaceInvaders);
+    showTutorial(imageTutorialSpaceInvaders, true);
     drawBackground();
     uint8_t numBulletsActive = 0; // numbers of bullets on the screen
     uint8_t shotCountdown = 0; // countdown to avoid bullets spam

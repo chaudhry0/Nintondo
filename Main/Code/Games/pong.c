@@ -302,7 +302,7 @@ void updateBallY(Ball* ballPtr){
 void runPong(){
     showInitialTitle(imagePongTitle);
     drawPongBackground();
-    showTutorialSmall(imageTutorialPong);
+    showTutorial(imageTutorialPong, false);
     Ball ball;
     uint8_t userUpperY = INITIAL_Y_POSITION;
     uint8_t lastUserY = INITIAL_Y_POSITION;

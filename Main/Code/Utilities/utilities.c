@@ -256,7 +256,7 @@ void stopLEDBlinking(){
 }
 
 /*!
- * @brief This Function is to draw the large tutorial image.
+ * @brief This Function is to draw the the tutorial image.
  *                
  *
  * @param[in] none
@@ -264,22 +264,12 @@ void stopLEDBlinking(){
  * 
  * @return none --> void
  */
-void showTutorialBig(Graphics_Image image){
-    Graphics_drawImage(&g_sContext, &image, 0, CELL_LARGE + MAX_HEIGHT/2 - CELL_LARGE/2 - 6);
-    wait(SHORT_TIME);
-}
-
-/*!
- * @brief This Function is to draw the small tutorial image.
- *                
- *
- * @param[in] none
- *
- * 
- * @return none --> void
- */
-void showTutorialSmall(Graphics_Image image){
-    Graphics_drawImage(&g_sContext, &image, 0, CELL_LARGE + MAX_HEIGHT/2 - CELL_LARGE/2);
+void showTutorial(Graphics_Image image, bool largeFlag){
+    int tmpY = CELL_LARGE + MAX_HEIGHT/2 - CELL_LARGE/2;
+    if (largeFlag){
+        tmpY -= 6;
+    }
+    Graphics_drawImage(&g_sContext, &image, 0, tmpY);
     wait(SHORT_TIME);
 }
 

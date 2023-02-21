@@ -40,7 +40,7 @@
 void runRhino() {
     showInitialTitle(imagetitleRhino);
     drawRhinoBackground();
-    showTutorialSmall(imageTutorialRhino);
+    showTutorial(imageTutorialRhino, false);
     drawRhinoBackground();
     selectAnimation = 0;
     Rhino rhino;

@@ -107,7 +107,7 @@ void drawCoinBackground(){
 void runCoinFlip(){
     showInitialTitle(imageCoinTitle);
     drawCoinBackground();
-    showTutorialSmall(imageTutorialCoin);
+    showTutorial(imageTutorialCoin, false);
     drawCoinBackground();
     Graphics_Image coinImages[8];
     initArray(&coinImages[0]);
