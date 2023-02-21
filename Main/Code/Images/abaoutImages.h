@@ -202,16 +202,12 @@ static const uint8_t pixelAbout2[] = {
                                       ,0xff,0xff,0xff,0xff,0xff,0xff,0xff,0xff,0xff,0xff,0xff,0xff,0xff,0xff,0xff,0xff
 };
 
-static const uint32_t paletteAbout[] = {
-                                        BLACK, WHITE
-};
-
 const Graphics_Image imageAbout1 = {
     GRAPHICS_IMAGE_FMT_1BPP_UNCOMP,
     128,
     96,
     2,
-    paletteAbout,
+    paletteBlackWhite,
     pixelAbout1,
 };
 

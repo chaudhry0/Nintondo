@@ -244,14 +244,6 @@ static const uint32_t palettePongEnemy[] = {
                                             BLACK, BLUE
 };
 
-static const uint32_t palettePongBall[] = {
-                                           BLACK, WHITE
-};
-
-static const uint32_t paletteTutorial[] = {
-                                           BLACK, WHITE
-};
-
 const Graphics_Image  imagePongBackground = {
     GRAPHICS_IMAGE_FMT_8BPP_UNCOMP,
     128,
@@ -284,7 +276,7 @@ const Graphics_Image imagePongBall = {
     4,
     4,
     2,
-    palettePongBall,
+    PaletteBlackWhite,
     pixelPongBall,
 };
 
@@ -302,6 +294,6 @@ const Graphics_Image imageTutorialPong = {
     128,
     16,
     2,
-    paletteTutorial,
+    PaletteBlackWhite,
     pixelTutorialPong,
 };

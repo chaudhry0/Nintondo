@@ -192,10 +192,6 @@ static const uint32_t paletteDefault2[] = {
                                           WHITE, ORANGE
 };
 
-static const uint32_t paletteBlackWhite[] = {
-                                            BLACK, WHITE
-};
-
 const Graphics_Image imageTextSelectGame = {
     GRAPHICS_IMAGE_FMT_1BPP_UNCOMP,
     82,

@@ -25,4 +25,10 @@
 #define DARK_GREY 0x565656
 #define BLACK 0x121212
 
+
+// SHARED PALATTES
+static const uint32_t paletteBlackWhite[] = {
+                                             BLACK, WHITE
+};
+
 #endif /* CODE_UTILITIES_COLORS_H_ */

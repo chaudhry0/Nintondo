@@ -435,11 +435,6 @@ static const uint32_t paletteCoinTitle[] = {
                                            BLACK, 0x8e7e54, 0xc2ad75, 0x97865a, 0xdbcca0, WHITE
 };
 
-static const uint32_t paletteTutorial[] = {
-                                           BLACK, WHITE
-};
-
-
 const Graphics_Image imageCoinTitle = {
     GRAPHICS_IMAGE_FMT_8BPP_UNCOMP,
     128,
@@ -517,7 +512,7 @@ const Graphics_Image imageTutorialCoin = {
     128,
     16,
     2,
-    paletteTutorial,
+    paletteBlackWhite,
     pixelTutorialCoin,
 };
 

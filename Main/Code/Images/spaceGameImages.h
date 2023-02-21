@@ -193,9 +193,7 @@ static const uint32_t paletteBullet[] = {
 static const uint32_t paletteSpaceInvadersTitle[] = {
                                             BLACK, DARK_BLUE, ORANGE, YELLOW, DARK_GREY, LIGTH_GREY, WHITE
 };
-static const uint32_t paletteTutorial[] = {
-                                           BLACK, WHITE
-};
+
 
 const Graphics_Image imageSpacecraft = {
     GRAPHICS_IMAGE_FMT_8BPP_UNCOMP,
@@ -247,6 +245,6 @@ const Graphics_Image imageTutorialSpaceInvaders = {
     128,
     27,
     2,
-    paletteTutorial,
+    paletteBlackWhite,
     pixelTutorialSpaceInvaders,
 };

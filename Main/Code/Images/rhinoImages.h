@@ -272,10 +272,6 @@ static const uint32_t paletteTitleRhino[] = {
                                             BLACK, DARK_GREY, BLACK, GREY, LIGTH_GREY, GREY, WHITE
 };
 
-static const uint32_t paletteCactus[] = {
-                                        BLACK, WHITE
-};
-
 static const uint32_t paletteGreys[] = {
                                        BLACK, LIGTH_GREY, DARK_GREY, WHITE
 };
@@ -283,9 +279,7 @@ static const uint32_t paletteGreys[] = {
 static const uint32_t paletteGreys2[] = {
                                        BLACK, LIGTH_GREY, GREY, WHITE
 };
-static const uint32_t paletteTutorial[] = {
-                                           BLACK, WHITE
-};
+
 
 const Graphics_Image  imagetitleRhino = {
     GRAPHICS_IMAGE_FMT_8BPP_UNCOMP,
@@ -301,7 +295,7 @@ const Graphics_Image  imageCactus = {
     8,
     16,
     2,
-    paletteCactus,
+    paletteBlackWhite,
     pixelCactus,
 };
 
@@ -337,6 +331,6 @@ const Graphics_Image imageTutorialRhino = {
     128,
     16,
     2,
-    paletteTutorial,
+    paletteBlackWhite,
     pixelTutorialRhino,
 };
