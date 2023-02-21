@@ -35,7 +35,7 @@ Timer_A_CompareModeConfig compareConfig_PWM = {
         TIMER_A_CAPTURECOMPARE_REGISTER_3,          // Use CaptureCompareRegister3
         TIMER_A_CAPTURECOMPARE_INTERRUPT_DISABLE,   // Disable CCR interrupt
         TIMER_A_OUTPUTMODE_TOGGLE_SET,              // output mode
-        23437                                       // 50% Duty Cycle (46874/2)
+        11718                                      // 25% Duty Cycle (46874/4)
         };
 
 /* Timer_A Up Configuration Parameter */

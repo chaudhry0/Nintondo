@@ -239,7 +239,6 @@ bool consumeButtonA(){
  * @return none --> void
  */
 void startLEDBlinking(){
-    //Timer_A_setOutputForOutputModeOutBitValue(TIMER_A0_BASE, TIMER_A_CAPTURECOMPARE_REGISTER_3, TIMER_A_OUTPUTMODE_OUTBITVALUE);
     Timer_A_startCounter(TIMER_A0_BASE, TIMER_A_UP_MODE);
 }
 
@@ -253,7 +252,6 @@ void startLEDBlinking(){
  * @return none --> void
  */
 void stopLEDBlinking(){
-    //Timer_A_setOutputForOutputModeOutBitValue(TIMER_A0_BASE, TIMER_A_CAPTURECOMPARE_REGISTER_3, TIMER_A_OUTPUTMODE_OUTBITVALUE_LOW);
     Timer_A_stopTimer(TIMER_A0_BASE);
 }
 
