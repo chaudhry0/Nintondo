@@ -65,9 +65,9 @@
 Welcome to Nintondo!
 your one-stop-shop for all your gaming needs!
 
-Nintondo is a game hub that brings back the classic arcade games with a modern twist. As a tribute to the popular Nintendo console, our project is designed to bring the joy of arcade games to everyone. We have handpicked some of the most popular arcade games and developed them for your entertainment.
+Nintondo is a game hub that brings back the classic arcade games with a modern twist. As a tribute to the popular Nintendo console, the Nintondo project is designed to bring the joy of arcade games to everyone. Some of the most popular arcade games have been handpicked and developed for your entertainment.
 
-In Nintondo, you can choose from a variety of games including snake, pong, space invaders, floppy disk and rhino runner. Each game is unique in its own way and will bring back memories of the classic arcade games. While some of the games are inspired by popular games, they still have their own game modes and rules, so be ready to enjoy a new experience.
+In Nintondo, you can choose from a variety of games including Snake, Pong, Space Invaders, Floppy Disk, Rhino Runner and Coin Flip. Each game is unique in its own way and will bring back memories of the classic arcade games. While some of the games are inspired by popular games, they still have their own game modes and rules, so be ready to enjoy a new experience.
 
 The Nintondo project is powered by a microcontroller manufactured by Texas Instruments, ensuring that the games run smoothly and efficiently. The hardware is designed to handle multiple games, so you can switch between games without any interruptions.
 
@@ -97,7 +97,7 @@ So, grab your controllers and get ready to experience the fun and excitement of 
 <!-- GETTING STARTED -->
 ## Getting Started
 
-Welcome to Nintondo repository! In order to get started and have a working local copy of Nintondo follow these simple example steps.
+In order to get started and have a working local copy of Nintondo follow these simple example steps.
 
 ### Hardware Prerequisites
 #### We have used products manufactured by Texas Instruments Incorporated (TI)
@@ -108,7 +108,7 @@ Welcome to Nintondo repository! In order to get started and have a working local
 ### Software Prerequisites
 
 #### Installing TI CSS and ARM compiler for <a href="https://www.ti.com/product/MSP432P401R">MSP432P401R</a>
-- We will use <a href="https://www.ti.com/tool/CCSTUDIO"> Code Composer Studio (CCS) Integrated Development Environment (IDE)</a> from Texas Instruments.
+- <a href="https://www.ti.com/tool/CCSTUDIO"> Code Composer Studio (CCS) Integrated Development Environment (IDE)</a> from Texas Instruments will be used.
 
 #### Download
 - <a href="https://www.ti.com/tool/download/CCSTUDIO">Download TI CSS</a>
@@ -147,6 +147,7 @@ After installation:
 
 <!-- PROJECT LAYOUT -->
 ## Project Layout
+The Main folder contains all the project stuff. Here there is a project layout representationt to help to understand the structure
 ```
 [Main]
 ├── main
