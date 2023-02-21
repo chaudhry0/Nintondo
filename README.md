@@ -141,6 +141,7 @@ After installation:
       - Add "simplelink_msp432p4_sdk_3_40_01_02/source" directory to "Add dir to #include search path" window.
     - Click ARM Linker and File Search Path
       - Add "simplelink_msp432p4_sdk_3_40_01_02/source/ti/devices/msp432p4xx/driverlib/ccs/msp432p4xx_driverlib.lib" to "Include library file..." window
+ 5. exclude "testinMain.c" from the building. This module is useful only for testing purpose
 
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
