@@ -137,8 +137,6 @@
 	
 [ IMAGES ]						// ogni immagine ha una pixel art quindi non la segno perchè è implicita
   aboutImages	
-	palette				
-		-paletteBlackWithe[]				//BLACK, WHITE
 	immages
 		-imageAbout1
 		-imageAbout2
@@ -162,7 +160,6 @@ coinFlipImages
 		-paletteCoin[]					//WHITE, 0x8b7c52, 0xd3bc80, 0xc2ad75, 0x483f28, 0xa38f5c, 0x5d5236
 		-paletteCoinReduced				//WHITE, 0x8b7c52, 0xa38f5c
 		-paletteCoinTitle[]					//BLACK, 0x8e7e54, 0xc2ad75, 0x97865a, 0xdbcca0. WHITE
-		-paletteBlackWithe[]				//BLACK, WHITE
 	immages
 		-imageCoinTitle
 		-imageCoinTail
@@ -180,7 +177,6 @@ coinFlipImages
 		-paletteFloppyDiskBackground[]			// LIGTH_BLUE
 		-paletteFloppyDisk[]				// BLACK, LIGTH_BLUE, GREY, DARK_GREY, WHITE
 		-paletteRam[]					// BLACK, LIGTH_BLUE, DARK_GREEN, GREEN, ORANGE, YELLOW
-		-paletteBlackWithe[]				//BLACK, WHITE
 	immages
 		-imageFloppyDiskTitle
 		-imageFloppyDiskBackground
@@ -192,7 +188,6 @@ coinFlipImages
 	palette
 		-paletteDefault[]					// WHITE, RED
 		-paletteDefault2[]					// WHITE, ORANGE
-		-paletteBlackWhite[]				// BLACK, WHITE
 	immages
 		-imageTextSelectGame
 		-imageTextSnake
@@ -211,7 +206,6 @@ coinFlipImages
 		-palettePongUser[]					// BLACK, RED
 		-palettePongTitle[]					// BLACK, GREEN, BLUE, BROWN, ORANGE, YELLOW, RED, WHITE
 		-palettePongEnemy[]				// BLACK, BLUE
-		-paletteBlackWithe[]				// BLACK, WHITE
 	immages
 		-imagePongBackground
 		-imagePongUser
@@ -223,10 +217,8 @@ coinFlipImages
   rhinoImages
 	palette
 		-paletteTitleRhino[]					// BLACK, DARK_GREY, BLACK, GREY, LIGTH_GREY, GREY, WHITE
-		-paletteCactus[]					// BLACK, WHITE
 		-paletteGreys[]					// BLACK, LIGTH_GREY, DARK_GREY, WHITE
 		-paletteGreys2[] 					// BLACK, LIGTH_GREY, GREY, WHITE
-		-paletteBlackWithe[]				// BLACK, WHITE
 	immages
 		-imagetitleRhino
 		-imageCactus
@@ -239,7 +231,6 @@ coinFlipImages
 	palette
 		-paletteSnakeBackground[]				// LIGTH_GREEN, GREEN
 		-paletteSnakeTitle[]					//BLACK, LIGTH_GREEN, GREEN, PURPLE, INDIGO, YELLOW, RED, WHITE
-		-paletteBlackWithe[]				// BLACK, WHITE
 		-paletteSnakeApple[]				// BROWN, DARK_GREEN, RED, WHITE
 		-paletteSnakeBody[]					// INDIGO, PURPLE
 	immages
@@ -256,7 +247,7 @@ coinFlipImages
 		-paletteBulletBar[]					// BLUE, ORANGE, YELLOW
 		-paletteBullet[]					// DARK_BLUE, ORANGE, YELLOW, RED
 		-paletteSpaceInvadersTitle[]			// BLACK, DARK_BLUE, ORANGE, YELLOW, DARK_GREY, LIGTH_GREY, WHITE
-		-paletteBlackWithe[]				// BLACK, WHITE
+		
 	immages
 		-imageSpacecraft
 		-imageSpaceEnemy
@@ -310,6 +301,8 @@ coinFlipImages
 			GREY 						0x838383
 			DARK_GREY 				0x565656
 			BLACK 					0x121212
+		palette
+			-paletteBlackWithe[]				// BLACK, WHITE
 
 	init
 		-_adcInit 						// initializes ADC
