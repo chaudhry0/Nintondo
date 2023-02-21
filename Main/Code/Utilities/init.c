@@ -24,28 +24,28 @@
 #include "init.h"
 
 const Timer_A_ContinuousModeConfig continuousModeConfig = {
-        TIMER_A_CLOCKSOURCE_ACLK,           // ACLK Clock Source
-        TIMER_A_CLOCKSOURCE_DIVIDER_64,     // ACLK/64 = 1 kHz
-        TIMER_A_TAIE_INTERRUPT_ENABLE,      // to enable Overflow ISR
+        TIMER_A_CLOCKSOURCE_ACLK,           // it uses the ACLK Clock Source (32.768khz)
+        TIMER_A_CLOCKSOURCE_DIVIDER_64,     // 32768/64 = 512 Hz (512 ticks each second)
+        TIMER_A_TAIE_INTERRUPT_ENABLE,      // Enable Overflow ISR
         TIMER_A_DO_CLEAR                    // to clear decides the divider, direction and count
 };
 
 /* Timer_A Compare Configuration Parameter  (PWM) */
 Timer_A_CompareModeConfig compareConfig_PWM = {
-        TIMER_A_CAPTURECOMPARE_REGISTER_3,          // Use CCR3
+        TIMER_A_CAPTURECOMPARE_REGISTER_3,          // Use CaptureCompareRegister3
         TIMER_A_CAPTURECOMPARE_INTERRUPT_DISABLE,   // Disable CCR interrupt
         TIMER_A_OUTPUTMODE_TOGGLE_SET,              // output mode
-        23437                                       // 50% Duty Cycle
+        23437                                       // 50% Duty Cycle (46874/2)
         };
 
 /* Timer_A Up Configuration Parameter */
 const Timer_A_UpModeConfig upConfig = {
         TIMER_A_CLOCKSOURCE_SMCLK,              // SMCLK = 3 MhZ
-        TIMER_A_CLOCKSOURCE_DIVIDER_64,         // SMCLK/12 = 250 KhZ
-        46874,                                  // 40 ms tick period
+        TIMER_A_CLOCKSOURCE_DIVIDER_64,         // SMCLK/64 = 46875 Hz (46874 each second)
+        46874,                                  // 1 second
         TIMER_A_TAIE_INTERRUPT_DISABLE,         // Disable Timer interrupt
         TIMER_A_CCIE_CCR0_INTERRUPT_DISABLE,    // Disable CCR0 interrupt
-        TIMER_A_DO_CLEAR                        // Clear value
+        TIMER_A_DO_CLEAR                        // to clear decides the divider, direction and count
         };
 
 /******************************************************************************
@@ -152,24 +152,6 @@ void _lightSensorInit() {
     /* Initialize OPT3001 digital ambient light sensor */
     OPT3001_init();
     __delay_cycles(100000);
-}
-
-/*!
- * @brief This Function is to initialize the hardware for push buttons.
- *                
- *
- * @param[in] none
- *
- * 
- * @return none --> void
- */
-void configurePushButtons() {
-    // Button B
-    MAP_GPIO_setAsInputPinWithPullUpResistor(GPIO_PORT_P5,GPIO_PIN1);
-    MAP_GPIO_enableInterrupt(GPIO_PORT_P5,GPIO_PIN1);
-    // Button A
-    MAP_GPIO_setAsInputPinWithPullUpResistor(GPIO_PORT_P3,GPIO_PIN5);
-    MAP_GPIO_enableInterrupt(GPIO_PORT_P3,GPIO_PIN5);
 }
 
 /*!

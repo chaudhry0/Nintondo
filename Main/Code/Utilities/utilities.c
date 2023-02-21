@@ -229,7 +229,6 @@ bool consumeButtonA(){
     return false;
 }
 
-
 /*!
  * @brief This Function is to start the LED blinking.
  *                
