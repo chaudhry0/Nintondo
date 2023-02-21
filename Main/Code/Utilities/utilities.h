@@ -68,6 +68,7 @@ void showTutorial(Graphics_Image image, bool largeFlag); //  This Function is to
 /******************************************************************************
 * [ HANDLER ]
 *******************************************************************************/ 
+void TA2_N_IRQHandler(void); // handler for timer_A
 void ADC14_IRQHandler(void); // handler for Joystick
 void PORT5_IRQHandler(void); // handler for button A
 

@@ -291,6 +291,19 @@ void showInitialTitle(Graphics_Image image){
 * [ HANDLER ]
 *******************************************************************************/ 
 /*!
+ * @brief This is the Timer A2 interrupt service routine.
+ *        It clears the interrupt flag.
+ *
+ * @param[in] none
+ *
+ *
+ * @return none --> void
+ */
+void TA2_N_IRQHandler(void) {
+    Timer_A_clearInterruptFlag(TIMER_A2_BASE);
+}
+
+/*!
  * @brief This is the Joystick interrupt handler.
  *        It clears the interrupt flag.
  *        It stores the ADC14 conversion results in the resultsBuffer.
