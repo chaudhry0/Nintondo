@@ -1,141 +1,151 @@
 [ GAMES ]
   about
 	run function
-		-void runAbout(); 							// runs the About screen
+		-runAbout						// runs the About screen
+
+ coinFlip
+	init/draw/logic functions 
+		-initArray						// initializes the array of coin images
+		-drawCoinBackground
+	run function
+		-runAnimation					// runs the coin animation
+		-runCoinFlip	 					// runs the coinFlip game
 
   floppyDisk
 	init functions
-		-initFloppyDisk();  							// initializes floppy spawn point and game score
+		-initFloppyDisk 					// initializes floppy spawn point and game score
+		-calculateThresholdVariation			// calculates the threshold variation based on the current lux value
 	moving/updating functions
-		-moveUpFloppyDisk();    						// update floppy position up
-		-moveDownFloppyDisk();  						// update floppy position up
-		-moveRam(); 								// update position, removes inactive and create new ram banks
+		-moveUpFloppyDisk    				// update floppy position up
+		-moveDownFloppyDisk  				// update floppy position up
+		-moveRam 						// update position, removes inactive and create new ram banks
 	bool functions
-		-checkBorderCollisionF(int bottom, int top, int min, int max);  	// check top and bottom border collision
-		-checkRamCollisionF();  						// check collision between ram banks and floppy
+		-checkBorderCollisionF  				// check top and bottom border collision
+		-checkRamCollisionF  				// check collision between ram banks and floppy
 	draw functions
-		-drawFloppyDiskBackground();    					// draw floppy disk background
-		-drawFloppyDisk(int x, int y);  						// draw floppy disk
-		-drawRam(); 								// draw ram banks
-		-clearFloppyDisk(int lastX, int LastY, int up, int down);   		// clear floppy of the pixels it moved
-		-clearRam();   								// clear ram banks of the pixels they moved
+		-drawFloppyDiskBackground    			// draw floppy disk background
+		-drawFloppyDisk  					// draw floppy disk
+		-drawRam 						// draw ram banks
+		-clearFloppyDisk   					// clear floppy of the pixels it moved
+		-clearRam   						// clear ram banks of the pixels they moved
+	run function
+		-runFloppyDisk   					// run the FloppyDisk game
 
   pong
 	init functions
-		-initBall(Ball* ballPtr); 							// initializes the ball
+		-initBall						// initializes the ball
 	moving/updating functions
-		-moveUser(int* userUpperYPtr, int* lastUserYPtr); 			// moves the user
-		-moveEnemy(int* enemyUpperYPtr, int* lastEnemyYPtr, Ball ball); 	// moves the enemy
-		-moveBall(Ball* ballPtr);						// moves the ball
-		-invertBallXDirection(Ball* ballPtr); 					// inverts the ball horizontal direction
-		-invertBallYDirection(Ball* ballPtr); 					// inverts the ball vertical direction
-		-updateBallY(Ball* ballPtr); 						// updates the ball vertical velocity
+		-moveUser 						// moves the user
+		-moveEnemy						// moves the enemy
+		-moveBall						// moves the ball
+		-invertBallXDirection				// inverts the ball horizontal direction
+		-invertBallYDirection				// inverts the ball vertical direction
+		-updateBallY 						// updates the ball vertical velocity
 	bool functions
-		-checkUserCollision(int userUpperY, Ball ball); 			// checks if the ball collides with the user
-		-checkEnemyCollision(int enemyUpperY, Ball ball);  			// checks if the ball collides with the enemy
-		-checkPongBorderCollision(Ball ball); 					// checks if the ball collides with any border
+		-checkUserCollision					// checks if the ball collides with the user
+		-checkEnemyCollision  				// checks if the ball collides with the enemy
+		-checkPongBorderCollision 			// checks if the ball collides with any border
 	draw functions
-		-drawPongBackground(); 						// draws the background
-		-drawPongUser(int userUpperY, int lastUserY); 			// draws the user
-		-drawPongEnemy(int enemyUpperY, int lastEnemyY); 		// draws the enemy
-		-drawBall(Ball ball); 							// draws the ball
+		-drawPongBackground 				// draws the background
+		-drawPongUser					// draws the user
+		-drawPongEnemy 					// draws the enemy
+		-drawBall 						// draws the ball
 	run function
-		-runPong(); 								// runs the Pong game
+		-runPong	 					// runs the Pong game
 
   rhinoRunner
 	init functions
-		-initRhino(Rhino* rhinoPtr, int* counterRhinoPtr); 			// initializes the rhino
-		-initObstacle(Obstacle* obstaclePtr, int distance); 			// initializes an obstacle
-		-moving/updating functions
-		-updateRhino(Rhino* rhinoPtr, int* counterRhinoPtr); 		// updates rhino position
-		-updateObstacle(Obstacle* obstaclePtr); 				// updates an obstacle
+		-initRhino						// initializes the rhino
+		-initObstacle						// initializes an obstacle
+	moving/updating functions
+		-updateRhino 					// updates rhino position
+		-updateObstacle					// updates an obstacle
 	bool functions
-		-checkIfObstacleEnds(Obstacle obstacle); 				// checks if an obstacle has reached the end of the screen
-		-checkYCollision(Rhino rhino, Obstacle obstacle); 			// checks if the rhino collides vertically with an obstacle
-		-checkRhinoCollision(Rhino rhino, Obstacle obstacle); 		// checks if the rhino collides with an obstacle
+		-checkIfObstacleEnds 				// checks if an obstacle has reached the end of the screen
+		-checkYCollision					// checks if the rhino collides vertically with an obstacle
+		-checkRhinoCollision				// checks if the rhino collides with an obstacle
 	draw functions
-		-drawRhinoBackground(); 						// draws the background
-		-drawRhino(Rhino rhino); 						// draws rhino
-		-clearRhino(Rhino rhino); 						// clears rhino
-		-drawObstacle(Obstacle obstacle); 					// draws an obstacle
-		-clearObstacle(Obstacle obstacle); 					// clears an obstacle
+		-drawRhinoBackground 				// draws the background
+		-drawRhino 						// draws rhino
+		-clearRhino 						// clears rhino
+		-drawObstacle 					// draws an obstacle
+		-clearObstacle					// clears an obstacle
 	run function
-		-runRhino(); 								// runs the Rhino game
+		-runRhino 						// runs the Rhino game
 
 
   snake
 	init functions
-		-initSnakeBody(List* snakeBody); 					// initializes snake body (after clearing it)
+		-initSnakeBody					// initializes snake body (after clearing it)
 	moving/updating functions
-		-moveSnake(List* snakeBodyPtr, enum Moving* moving, 
-			int xHead, int yHead, int* lastXPtr, int* lastYPtr); 		// updates snake xVel and yVel; then it pushes the tail to the head (updating cords)
-    		-generateRandomApple(List snakeBody, Apple* apple); 		// generate new apple cords avoiding overlaps with the snake
+		-moveSnake 						// updates snake xVel and yVel; then it pushes the tail to the head (updating cords)
+    		-generateRandomApple				// generate new apple cords avoiding overlaps with the snake
 	bool functions
-		-checkIfOpposite(enum Moving moving); 				// checks if the user prompts a not allowed movement
-		-checkAppleCollision(List snakeBody, Apple apple);			// checks if the apple is eaten
-		-checkBorderCollision(List snakeBody); 				// checks if snake collides with the border
-		-checkSnakeCollision(List snakeBody); 				// checks if snake collides with itself
+		-checkIfOpposite 					// checks if the user prompts a not allowed movement
+		-checkAppleCollision				// checks if the apple is eaten
+		-checkBorderCollision				// checks if snake collides with the border
+		-checkSnakeCollision 				// checks if snake collides with itself
 	draw functions
-		-drawSnakeBackground(); 						// draws the background
-		-drawSnakeCell(int x, int y); 						// draws a single snake body cell
-		-drawSnakeFull(List snakeBody); 					// draws the full snake body
-		-clearSnake(int tailx, int taily, bool* lightGreenCell); 			// clears the old background cell after snake movements
-		-drawApple(); 								// draw the apple
+		-drawSnakeBackground				// draws the background
+		-drawSnakeCell 					// draws a single snake body cell
+		-drawSnakeFull 					// draws the full snake body
+		-clearSnake 						// clears the old background cell after snake movements
+		-drawApple 						// draw the apple
 	run function
-		-runSnake(); 								// runs the Snake game
+		-runSnake 						// runs the Snake game
 			
   spaceGame
 	init functions
-		-initBullets(Entity* bullets); 						// initializes every bullet
-   		-initEnemies(Entity* enemies); 					// initializes every enemy
-    		-initSingleEnemy(Entity* enemies, int i); 				// initializes a single enemy
+		-initBullets 						// initializes every bullet
+   		-initEnemies 						// initializes every enemy
+    		-initSingleEnemy 					// initializes a single enemy
 	moving/updating functions
-		-updateSpacecraft(Spacecraft* spacecraft); 				// updates the spacecraft basing on player inputs
-		-updateBullet(Entity* bullets, int i); 					// updates bullets
-		-updateEnemies(Entity* enemies, int i); 				// updates enemies
-		-shotBullet(Spacecraft spacecraft, Entity* bullets); 			// shots a bullet basing on the spacecraft position
+		-updateSpacecraft 					// updates the spacecraft basing on player inputs
+		-updateBullet 					// updates bullets
+		-updateEnemies 					// updates enemies
+		-shotBullet 						// shots a bullet basing on the spacecraft position
 	bool functions
-		-checkNotDupilcates(Entity enemies[], int x); 				// checks if the xPosition is not already occupied by an enemy
-		-checkBulletHits(Entity bullets[], int i, Entity enemies[], int j); 	// checks if a bullet hits an enemy
-		-checkLooseCondition(Entity enemies[]); 				// checks if an enemy has reached the maximum position
-		-checkIfBulletAvailable(Entity bullets[]); 				// checks if a bullet is available
-		-checkBulletEnds(Entity bullets[], int i); 				// checks if the bullet has reached the end of the screen
+		-checkNotDupilcates				// checks if the xPosition is not already occupied by an enemy
+		-checkBulletHits 					// checks if a bullet hits an enemy
+		-checkLooseCondition 				// checks if an enemy has reached the maximum position
+		-checkIfBulletAvailable 				// checks if a bullet is available
+		-checkBulletEnds					// checks if the bullet has reached the end of the screen
 	draw functions
-		-drawBackground(); 							// draws the bg
-		-drawBullet(Entity bullets[], int i); 					// draws a bullet
-		-cleanBulletMovement(Entity bullets[], int i); 				// cleans a bullet movement
-		-cleanBullet(Entity bullets[], int i); 					// cleans an entire bullet
-		-drawSpacecraft(Spacecraft spacecraft); 				// draws the spacecraft
-		-cleanSpacecraft(Spacecraft spacecraft); 				// cleans the spacecraft
-		-drawEnemy(Entity enemies[], int i); 					// draws an enemy
-		-cleanEnemyMovement(Entity enemies[], int i); 			// cleans an enemy movement
-		-cleanEnemy(Entity enemies[], int i); 					// cleans an entire enemy
-		-drawBulletsCompleteBar(); 						// draws the bullet bar on the right
-		-cleanBulletBar(int numBulletsActive); 				// removes one bullet from the bar
-		-drawBulletBar(int numBulletsActive); 				// adds one bullet from the bar
+		-drawBackground 					// draws the bg
+		-drawBullet						// draws a bullet
+		-cleanBulletMovement				// cleans a bullet movement
+		-cleanBullet						// cleans an entire bullet
+		-drawSpacecraft					// draws the spacecraft
+		-cleanSpacecraft 					// cleans the spacecraft
+		-drawEnemy						// draws an enemy
+		-cleanEnemyMovement 				// cleans an enemy movement
+		-cleanEnemy 					// cleans an entire enemy
+		-drawBulletsCompleteBar 				// draws the bullet bar on the right
+		-cleanBulletBar 					// removes one bullet from the bar
+		-drawBulletBar 					// adds one bullet from the bar
 	run functions
-		-runSpaceGame(); 							// runs the game
+		-runSpaceGame					// runs the game
 
   bestScore
 	draw functions
-		-drawScores(); 								// function of drawing a table with the best score from every game
+		-drawScores 						// function of drawing a table with the best score from every game
 	run function
-		-runBestScores(); 							// runs drawScore and the score screen remains until button A is clicked
+		-runBestScores 					// runs drawScore and the score screen remains until button A is clicked
 
 
 	
 	
-[ IMAGES ]	// ogni immagine ha una pixel art quindi non la segno perchè è implicita
+[ IMAGES ]						// ogni immagine ha una pixel art quindi non la segno perchè è implicita
   aboutImages	
 	palette				
-		-paletteAbout[]		//BLACK, WHITE
+		-paletteAbout[]					//BLACK, WHITE
 	immages
 		-imageAbout1
 		-imageAbout2
 	
   backgroundImages
 	palette
-		-paletteBackground[]		// WHITE, RED
+		-paletteBackground[]				// WHITE, RED
 	immages
 		-imageBackground
 		-imageLogo
@@ -143,25 +153,46 @@
 
   bestScoreImages
 	palette
-		-paletteBestScores[]		// BLACK, LIGTH_GREY, GREY, WHITE
+		-paletteBestScores[]					// BLACK, LIGTH_GREY, GREY, WHITE
 	immages
 		-imageBestScores
 
+coinFlipImages
+	palette
+		-paletteCoin[]					//WHITE, 0x8b7c52, 0xd3bc80, 0xc2ad75, 0x483f28, 0xa38f5c, 0x5d5236
+		-paletteCoinReduced				//WHITE, 0x8b7c52, 0xa38f5c
+		-paletteCoinTitle[]					//BLACK, 0x8e7e54, 0xc2ad75, 0x97865a, 0xdbcca0. WHITE
+		-paletteTutorial[]					//BLACK, WHITE
+	immages
+		-imageCoinTitle
+		-imageCoinTail
+		-imageCoinTail1
+		-imageCoinTail2
+		-imageCoinHead
+		-imageCoinHead1
+		-imageCoinHead2
+		-imageCoinVertical
+		-imageTutorialCoin
+
   floppyDiskImages
 	palette
-		-paletteFloppyDiskBackground[]	// LIGTH_BLUE
-		-paletteFloppyDisk[]			// BLACK, LIGTH_BLUE, GREY, DARK_GREY, WHITE
-		-paletteRam[]				// BLACK, LIGTH_BLUE, DARK_GREEN, GREEN, ORANGE, YELLOW 
+		-paletteFloppyDiskTitle[]				//BLACK, LIGTH_BLUE, PINK, LIGTH_PINK, WHITE, GREY, LIGTH_GREY, WHITE
+		-paletteFloppyDiskBackground[]			// LIGTH_BLUE
+		-paletteFloppyDisk[]				// BLACK, LIGTH_BLUE, GREY, DARK_GREY, WHITE
+		-paletteRam[]					// BLACK, LIGTH_BLUE, DARK_GREEN, GREEN, ORANGE, YELLOW
+		-paletteTutorial[]					//BLACK, WHITE
 	immages
+		-imageFloppyDiskTitle
 		-imageFloppyDiskBackground
 		-imageFloppyDisk
 		-imageRam
+		-imageTutorialFloppyDisk
 
   menuImages
 	palette
-		-paletteDefault[]		// WHITE, RED
-		-paletteDefault2[]		// WHITE, ORANGE
-		-paletteBlackWhite[]		// BLACK, WHITE
+		-paletteDefault[]					// WHITE, RED
+		-paletteDefault2[]					// WHITE, ORANGE
+		-paletteBlackWhite[]				// BLACK, WHITE
 	immages
 		-imageTextSelectGame
 		-imageTextSnake
@@ -169,116 +200,124 @@
 		-imageTextRhino
 		-imageTextFloppyDisk
 		-imageTextSpaceInvaders
+		-imageTextCoin
 		-imageTextBestScores
 		-imageTextAbout
 		-imageArrow
 
   pongImages
 	palette
-		-palettePongBackground[]	// GREEN, GREEN
-		-palettePongUser[]		// BLACK, RED
-		-palettePongTitle[]		// BLACK, GREEN, BLUE, BROWN, ORANGE, YELLOW, RED, WHITE
-		-palettePongEnemy[]		// BLACK, BLUE
-		-palettePongBall[]		// BLACK, WHITE
+		-palettePongBackground[]				// GREEN, GREEN
+		-palettePongUser[]					// BLACK, RED
+		-palettePongTitle[]					// BLACK, GREEN, BLUE, BROWN, ORANGE, YELLOW, RED, WHITE
+		-palettePongEnemy[]				// BLACK, BLUE
+		-palettePongBall[]					// BLACK, WHITE
+		-paletteTutorial[]					// BLACK, WHITE
 	immages
 		-imagePongBackground
 		-imagePongUser
 		-imagePongEnemy
 		-imagePongBall
 		-imagePongTitle
+		-imageTutorialPong
 
   rhinoImages
 	palette
-		-paletteTitleRhino[]		// BLACK, DARK_GREY, BLACK, GREY, LIGTH_GREY, GREY, WHITE
-		-paletteCactus[]		// BLACK, WHITE
-		-paletteGreys[]			// BLACK, LIGTH_GREY, DARK_GREY, WHITE
-		-paletteGreys2[] 		// BLACK, LIGTH_GREY, GREY, WHITE
+		-paletteTitleRhino[]					// BLACK, DARK_GREY, BLACK, GREY, LIGTH_GREY, GREY, WHITE
+		-paletteCactus[]					// BLACK, WHITE
+		-paletteGreys[]					// BLACK, LIGTH_GREY, DARK_GREY, WHITE
+		-paletteGreys2[] 					// BLACK, LIGTH_GREY, GREY, WHITE
+		-paletteTutorial[]					// BLACK, WHITE
 	immages
 		-imagetitleRhino
 		-imageCactus
 		-imageRinoBackground
 		-imageRino
 		-imageBird
+		-imageTutorialRhino
 
   snakeImages
 	palette
-		-paletteSnakeBackground[]	// LIGTH_GREEN, GREEN
-		-paletteSnakeApple[]		// BROWN, DARK_GREEN, RED, WHITE
-		-paletteSnakeBody[]		// INDIGO, PURPLE
-		-paletteSnakeTitle[]		// BLACK, LIGTH_GREEN, GREEN, PURPLE, INDIGO, YELLOW, RED, WHITE
+		-paletteSnakeBackground[]				// LIGTH_GREEN, GREEN
+		-paletteSnakeTitle[]					//BLACK, LIGTH_GREEN, GREEN, PURPLE, INDIGO, YELLOW, RED, WHITE
+		-paletteTutorial[]					// BLACK, WHITE
+		-paletteSnakeApple[]				// BROWN, DARK_GREEN, RED, WHITE
+		-paletteSnakeBody[]					// INDIGO, PURPLE
 	immages
 		-imageSnakeBackground
+		-imageSnakeTitle
+		-imageTutorialSnake
 		-imageSnakeApple
 		-imageSnakeBody
-		-imageSnakeTitle
 
   spaceGameImages
 	palette
-		-paletteSpacecraft[]		// DARK_BLUE, ORANGE, YELLOW, DARK_GREY, LIGTH_BLUE, LIGTH_GREY, BLACK
-		-paletteSpaceEnemy[]		// DARK_BLUE, DARK_GREY, LIGTH_GREY
-		-paletteBulletBar[]		// BLUE, ORANGE, YELLOW
-		-paletteBullet[]			// DARK_BLUE, ORANGE, YELLOW, RED
-		-paletteSpaceInvadersTitle[]	// BLACK, DARK_BLUE, ORANGE, YELLOW, DARK_GREY, LIGTH_GREY, WHITE
+		-paletteSpacecraft[]					// DARK_BLUE, ORANGE, YELLOW, DARK_GREY, LIGTH_BLUE, LIGTH_GREY, BLACK
+		-paletteSpaceEnemy[]				// DARK_BLUE, DARK_GREY, LIGTH_GREY
+		-paletteBulletBar[]					// BLUE, ORANGE, YELLOW
+		-paletteBullet[]					// DARK_BLUE, ORANGE, YELLOW, RED
+		-paletteSpaceInvadersTitle[]			// BLACK, DARK_BLUE, ORANGE, YELLOW, DARK_GREY, LIGTH_GREY, WHITE
+		-paletteTutorial[]					// BLACK, WHITE
 	immages
 		-imageSpacecraft
 		-imageSpaceEnemy
 		-imageBulletBar
 		-imageBullet
 		-imageSpaceInvadersTitle
+		-imageTutorialSpaceInvaders
 
 
 
 [ MENU ]
 	gameHub
 		draw functions
-			-drawLogo(); 		// draws initial text "Ninotondo"
-			-drawGameOver(); 	//draws the GameOver image (equal for all games)
-			-cleanDisplayGame(); 	// clean the display (only the central section, not the red bars)
+			-drawLogo					// draws initial text "Ninotondo"
+			-drawGameOver 				//draws the GameOver image (equal for all games)
+			-cleanDisplayGame 				// clean the display (only the central section, not the red bars)
 		run functions
-			-runGameHub(); 	// runMenu function
+			-runGameHub 				// runMenu function
 
-	menu	//ancora da commentare pure nel.h
+	menu								//ancora da commentare pure nel.h
 		init functions
-			-initElements(Graphics_Image* elementsPtr);
+			-initElements
 		moving/updating functions
-			-updateArrow();
+			-updateArrow
 		draw functions
-			-drawElement(Graphics_Image* imagePtr, int y);
-			-drawArrow();
-			-drawMenu(Graphics_Image* elementsPtr);
-			-cleanArrow();
+			-drawElement
+			-drawArrow
+			-drawMenu
+			-cleanArrow
 		run functions
-			-runMenu();
+			-runMenu
 
 [ UTILITIES ]
 	colors
 		COLORS
-			YELLOW 0xecd275
-			ORANGE 0xd9874f
-			RED 0xed1111
-			BROWN 0x835332
-			LIGTH_GREEN 0x82b77f
-			GREEN 0x73ae5c
-			DARK_GREEN 0x2f613c
-			LIGTH_BLUE 0x7fbec3
-			BLUE 0x3d73a2
-			DARK_BLUE 0x28315c
-			PURPLE 0x7b447d
-			INDIGO 0x726d96
+			YELLOW 					0xecd275
+			ORANGE 					0xd9874f
+			RED 						0xed1111
+			BROWN 					0x835332
+			LIGTH_GREEN 				0x82b77f
+			GREEN 					0x73ae5c
+			DARK_GREEN 				0x2f613c
+			LIGTH_BLUE 				0x7fbec3
+			BLUE 						0x3d73a2
+			DARK_BLUE	 				0x28315c
+			PURPLE 					0x7b447d
+			INDIGO 					0x726d96
 		GREYSCALE
-			WHITE 0xf1f7f8
-			LIGTH_GREY 0xa1a1a1
-			GREY 0x838383
-			DARK_GREY 0x565656
-			BLACK 0x121212
+			WHITE 					0xf1f7f8
+			LIGTH_GREY 				0xa1a1a1
+			GREY 						0x838383
+			DARK_GREY 				0x565656
+			BLACK 					0x121212
 
 	init
-		-_adcInit(); 			// initializes ADC
-		-_graphicsInit(); 		// initializes LCD
-		-_lightSensorInit(); 		// initializes light sensor
-		-configurePushButtons(); 	// configures Joystick buttons
-		-configureTimerA(); 		// configures Timer_A
-		-_hwInit(); 			// initializes hardware
+		-_adcInit 						// initializes ADC
+		-_graphicsInit					// initializes LCD
+		-_lightSensorInit					// initializes light sensor
+		-configureTimerA 					// configures Timer_A
+		-_hwInit 						// initializes hardware
 
 	libs
 		Libs
@@ -289,26 +328,26 @@
 			#include "Drivers/LcdDriver/HAL_MSP_EXP432P401R_Crystalfontz128x128_ST7735.h"
 			#include "Drivers/LcdDriver/HAL_MSP_EXP432P401R_Crystalfontz128x128_ST7735.h"
 			#include "Drivers/HAL_I2C.h" //I2C communication
-			#include "Drivers/HAL_OPT3001.h" //light sensor
+			#include "Drivers/HAL_OPT3001.h" 	//light sensor
 			#include "msp.h"
 		C Libs
 			#include <stdio.h>
 			#include <stdint.h>
-			#include <stdlib.h> 	// std lib
-			#include <stdbool.h> 	// std lib for boolean values
-			#include <string.h> 	// lib to use string
-			#include <time.h>	 // lib ...
+			#include <stdlib.h> 				// std lib
+			#include <stdbool.h> 			// std lib for boolean values
+			#include <string.h> 				// lib to use string
+			#include <time.h>	 			// lib ...
 
 	linkedList
-		-display();
-		-insert_end(int val);
-		-delete_begin();
+		-display
+		-insert_end
+		-delete_begin
+
 		-struct node* head;
 		-struct node{
     			int data;
-    			struct node* next;};
-
-
+    			struct node* next;
+			};
 	list
 		-typedef struct Cords {
     			int x;
@@ -316,43 +355,46 @@
 		} Cords;
 		-typedef struct List {
     			Cords cords[MAX_SIZE]; //104
-    			int head; 	// index of first free item
-    			int tail; 	// index of last item added
+    			int head; 					// index of first free item
+    			int tail; 					// index of last item added
     			int length;
 		} List;
-		-stampa(List list);
-		-initList(List* list);
-		-push(List* list, int _x, int _y);
-		-pop(List* list);
-		-getElem(List list, int n);
-		-getFirstElem(List list);
-		-getLastElem(List list);
+
+		-stampa
+		-initList
+		-push
+		-pop
+		-getElem
+		-getFirstElem
+		-getLastElem
 		
 	utilities
 		// GLOBAL VARIABLES 
-			-static uint16_t resultsBuffer[2]; 	// buffer to store Joystick samples
-			-Graphics_Context g_sContext; 	// Graphic library context
-			-int score; 				// game score
-			-bool gameOver;			 // game status
+			-static uint16_t resultsBuffer[2]; 		// buffer to store Joystick samples
+			-Graphics_Context g_sContext; 		// Graphic library context
+			-int score; 					// game score
+			-bool gameOver;				// game status
 			-int direction; 				// value read from Joystick buffer
 			-int lastMove; 				// previous move performed (equals to "direction" but not reset every time)
 			-int buttonA;
 			-int bestScores[5];
 		// FUNCTIONS 
-			-initBestScores();
-			-updateBestScore(int selectedGame);
-			-getTimeMils(); 		// returns Timer_A counter
-			-wait(uint32_t interval); 	// waits some milliseconds
-			-random(int min, int max); 	// generates a random number
-			-drawScoreText(); 		// draws the current score
-			-drawScore(int score); 		// draws the current score
-			-cleanBottomBar();
-			-getButtons(); 			// returns 1 if A pressed, 2 if B pressed (Joystick), 0 otherwise
-			-drawRect(int xMin, int xMax, int yMin, int yMax, uint32_t color); // Generic function to draw Rectangle for cleaning purpose
-			-checkLastMove(); 		// ...
-			-initGameData();
-			-consumeButtonA();
-			-showInitialTitle(Graphics_Image image);
+			-initBestScores
+			-updateBestScore
+			-getTimeMils					// returns Timer_A counter
+			-wait						// waits some milliseconds
+			-random 					// generates a random number
+			-drawScoreText 				// draws the current score
+			-drawScore 					// draws the current score
+			-cleanBottomBar
+			-drawRect 					// Generic function to draw Rectangle for cleaning purpose
+			-checkLastMove 				// ...
+			-initGameData
+			-consumeButtonA
+			-startLEDBlinking 				// This Function is to start the LED blinking
+			-stopLEDBlinking	 			// This Function is to stop the LED blinking
+			-showInitialTitle				// This Function is to show the initial title
+			-showTutorial 				//  This Function is to show the tutorial of games
 		// HANDLER 
-			-TA2_N_IRQHandler(void); 	// handler for timer_A
-			-ADC14_IRQHandler(void); 	// handler for Joystick
+			-TA2_N_IRQHandler(void); 		// handler for timer_A
+			-ADC14_IRQHandler(void); 		// handler for Joystick
