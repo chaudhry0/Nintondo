@@ -65,11 +65,6 @@ void stopLEDBlinking(){
     Timer_A_stopTimer(TIMER_A0_BASE);
 }
 
-// [   ?   ]
-void TA2_N_IRQHandler(void) {
-    Timer_A_clearInterruptFlag(TIMER_A2_BASE);
-}
-
 /*  Handler for the 2-Axis-Joystick event interrupts. The handler clears the interrupt flag and
  *  updates the buffer containing the x and y values.
  *  Finally it calls the checkLastMove() function

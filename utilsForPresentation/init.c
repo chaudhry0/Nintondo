@@ -11,7 +11,7 @@ const Timer_A_ContinuousModeConfig continuousModeConfig = {
         TIMER_A_DO_CLEAR                    // to clear decides the divider, direction and count
 };
 
-/* Timer_A Compare Configuration Parameter  (PWM)
+/* Timer_A Compare Configuration Parameter (PWM), useful for blinking the LED
  * COMPARE MODE: the timer counts until the Timer Register is equal to the Compare Register
  */
 Timer_A_CompareModeConfig compareConfig_PWM = {
@@ -21,7 +21,7 @@ Timer_A_CompareModeConfig compareConfig_PWM = {
         23437                                       // 50% Duty Cycle (46874/2)
         };
 
-/* Timer_A Up Configuration Parameter
+/* Timer_A Up Configuration Parameter, useful for blinking the LED
  * UP MODE: the timer repeatedly counts from zero to the value of the Compare Register
  */
 const Timer_A_UpModeConfig upConfig = {
@@ -43,34 +43,50 @@ void _ledInit(){
 /*  ADC initializations, required by the Joystick
  * Port 6, Pin 0 for the X-axis
  * Port 4, Pin 4 for the Y-axis
- *
  */
 void _adcInit() {
     // Configures Pin 6.0 and 4.4 as ADC input
     GPIO_setAsPeripheralModuleFunctionInputPin(GPIO_PORT_P6, GPIO_PIN0, GPIO_TERTIARY_MODULE_FUNCTION);
     GPIO_setAsPeripheralModuleFunctionInputPin(GPIO_PORT_P4, GPIO_PIN4, GPIO_TERTIARY_MODULE_FUNCTION);
-    // enables the ADC block
+
+    /* Initializing ADC (ADCOSC/64/8) */
     ADC14_enableModule();
-    // Initializes the ADC module and sets up the clock system with the  divider and pre-divider (ADCOSC/(64*8))
     ADC14_initModule(ADC_CLOCKSOURCE_ADCOSC, ADC_PREDIVIDER_64, ADC_DIVIDER_8, 0);
 
-    /* Configuring ADC Memory (ADC_MEM0 - ADC_MEM1 (A15, A9)  with repeat) with internal 2.5v reference */
+    /* configures the ADC module to use a a multiple memory sample scheme
+     * (multiple samples will be taken and stored in multiple memory locations)
+     *
+     * ADC_MEM0 is the address of the first space, ADC_MEM1 the address of the last space where to store converted values.
+     * The last "true" value enables the "repeatMode": conversions are repeated after that the first one is completed
+     */
     ADC14_configureMultiSequenceMode(ADC_MEM0, ADC_MEM1, true);
+
+    /*  some other memory configurations for the ADC module
+     *  parameters:
+     *              - memorySelect:     memory address to configure
+     *              - refSelect:        voltage reference to use for the selected memory spot
+     *              - channelSelect:    selects the channel to be used for ADC sampling
+     *              - differntialMode:  configures the selected channel in the differential mode
+     */
     ADC14_configureConversionMemory(ADC_MEM0, ADC_VREFPOS_AVCC_VREFNEG_VSS, ADC_INPUT_A15, ADC_NONDIFFERENTIAL_INPUTS);
     ADC14_configureConversionMemory(ADC_MEM1, ADC_VREFPOS_AVCC_VREFNEG_VSS, ADC_INPUT_A9, ADC_NONDIFFERENTIAL_INPUTS);
 
-    /* Enabling the interrupt when a conversion on channel 1 (end of sequence) is complete and enabling conversions */
+    // enables the interrupt when a conversion takes place on the channel 1
     ADC14_enableInterrupt(ADC_INT1);
-
-    /* Enabling Interrupts */
+    // enables the specified interrupt in the interrupt controller
     Interrupt_enableInterrupt(INT_ADC14);
+    // to enable interrupts
     Interrupt_enableMaster();
 
-    /* Setting up the sample timer to automatically step through the sequence convert */
+    /*  configures the ADC module with the Sample Timer
+     *  ADC_AUTOMATIC_ITERATION: After one sample/convert is finished, the ADC module will
+     *                           automatically continue on to the next sample
+     */
     ADC14_enableSampleTimer(ADC_AUTOMATIC_ITERATION);
 
-    /* Triggering the start of the sample */
+    // enables conversion
     ADC14_enableConversion();
+    // triggers the first conversion ---> the ADC will continue to take conversions
     ADC14_toggleConversionTrigger();
 }
 
@@ -85,10 +101,10 @@ void _graphicsInit() {
 }
 
 void _lightSensorInit() {
-    /* Initialize I2C communication */
+    // initializes the I2C communication module
     Init_I2C_GPIO();
     I2C_init();
-    /* Initialize OPT3001 digital ambient light sensor */
+    // initialize the OPT3001 digital ambient light sensor
     OPT3001_init();
     __delay_cycles(100000);
 
